@@ -1,0 +1,24 @@
+name: Set correct Wix profile photo
+on:
+  push:
+    paths:
+      - '.github/workflows/set-correct-profile-photo.yml'
+jobs:
+  update-photo:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download exact portrait from old Wix site
+        run: |
+          mkdir -p assets
+          curl -L --fail --retry 3 -A 'Mozilla/5.0' 'https://static.wixstatic.com/media/1de12e_620d0b15476e4b1887d04329919c80ef~mv2.jpg' -o assets/ruslana-zaiats.jpg
+          file assets/ruslana-zaiats.jpg
+      - name: Commit portrait
+        run: |
+          git config user.name 'ruslanovna01-dev'
+          git config user.email 'ruslanovna01@gmail.com'
+          git add assets/ruslana-zaiats.jpg
+          git commit -m 'Use correct portrait from old Wix homepage' || exit 0
+          git push
