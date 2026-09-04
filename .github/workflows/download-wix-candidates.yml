@@ -11,11 +11,13 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
+      - name: Install image tools
+        run: python -m pip install --quiet pillow
       - name: Download candidate images and build contact sheet
         run: |
           python - <<'PY'
           import os, urllib.request
-          from PIL import Image, ImageOps, ImageDraw, ImageFont
+          from PIL import Image, ImageOps, ImageDraw
           urls = {
             '01_d96.jpg':'https://static.wixstatic.com/media/1de12e_d96ff6cafd454f7c82e7788a57fe2b62~mv2.jpg',
             '02_8940_000.jpg':'https://static.wixstatic.com/media/1de12e_8940cee5cb9447348313b538817d2a98f000.jpg',
@@ -51,7 +53,7 @@ jobs:
           tilew,tileh=360,320
           cols=3
           rows=(len(ok)+cols-1)//cols
-          sheet=Image.new('RGB',(cols*tilew,rows*tileh),'white')
+          sheet=Image.new('RGB',(cols*tilew,max(rows,1)*tileh),'white')
           draw=ImageDraw.Draw(sheet)
           for i,(name,path,size) in enumerate(ok):
             im=Image.open(path).convert('RGB')
