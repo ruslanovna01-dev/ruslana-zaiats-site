@@ -1,0 +1,40 @@
+name: Inspect Wix image context
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/inspect-wix-context.yml'
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Extract image context
+        run: |
+          python - <<'PY'
+          import urllib.request,re,html
+          url='https://zaiatsruslana.wixsite.com/confectioner/golovna'
+          req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0'})
+          s=urllib.request.urlopen(req,timeout=30).read().decode('utf-8','ignore')
+          ids=['d96ff6cafd454f7c82e7788a57fe2b62','8940cee5cb9447348313b538817d2a98','91d594f10b65461889169f5cf755f153','620d0b15476e4b1887d04329919c80ef','968a9f1dd7c146dea92389ebede3e11c','19eaea012d8a40fbb1b144f307b5e511','9248a93accaf4514a5b41e875ba21131','2d295a3c7eeb45a29b13ee544323f8e4','da07318079ed43ddb71ff648efa5cdd5']
+          out=[]
+          for x in ids:
+            out.append('\n===== '+x+' =====')
+            pos=[m.start() for m in re.finditer(x,s)]
+            out.append('occurrences='+str(len(pos)))
+            for i,p in enumerate(pos[:8]):
+              chunk=s[max(0,p-900):p+1200]
+              chunk=html.unescape(chunk).replace('\\u002F','/').replace('\\/','/')
+              chunk=re.sub(r'\s+',' ',chunk)
+              out.append(f'-- {i+1} -- '+chunk)
+          open('wix-context.txt','w',encoding='utf-8').write('\n'.join(out))
+          PY
+      - name: Commit context
+        run: |
+          git config user.name 'ruslanovna01-dev'
+          git config user.email 'ruslanovna01@gmail.com'
+          git add wix-context.txt
+          git commit -m 'Inspect Wix image context' || exit 0
+          git push
