@@ -1,0 +1,30 @@
+name: Finalize profile photo
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/finalize-profile-photo.yml'
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Keep Wix profile photo and remove temporary files
+        run: |
+          mkdir -p assets
+          cp wix-candidates/01_d96.jpg assets/ruslana-zaiats.jpg
+          rm -rf wix-candidates
+          rm -f wix-assets.txt wix-og-image.txt wix-context.txt
+          rm -f .github/workflows/extract-wix-photo.yml
+          rm -f .github/workflows/download-wix-candidates.yml
+          rm -f .github/workflows/inspect-wix-context.yml
+          rm -f .github/workflows/finalize-profile-photo.yml
+      - name: Commit final photo
+        run: |
+          git config user.name 'ruslanovna01-dev'
+          git config user.email 'ruslanovna01@gmail.com'
+          git add -A
+          git commit -m 'Use profile photo from old Wix site' || exit 0
+          git push
