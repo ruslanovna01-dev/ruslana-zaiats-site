@@ -1,0 +1,38 @@
+name: Add missing portfolio scans
+
+on:
+  push:
+    paths:
+      - '.github/workflows/patch-awards.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add missing award scans
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('portfolio.html')
+          s = p.read_text(encoding='utf-8')
+          if '1RR9OVhTKUA0pRoVf4sAjnBj0vDHvtqXW' not in s:
+              marker = '<a class="doc-link" href="https://drive.google.com/file/d/1HAsaZhCtjU1cJyUZB4NPL5ixL_OGdXpI/view" target="_blank">📜 course46101773.pdf</a>'
+              extra = marker + '<a class="doc-link" href="https://drive.google.com/file/d/1RR9OVhTKUA0pRoVf4sAjnBj0vDHvtqXW/view" target="_blank">📜 IMG_1908.jpg</a><a class="doc-link" href="https://drive.google.com/file/d/1FCr_78ijfbMXuQ3NS7JLO-vL7gFohrOC/view" target="_blank">📜 IMG_1907.jpg</a>'
+              s = s.replace(marker, extra)
+          if '1bwQzb3KP3LuhZmSgAf0U8Gu1gnMfoLYp' not in s:
+              marker = '<a class="doc-link" href="https://drive.google.com/file/d/1JUwT5mGWf8LuSjbsdM7tmoETBi5E5adE/view" target="_blank">📜 IMG_0334.jpeg</a>'
+              extra = marker + '<a class="doc-link" href="https://drive.google.com/file/d/1bwQzb3KP3LuhZmSgAf0U8Gu1gnMfoLYp/view" target="_blank">📜 IMG_6133.heic</a>'
+              s = s.replace(marker, extra)
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit changes
+        run: |
+          git config user.name "site-updater"
+          git config user.email "actions@users.noreply.github.com"
+          git add portfolio.html
+          git diff --cached --quiet || git commit -m "Додати пропущені скани відзнак"
+          git push
