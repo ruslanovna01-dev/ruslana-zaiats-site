@@ -4,9 +4,28 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>ОК16 — Руслана Заяць</title>
-  <meta name="description" content="ОК16 «Технологія виробництва кулінарної продукції»: структура курсу, навчальні матеріали, технологічні картки, самостійна робота та рекомендовані відеоматеріали.">
+  <meta name="description" content="ОК16 «Технологія виробництва кулінарної продукції»: інтерактивні навчальні папки, лекції, лабораторні, семінари, СРС, технологічні картки та схеми.">
   <meta name="robots" content="index,follow">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .folder-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:28px}
+    .course-folder{background:#fff;border:1px solid #dce5ea;border-radius:20px;box-shadow:0 10px 28px rgba(13,43,66,.055);overflow:hidden}
+    .course-folder summary{list-style:none;cursor:pointer;padding:22px 24px;display:grid;grid-template-columns:auto 1fr auto;gap:15px;align-items:center;user-select:none}
+    .course-folder summary::-webkit-details-marker{display:none}
+    .folder-icon{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background:#edf5f7;font-size:27px}
+    .folder-head strong{display:block;color:#102b3d;font-size:19px;line-height:1.3}
+    .folder-head small{display:block;color:#6b7780;margin-top:4px;line-height:1.45}
+    .folder-toggle{font-size:12px;font-weight:800;color:#1f5f88;background:#edf5f7;border-radius:999px;padding:8px 11px;white-space:nowrap}
+    .course-folder[open] .folder-toggle{background:#f7f3ec;color:#8a642e}
+    .folder-body{padding:0 24px 23px;border-top:1px solid #e7eef1}
+    .folder-intro{color:#6b7780;margin:17px 0 13px}
+    .folder-list{display:grid;gap:9px}
+    .folder-item{display:flex;gap:11px;align-items:flex-start;padding:11px 13px;border:1px solid #e4ecef;border-radius:13px;background:#fbfcfd;color:#263540}
+    .folder-item b{color:#102b3d}
+    .folder-item span:first-child{flex:0 0 auto}
+    .folder-note{margin-top:12px;padding:11px 13px;border-radius:12px;background:#f7f3ec;color:#6b5a41;font-size:13px}
+    @media(max-width:760px){.folder-grid{grid-template-columns:1fr}.course-folder summary{grid-template-columns:auto 1fr}.folder-toggle{grid-column:2;justify-self:start}.folder-body{padding-left:18px;padding-right:18px}}
+  </style>
 </head>
 <body>
 <header class="site-header"><div class="container header-inner"><a class="brand" href="index.html"><span class="brand-mark">РЗ</span><span><strong>Руслана Заяць</strong><small>навчально-методичний простір</small></span></a><nav class="nav"><a href="index.html">Головна</a><a href="index.html#students">Для студентів</a><a href="ok17.html">ОК17</a><a href="tu.html">ТУ</a><a href="portfolio.html">Портфоліо</a></nav></div></header>
@@ -14,48 +33,78 @@
 <section class="subhero"><div class="container"><a class="back-link" href="index.html#students">← Для студентів</a><span class="eyebrow">ФМБ • ОК16</span><h1>Технологія виробництва кулінарної продукції</h1><p>Навчально-методичний комплекс для підготовки фахових молодших бакалаврів за спеціальністю G13 «Харчові технології».</p></div></section>
 
 <section class="section"><div class="container">
-  <div class="section-heading"><div><span class="eyebrow">ОК16</span><h2>Структура освітнього компонента</h2></div><div class="section-symbol">🍲</div></div>
-  <p class="lead">Матеріали сторінки сформовані на основі наданого навчально-методичного архіву ОК16. Тут зібрано структуру курсу, змістові орієнтири, приклади технологічних матеріалів і ресурси для самостійної роботи.</p>
-  <div class="resource-grid">
-    <div class="resource-card"><span class="resource-icon">⏱️</span><span class="resource-kicker">Обсяг</span><h3>180 годин / 6 ЄКТС</h3><p>Повний обсяг освітнього компонента.</p></div>
-    <div class="resource-card"><span class="resource-icon">📖</span><span class="resource-kicker">Аудиторна робота</span><h3>46 год. лекцій</h3><p>Теоретичне опрацювання технологій виробництва кулінарної продукції.</p></div>
-    <div class="resource-card"><span class="resource-icon">🧪</span><span class="resource-kicker">Практична підготовка</span><h3>36 год. лабораторних</h3><p>Відпрацювання технологічних процесів, оцінювання якості та виробничих ситуацій.</p></div>
-    <div class="resource-card"><span class="resource-icon">💬</span><span class="resource-kicker">Семінари</span><h3>8 годин</h3><p>Аналітичне опрацювання тем, технологічної документації та професійних кейсів.</p></div>
-    <div class="resource-card"><span class="resource-icon">🗂️</span><span class="resource-kicker">Самостійна робота</span><h3>60 годин</h3><p>Завдання для поглиблення тем і підготовки до контролю.</p></div>
-    <div class="resource-card"><span class="resource-icon">🎓</span><span class="resource-kicker">Підсумковий контроль</span><h3>30 год. підготовки</h3><p>Систематизація матеріалу та підготовка до екзамену.</p></div>
-  </div>
-</div></section>
+  <div class="section-heading"><div><span class="eyebrow">ОК16</span><h2>Навчальні папки</h2></div><div class="section-symbol">📚</div></div>
+  <p class="lead">Тепер це не декоративні картки. <strong>Натисніть на будь-яку папку — вона відкриється і покаже її наповнення.</strong> Структуру сформовано за наданим архівом ОК16.</p>
 
-<section class="section section-soft"><div class="container">
-  <div class="section-heading"><div><span class="eyebrow">Навчальні матеріали</span><h2>Що входить до комплексу</h2></div><div class="section-symbol">📚</div></div>
-  <div class="resource-grid">
-    <details class="resource-card" open><summary><span class="resource-icon">📘</span><span class="resource-kicker">Лекції</span><h3>Теоретичний курс</h3></summary><p>У матеріалах опрацьовуються способи кулінарної обробки, зміни харчових речовин, технологія супів, соусів, страв і гарнірів з овочів та грибів, круп, бобових і макаронних виробів, риби та морепродуктів, м’яса, птиці, яєць, сиру, холодних і солодких страв, напоїв, борошняних, фірмових, дієтичних і дитячих страв.</p></details>
-    <details class="resource-card"><summary><span class="resource-icon">🧾</span><span class="resource-kicker">Технологічні картки</span><h3>Збірник до лекцій</h3></summary><p>У збірнику є картки, прив’язані до конкретних лекцій і занять. Серед прикладів: солянка збірна м’ясна, суп-пюре з овочів, прозорий бульйон з профітролями, холодний борщ, соус червоний основний, соус білий основний, молочний соус, рагу овочеве, картопляне пюре та інші страви.</p></details>
-    <details class="resource-card"><summary><span class="resource-icon">🍽️</span><span class="resource-kicker">Семінари</span><h3>Технологічні картки до семінарів</h3></summary><p>Матеріали містять рецептурні таблиці брутто/нетто, вимоги до якості сировини, коротку технологію та органолептичні вимоги. Серед опрацьованих прикладів — риба відварна з польським соусом, риба заливна, паштет печінковий, желе фруктове.</p></details>
-    <details class="resource-card"><summary><span class="resource-icon">🧪</span><span class="resource-kicker">Лабораторні</span><h3>Практичне відпрацювання</h3></summary><p>Лабораторні матеріали передбачають підготовку робочого місця, аналіз сировини, виконання технологічної послідовності, контроль температурних режимів, визначення виходу та органолептичне оцінювання готової продукції.</p></details>
-    <details class="resource-card"><summary><span class="resource-icon">🗂️</span><span class="resource-kicker">СРС</span><h3>Самостійна робота</h3></summary><p>Самостійні завдання орієнтовані на повторення технологічних процесів, вимог до якості, температур подавання, строків реалізації, типових дефектів і професійних дій технолога. Окремий блок передбачає підготовку до екзамену.</p></details>
-    <details class="resource-card"><summary><span class="resource-icon">✅</span><span class="resource-kicker">Самоконтроль</span><h3>Контроль знань</h3></summary><p>Для студентів використовуються запитання, тести та технологічні ситуації. Ключі відповідей і службові матеріали оцінювання на публічному сайті не розміщуються.</p></details>
-  </div>
-</div></section>
+  <div class="folder-grid">
+    <details class="course-folder" open>
+      <summary><span class="folder-icon">📘</span><span class="folder-head"><strong>01 • Лекції та презентації</strong><small>Теоретичний курс • 46 годин</small></span><span class="folder-toggle">Відкрити / закрити</span></summary>
+      <div class="folder-body"><p class="folder-intro">Лекційний блок охоплює технологію приготування основних груп кулінарної продукції та відповідні презентації.</p><div class="folder-list">
+        <div class="folder-item"><span>📄</span><div><b>Вступ до ОК16.</b> Предмет, завдання, професійна роль технолога.</div></div>
+        <div class="folder-item"><span>📄</span><div><b>Прийоми кулінарної обробки.</b> Теплові процеси та зміни харчових речовин.</div></div>
+        <div class="folder-item"><span>🥣</span><div><b>Супи та бульйони.</b> Заправні, пюреподібні, прозорі та холодні супи.</div></div>
+        <div class="folder-item"><span>🥫</span><div><b>Соуси.</b> Основні, похідні, гарячі та холодні соуси.</div></div>
+        <div class="folder-item"><span>🥔</span><div><b>Овочі, гриби, крупи, бобові та макаронні вироби.</b></div></div>
+        <div class="folder-item"><span>🐟</span><div><b>Риба та морепродукти.</b> Відварювання, припускання, смаження, запікання, маси та напівфабрикати.</div></div>
+        <div class="folder-item"><span>🥩</span><div><b>М'ясо, птиця та субпродукти.</b> Технологічні процеси, якість і дефекти.</div></div>
+        <div class="folder-item"><span>🍳</span><div><b>Яйця та молочні продукти.</b> Страви з яєць, сиру та комбіновані вироби.</div></div>
+        <div class="folder-item"><span>🥗</span><div><b>Холодні та солодкі страви.</b> Закуски, желе, муси, креми, десерти.</div></div>
+        <div class="folder-item"><span>☕</span><div><b>Гарячі й холодні безалкогольні напої.</b></div></div>
+        <div class="folder-item"><span>🥐</span><div><b>Борошняні страви та вироби.</b></div></div>
+        <div class="folder-item"><span>⭐</span><div><b>Страви підвищеної складності, дієтичного та дитячого харчування.</b></div></div>
+      </div></div>
+    </details>
 
-<section class="section"><div class="container">
-  <div class="section-heading"><div><span class="eyebrow">Приклади з архіву</span><h2>Технологічна логіка</h2></div><div class="section-symbol">🔎</div></div>
-  <div class="resource-grid">
-    <div class="resource-card"><span class="resource-icon">🥣</span><span class="resource-kicker">ЛК_04 • Супи</span><h3>Супи</h3><p>Класифікація, технологія приготування, вимоги до якості, подавання та типові дефекти. Приклади: солянка збірна м’ясна, суп-пюре з овочів, прозорий бульйон, холодний борщ.</p></div>
-    <div class="resource-card"><span class="resource-icon">🥕</span><span class="resource-kicker">ЛК_17 • Дієтичне харчування</span><h3>Морквяне суфле з сиром</h3><p>Навчальна картка містить сировину, вихід, технологію, оформлення, подавання, вимоги до якості й умови реалізації.</p></div>
-    <div class="resource-card"><span class="resource-icon">🍮</span><span class="resource-kicker">СЕМ_03 • Солодкі страви</span><h3>Желе фруктове</h3><p>Рецептурна таблиця, вимоги до якості сировини, технологічна послідовність і оцінювання готової страви.</p></div>
-  </div>
-</div></section>
+    <details class="course-folder">
+      <summary><span class="folder-icon">🧪</span><span class="folder-head"><strong>02 • Лабораторні роботи</strong><small>Практичне відпрацювання • 36 годин</small></span><span class="folder-toggle">Відкрити / закрити</span></summary>
+      <div class="folder-body"><p class="folder-intro">У кожній роботі: тема, мета, безпека, оснащення, хід роботи, технологічна послідовність, контроль якості та висновок.</p><div class="folder-list">
+        <div class="folder-item"><span>🐟</span><div><b>ЛПР з риби та морепродуктів.</b> Відварні, припущені та інші рибні страви; оцінювання якості.</div></div>
+        <div class="folder-item"><span>🥩</span><div><b>ЛПР з м'яса і птиці.</b> Теплова обробка, вихід, подавання, дефекти.</div></div>
+        <div class="folder-item"><span>🍽️</span><div><b>Банкетні холодні та гарячі страви й закуски.</b> Оформлення та подавання.</div></div>
+        <div class="folder-item"><span>🍰</span><div><b>Банкетні солодкі страви та напої.</b> Оформлення, подавання, органолептична оцінка.</div></div>
+      </div><div class="folder-note">Матеріали лабораторних робіт у відкритій частині сайту подаються без службових ключів і внутрішніх форм оцінювання.</div></div>
+    </details>
 
-<section class="section section-gradient"><div class="container">
-  <div class="section-heading"><div><span class="eyebrow">Відеосупровід</span><h2>Рекомендовані відеоматеріали</h2></div><div class="section-symbol">▶️</div></div>
-  <p class="lead">Добірка з архіву використовується як додатковий відеосупровід. Перед заняттям доступність ролика доцільно перевірити.</p>
-  <div class="resource-grid">
-    <a class="resource-card" href="https://youtu.be/oWwbeQyx3Cc" target="_blank" rel="noopener"><span class="resource-icon">▶️</span><span class="resource-kicker">ЛК_01 / СРС_01</span><h3>Добір продуктів</h3><p>Технологія приготування їжі. Добір продуктів.</p><strong>Переглянути →</strong></a>
-    <a class="resource-card" href="https://youtu.be/uJvVuCwDmDg" target="_blank" rel="noopener"><span class="resource-icon">▶️</span><span class="resource-kicker">ЛК_02 / СРС_02</span><h3>Варіння</h3><p>Базовий прийом кулінарної обробки.</p><strong>Переглянути →</strong></a>
-    <a class="resource-card" href="https://youtu.be/KT6ytOWeaEI" target="_blank" rel="noopener"><span class="resource-icon">▶️</span><span class="resource-kicker">ЛК_02 / СРС_02</span><h3>Смаження</h3><p>Смаження основним способом.</p><strong>Переглянути →</strong></a>
+    <details class="course-folder">
+      <summary><span class="folder-icon">💬</span><span class="folder-head"><strong>03 • Семінарські заняття</strong><small>4 семінари • 8 годин</small></span><span class="folder-toggle">Відкрити / закрити</span></summary>
+      <div class="folder-body"><div class="folder-list">
+        <div class="folder-item"><span>🐟</span><div><b>СЕМ_01.</b> Характеристика та технологія приготування страв з риби та морепродуктів.</div></div>
+        <div class="folder-item"><span>🥩</span><div><b>Семінарський блок з м'ясної продукції.</b> Технологічні ситуації, дефекти й дії технолога.</div></div>
+        <div class="folder-item"><span>🍮</span><div><b>СЕМ_03.</b> Характеристики та технологія приготування холодних і солодких страв.</div></div>
+        <div class="folder-item"><span>🥕</span><div><b>СЕМ_04.</b> Страви дієтичного та дитячого харчування.</div></div>
+      </div></div>
+    </details>
+
+    <details class="course-folder">
+      <summary><span class="folder-icon">🗂️</span><span class="folder-head"><strong>04 • Самостійна робота</strong><small>СРС • 60 годин</small></span><span class="folder-toggle">Відкрити / закрити</span></summary>
+      <div class="folder-body"><p class="folder-intro">Самостійні завдання прив'язані до тем лекцій і передбачають роботу з технологіями, якістю, дефектами, строками реалізації та професійними кейсами.</p><div class="folder-list">
+        <div class="folder-item"><span>✍️</span><div><b>Тематичні завдання СРС.</b> Порівняльні таблиці, короткі професійні висновки, аналіз технологічних ситуацій.</div></div>
+        <div class="folder-item"><span>🔎</span><div><b>Самоконтроль.</b> Запитання за темою без оприлюднення ключів відповідей.</div></div>
+        <div class="folder-item"><span>🎓</span><div><b>Підготовка до екзамену.</b> Систематизація матеріалу й повторення основних технологічних блоків.</div></div>
+      </div></div>
+    </details>
+
+    <details class="course-folder">
+      <summary><span class="folder-icon">🧾</span><span class="folder-head"><strong>05 • Технологічні картки та схеми</strong><small>Збірники з архіву</small></span><span class="folder-toggle">Відкрити / закрити</span></summary>
+      <div class="folder-body"><p class="folder-intro">У наданому комплекті є окремі збірники технологічних карт до лекцій і семінарів. Картки містять брутто/нетто, технологію, подавання, якість та типові дефекти.</p><div class="folder-list">
+        <div class="folder-item"><span>📕</span><div><b>ОК16_Збірник_технологічних_карт_до_лекцій.</b> Картки від ЛК_04 і далі з прив'язкою до тем та інших видів занять.</div></div>
+        <div class="folder-item"><span>📗</span><div><b>ОК16_Збірник_технологічних_карток_до_семінарських.</b> Рецептурні таблиці та органолептичні вимоги.</div></div>
+        <div class="folder-item"><span>🥣</span><div><b>Приклади:</b> солянка збірна м'ясна, суп-пюре з овочів, риба припущена з голландським соусом, паштет печінковий, желе фруктове.</div></div>
+        <div class="folder-item"><span>➡️</span><div><b>Технологічні схеми.</b> Поетапна логіка руху сировини та операцій для відповідних страв.</div></div>
+      </div></div>
+    </details>
+
+    <details class="course-folder">
+      <summary><span class="folder-icon">✅</span><span class="folder-head"><strong>06 • Тести та оцінювання</strong><small>Самоконтроль і підсумкова підготовка</small></span><span class="folder-toggle">Відкрити / закрити</span></summary>
+      <div class="folder-body"><div class="folder-list">
+        <div class="folder-item"><span>📝</span><div><b>Тематичні запитання й тести.</b> Для повторення та самоконтролю.</div></div>
+        <div class="folder-item"><span>🧠</span><div><b>Ситуаційні завдання.</b> Визначення причин дефектів і вибір професійної дії.</div></div>
+        <div class="folder-item"><span>🔒</span><div><b>Ключі відповідей не публікуються.</b> Вони залишаються у викладача.</div></div>
+      </div></div>
+    </details>
   </div>
-  <div class="note">На сторінці оприлюднюються матеріали, призначені для навчального використання. Внутрішні ключі, службові скрипти та персональні дані здобувачів освіти не публікуються.</div>
+
+  <div class="sample-box" style="margin-top:28px"><span class="eyebrow">Документи напряму</span><h3>Освітньо-професійна програма</h3><p>Програмний документ ФМБ доступний для перегляду окремо.</p><a class="card-link" href="https://drive.google.com/file/d/18gCvbR3JSn69c6hQY3SOAFGhIYIXvHdw/view?usp=drivesdk" target="_blank" rel="noopener">Переглянути ОПП →</a></div>
 </div></section>
 </main>
 <footer class="site-footer"><div class="container footer-inner"><span>© 2026 Руслана Заяць</span><span>ОК16 • Технологія виробництва кулінарної продукції</span></div></footer>
