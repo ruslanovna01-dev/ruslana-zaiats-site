@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ruslanovna01-dev.github.io/ruslana-zaiats-site/sitemap.xml
