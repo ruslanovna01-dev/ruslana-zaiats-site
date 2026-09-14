@@ -7,65 +7,122 @@
   <meta name="description" content="Авторські кейс-банки, ігрові активності, роздаткові та візуальні матеріали для ОК17, ОК18 і ТУ.">
   <meta name="robots" content="index,follow">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .case-toolbar{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 28px}
+    .case-toolbar a{display:inline-flex;align-items:center;gap:7px;padding:10px 14px;border:1px solid #dce5ea;border-radius:999px;background:#fff;text-decoration:none;color:inherit;font-weight:700}
+    .case-toolbar a:hover{background:#f6fafc}
+    .case-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:20px}
+    .case-card{display:block;padding:18px;border:1px solid #dce5ea;border-radius:18px;background:#fff;color:inherit;text-decoration:none;transition:.18s ease}
+    .case-card:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(24,55,70,.09)}
+    .case-card h3{font-size:1rem;line-height:1.35;margin:8px 0 12px}
+    .case-number{display:inline-block;font-size:.78rem;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:#55717d}
+    .discipline-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:8px}
+    .discipline-head .count{white-space:nowrap;border-radius:999px;background:#edf4f6;padding:7px 11px;font-weight:800;font-size:.84rem}
+    .resource-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:18px 0}
+    .resource-strip a{display:block;padding:14px 16px;border-radius:14px;background:#f6fafc;border:1px solid #e0eaee;text-decoration:none;color:inherit}
+    .resource-strip strong{display:block;margin-bottom:4px}
+  </style>
 </head>
 <body>
 <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="index.html"><span class="brand-mark">РЗ</span><span><strong>Руслана ЗАЯЦЬ</strong><small>навчально-методичний простір</small></span></a>
-    <nav class="nav"><a href="index.html">Головна</a><a href="ok17.html">ОК17</a><a href="ok18.html">ОК18</a><a href="tu.html">ТУ</a><a href="portfolio.html">Портфоліо</a></nav>
+    <nav class="nav"><a href="index.html">Головна</a><a href="ok17.html">ОК17</a><a href="ok18.html">ОК18</a><a href="tu.html">ТУ</a><a href="cases.html">Кейс-банки</a><a href="portfolio.html">Портфоліо</a></nav>
   </div>
 </header>
 <main>
   <section class="subhero">
     <div class="container">
       <a class="back-link" href="index.html#students">← До навчальних матеріалів</a>
-      <span class="eyebrow">Методичні матеріали • 2026–2027</span>
+      <span class="eyebrow">Методична робота • 2026–2027</span>
       <h1>Кейс-банки та дидактичні матеріали</h1>
-      <p>Тематичні професійні кейси, ігрові активності, роздаткові картки, робочі аркуші, завдання «знайди помилку», технологічні послідовності та кольорові візуальні матеріали.</p>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="grid feature-grid">
-        <article id="ok17" class="card feature-card">
-          <div class="card-icon">🍲</div>
-          <span class="meta">ФПО • ОК17 • 17 кейсів</span>
-          <h3>Технологія виробництва кулінарної продукції</h3>
-          <p>Тематичні виробничі ситуації, короткі навчальні ігри, роздаткові та візуальні картки за темами освітнього компонента.</p>
-          <a class="card-link" href="https://drive.google.com/drive/folders/1jlNGelHb7kVXCNJkL7-FFzVTX1mySfO2" target="_blank" rel="noopener">Відкрити папку матеріалів →</a><br>
-          <a class="card-link" href="https://drive.google.com/file/d/17HzueljJiDqNhFmfLiW9JzJEmI9Gjy22/view" target="_blank" rel="noopener">Завантажити кейс-банк ZIP →</a>
-        </article>
-
-        <article id="ok18" class="card feature-card">
-          <div class="card-icon">🏪</div>
-          <span class="meta">ФПО • ОК18 • 13 кейсів</span>
-          <h3>Організація виробництва в закладах ресторанного господарства</h3>
-          <p>Кейси з постачання, складського господарства, планування, виробничих цехів, контролю якості, організації праці та проектування.</p>
-          <a class="card-link" href="https://drive.google.com/drive/folders/1bDqCG1B6TS0CuCZFVryv7P7eJQ8jbDsL" target="_blank" rel="noopener">Відкрити папку матеріалів →</a><br>
-          <a class="card-link" href="https://drive.google.com/file/d/1i_JBC8yhlpoXwAA01RIw208mTYi7m25o/view" target="_blank" rel="noopener">Завантажити кейс-банк ZIP →</a>
-        </article>
-
-        <article id="tu" class="card feature-card">
-          <div class="card-icon">👨‍🍳</div>
-          <span class="meta">ТУ • І курс • 13 кейсів</span>
-          <h3>Технологія приготування їжі</h3>
-          <p>Практикоорієнтовані кейси, ігрові активності, робочі листи, картки, технологічні послідовності, ключі для викладача та кольорова наочність.</p>
-          <a class="card-link" href="https://drive.google.com/drive/folders/1D3TC0bNyhVG2PkBc-PKD4cmpNSe_j8cn" target="_blank" rel="noopener">Відкрити папку матеріалів →</a><br>
-          <a class="card-link" href="https://drive.google.com/file/d/1u-LDubgjEsj3OXnkS4KhUJEVRAiakjqr/view" target="_blank" rel="noopener">Завантажити кейс-банк ZIP →</a>
-        </article>
+      <p>Матеріали синхронізовано з актуальною структурою Google Drive: кожний кейс має окрему папку з відповідними навчальними матеріалами.</p>
+      <div class="case-toolbar">
+        <a href="#ok17">🍲 ОК17 — 17 кейсів</a>
+        <a href="#ok18">🏪 ОК18 — 13 кейсів</a>
+        <a href="#tu">👨‍🍳 ТУ — 13 кейсів</a>
       </div>
     </div>
   </section>
 
-  <section class="section section-gradient">
+  <section id="ok17" class="section">
     <div class="container">
-      <div class="section-heading"><div><span class="eyebrow">Формат роботи</span><h2>Що містять кейс-банки</h2></div><div class="section-symbol">🧩</div></div>
-      <div class="grid feature-grid">
-        <article class="card feature-card"><div class="card-icon">🧠</div><h3>Професійні ситуації</h3><p>Завдання на аналіз причин, наслідків, технологічних помилок та вибір коректного рішення.</p></article>
-        <article class="card feature-card"><div class="card-icon">🎲</div><h3>Ігрові активності</h3><p>Короткі вправи для роботи в парах і групах, актуалізації знань та закріплення матеріалу.</p></article>
-        <article class="card feature-card"><div class="card-icon">🎨</div><h3>Наочність</h3><p>Кольорові картки, схеми, технологічні послідовності та матеріали для друку й демонстрації.</p></article>
+      <div class="discipline-head"><div><span class="eyebrow">ФПО • ОК17</span><h2>Технологія виробництва кулінарної продукції</h2></div><span class="count">17 кейсів</span></div>
+      <p class="lead">Професійні ситуації, ігрові активності, роздаткові картки та кольорова наочність за тематикою освітнього компонента.</p>
+      <div class="resource-strip">
+        <a href="https://drive.google.com/drive/folders/1QjY2usZC-dypis8eLBLVd9dduFba7Sup" target="_blank" rel="noopener"><strong>📂 Загальна папка кейсів ОК17</strong><span>Структура на Google Drive</span></a>
+        <a href="https://docs.google.com/document/d/1FDeIW4FKUQGkMW_Dl1EqvL6MsoGqa4WK/edit" target="_blank" rel="noopener"><strong>📋 Перелік кейсів</strong><span>Зведений реєстр</span></a>
+        <a href="https://docs.google.com/document/d/14JZk3bR2vDNKtaMFJvh953dxNbHEYOM_/edit" target="_blank" rel="noopener"><strong>🎨 Візуальні картки</strong><span>Матеріали для друку</span></a>
       </div>
+      <div class="case-grid"><a class="case-card" href="https://drive.google.com/drive/folders/1oDDumnEefWXCd_GJ60MGE5afkDXjmXHJ" target="_blank" rel="noopener"><span class="case-number">Кейс 01</span><h3>Редизайн подачі без зміни рецептури</h3><span class="card-link">Відкрити матеріали →</span></a>
+<a class="case-card" href="https://drive.google.com/drive/folders/18FivEiBv0w9kJzJBBoEdDk2dRLqXJxuA" target="_blank" rel="noopener"><span class="case-number">Кейс 02</span><h3>Технологічний маршрут сировини</h3><span class="card-link">Відкрити матеріали →</span></a>
+<a class="case-card" href="https://drive.google.com/drive/folders/1V5bUpQ7zHEtS7DdZ8sU4AJB6n2kWrops" target="_blank" rel="noopener"><span class="case-number">Кейс 03</span><h3>Кулінарний детектив: чому змінилася якість</h3><span class="card-link">Відкрити матеріали →</span></a>
+<a class="case-card" href="https://drive.google.com/drive/folders/1ziFlpuo_YLux7BZeNrbthJxg210Rgeg4" target="_blank" rel="noopener"><span class="case-number">Кейс 04</span><h3>Супова станція: чотири замовлення — чотири проблеми</h3><span class="card-link">Відкрити матеріали →</span></a>
+<a class="case-card" href="https://drive.google.com/drive/folders/1Q6Hg3TtRFbCzQpG-PA5OLzDG2SKd2ccD" target="_blank" rel="noopener"><span class="case-number">Кейс 05</span><h3>Соусна станція: підбір і порятунок</h3><span class="card-link">Відкрити матеріали →</span></a>
+<a class="case-card" href="https://drive.google.com/drive/folders/1G8f1xlnpm27ZMEQIgcx9mfhKu_wYNxSj" target="_blank" rel="noopener"><span class="case-number">Кейс 06</span><h3>Овочевий гарнір: колір, текстура, сумісність</h3><span class="card-link">Відкрити матеріали →</span></a>
+<a class="case-card" href="https://drive.google.com/drive/folders/1dC9b6wswyr1JG3DTEAzhIRvCu9Vdcud2" target="_blank" rel="noopener"><span class="case-number">Кейс 07</span><h3>Каша, бобові, паста: три різні помилки</h3><span class="card-link">Відкрити матеріали →</span></a>
+<a class="case-card" href="https://drive.google.com/drive/folders/1BhRME1kPJA-o9XUQ5H5Msypb0hJELAgl" target="_blank" rel="noopener"><span class="case-number">Кейс 08</span><h3>Рибний банкет: вибір способу теплової обробки</h3><span class="card-link">Відкрити матеріали →</span></a>
+<a class="case-card" href="https://drive.google.com/drive/folders/1jvtOXMrQxPqdTb4cQjyyTHti8RlmDZJv" target="_blank" rel="noopener"><span class="case-number">Кейс 09</span><h3>Жорстке м’ясо: помилка сировини чи режиму</h3><span class="card-link">Відкрити матеріали →</span></a>
+<a class="case-card" href="https://drive.google.com/drive/folders/1o5VjIT8OQcmkqigRTcvZ7q-zx2Beqp1O" target="_blank" rel="noopener"><span class="case-number">Кейс 10</span><h3>Птиця без ризику: від сирої сировини до подачі</h3><span class="card-link">Відкрити матеріали →</span></a>
+<a class="case-card" href="https://drive.google.com/drive/folders/13hGiOUeUoxDOuza72X8NeyNX_NF_e93k" target="_blank" rel="noopener"><span class="case-number">Кейс 11</span><h3>Температура вирішує все</h3><span class="card-link">Відкрити матеріали →</span></a>
+<a class="case-card" href="https://drive.google.com/drive/folders/1_7lv4Vb-Orspbb-NN-zgnL5XwNV9R3Hp" target="_blank" rel="noopener"><span class="case-number">Кейс 12</span><h3>Холодний цех: безпечна подача</h3><span class="card-link">Відкрити матеріали →</span></a>
+<a class="case-card" href="https://drive.google.com/drive/folders/1-Ejmq-Jytl4ls8hDYtYHtr5j1XBibkce" target="_blank" rel="noopener"><span class="case-number">Кейс 13</span><h3>Десертна лабораторія: текстура під контролем</h3><span class="card-link">Відкрити матеріали →</span></a>
+<a class="case-card" href="https://drive.google.com/drive/folders/1vRMQOFLZ-uZ9DJVRDwE0MuJicBuOQvR7" target="_blank" rel="noopener"><span class="case-number">Кейс 14</span><h3>Напій із правильною екстракцією</h3><span class="card-link">Відкрити матеріали →</span></a>
+<a class="case-card" href="https://drive.google.com/drive/folders/1oBMraZeMPux-yox1dLTg3tK7ygmZLvfT" target="_blank" rel="noopener"><span class="case-number">Кейс 15</span><h3>Тісто не слухається</h3><span class="card-link">Відкрити матеріали →</span></a>
+<a class="case-card" href="https://drive.google.com/drive/folders/15398PI5mXm5ViqM_D-hBQYXAiEurAnKM" target="_blank" rel="noopener"><span class="case-number">Кейс 16</span><h3>Складна страва як керований технологічний проєкт</h3><span class="card-link">Відкрити матеріали →</span></a>
+<a class="case-card" href="https://drive.google.com/drive/folders/1tiNziGYx9R63esC0WTnFylQrZIMtQbZy" target="_blank" rel="noopener"><span class="case-number">Кейс 17</span><h3>Адаптація без втрати безпечності</h3><span class="card-link">Відкрити матеріали →</span></a></div>
+    </div>
+  </section>
+
+  <section id="ok18" class="section section-gradient">
+    <div class="container">
+      <div class="discipline-head"><div><span class="eyebrow">ФПО • ОК18</span><h2>Організація виробництва в закладах ресторанного господарства</h2></div><span class="count">13 кейсів</span></div>
+      <p class="lead">Кейси з організації постачання, складського господарства, планування, виробничих потоків, цехів, контролю якості, праці та проектування.</p>
+      <div class="resource-strip">
+        <a href="https://drive.google.com/drive/folders/1w3bpg-hf7qjBJAxRDuLHT_G3LAunVV9c" target="_blank" rel="noopener"><strong>📂 Загальна папка кейсів ОК18</strong><span>Структура на Google Drive</span></a>
+        <a href="https://docs.google.com/document/d/1fo-fnqQMNZU__93BNuzB01VWxAvMaGOC/edit" target="_blank" rel="noopener"><strong>📋 Перелік кейсів</strong><span>Зведений реєстр</span></a>
+        <a href="https://docs.google.com/document/d/1byL8bov2GLpNa_khqX-b7b_0CbiQ_o5i/edit" target="_blank" rel="noopener"><strong>🎨 Візуальні картки</strong><span>Матеріали для друку</span></a>
+        <a href="https://docs.google.com/document/d/1OJNY3kORNXcjBu5EHdotG38nXaT7j812/edit" target="_blank" rel="noopener"><strong>📐 Робочі макети і схеми</strong><span>Додатковий практичний матеріал</span></a>
+      </div>
+      <div class="case-grid"><a class="case-card" href="https://drive.google.com/drive/folders/16s9_zZkEq66LrCZ6erDyccjGeoW9XE_T" target="_blank" rel="noopener"><span class="case-number">Кейс 01</span><h3>Відкрити заклад у правильному форматі</h3><span class="card-link">Відкрити матеріали →</span></a>
+<a class="case-card" href="https://drive.google.com/drive/folders/1Bdorhs412DlPb2H2XwjsVz4Baxlpxaf5" target="_blank" rel="noopener"><span class="case-number">Кейс 02</span><h3>Постачальник зірвав поставку</h3><span class="card-link">Відкрити матеріали →</span></a>
+<a class="case-card" href="https://drive.google.com/drive/folders/1VLsmpqDWNaTJEJxN5BPMLBbb8v8DtS48" target="_blank" rel="noopener"><span class="case-number">Кейс 03</span><h3>Склад без логіки</h3><span class="card-link">Відкрити матеріали →</span></a>
+<a class="case-card" href="https://drive.google.com/drive/folders/1Xcio-6t38kFgmSLMnGdOqP1ijxNwyl8j" target="_blank" rel="noopener"><span class="case-number">Кейс 04</span><h3>План-меню, який не виконується</h3><span class="card-link">Відкрити матеріали →</span></a>
+<a class="case-card" href="https://drive.google.com/drive/folders/1X1v4XCHqzkOO00w9OV5WyOrl6sUzQR89" target="_blank" rel="noopener"><span class="case-number">Кейс 05</span><h3>Перехресні потоки</h3><span class="card-link">Відкрити матеріали →</span></a>
+<a class="case-card" href="https://drive.google.com/drive/folders/1uDRNFjPVysT_2AuBluZWacGvoqNL129l" target="_blank" rel="noopener"><span class="case-number">Кейс 06</span><h3>Заготівельний цех — вузьке місце</h3><span class="card-link">Відкрити матеріали →</span></a>
+<a class="case-card" href="https://drive.google.com/drive/folders/1USmg9qebpOhiGD1GwhvlMietT5RInGux" target="_blank" rel="noopener"><span class="case-number">Кейс 07</span><h3>Пікова година у гарячому цеху</h3><span class="card-link">Відкрити матеріали →</span></a>
+<a class="case-card" href="https://drive.google.com/drive/folders/1mOcl_Dk1hUkLNq5WEa0-dVp-XfF9DZP_" target="_blank" rel="noopener"><span class="case-number">Кейс 08</span><h3>Страва не проходить бракераж</h3><span class="card-link">Відкрити матеріали →</span></a>
+<a class="case-card" href="https://drive.google.com/drive/folders/1aSqsuQMUAvf7snOp378ipIx73J4hC_zM" target="_blank" rel="noopener"><span class="case-number">Кейс 09</span><h3>Черга на роздавальні</h3><span class="card-link">Відкрити матеріали →</span></a>
+<a class="case-card" href="https://drive.google.com/drive/folders/1bXdcPOGW8pe1GRplfad-8GBWvGjGJnRC" target="_blank" rel="noopener"><span class="case-number">Кейс 10</span><h3>Зміна з нерівномірним навантаженням</h3><span class="card-link">Відкрити матеріали →</span></a>
+<a class="case-card" href="https://drive.google.com/drive/folders/1BmmOrPYQ1Dqjvn-ZAQ7X4QyrETU5-LrO" target="_blank" rel="noopener"><span class="case-number">Кейс 11</span><h3>Новий заклад: від ідеї до завдання на проектування</h3><span class="card-link">Відкрити матеріали →</span></a>
+<a class="case-card" href="https://drive.google.com/drive/folders/1cHwV1HVzp3VjBIl5mH_UMqXq4SR6wi3q" target="_blank" rel="noopener"><span class="case-number">Кейс 12</span><h3>Розрахунок без вихідних даних</h3><span class="card-link">Відкрити матеріали →</span></a>
+<a class="case-card" href="https://drive.google.com/drive/folders/1yXBqkbalaIWtTVCV4eo76gv5o1m2xgap" target="_blank" rel="noopener"><span class="case-number">Кейс 13</span><h3>План приміщень із конфліктами</h3><span class="card-link">Відкрити матеріали →</span></a></div>
+    </div>
+  </section>
+
+  <section id="tu" class="section">
+    <div class="container">
+      <div class="discipline-head"><div><span class="eyebrow">ТУ • ПЗСО • І курс</span><h2>Технологія приготування їжі</h2></div><span class="count">13 кейсів</span></div>
+      <p class="lead">Практикоорієнтовані професійні ситуації, картки, робочі листи, технологічні послідовності, завдання «знайди помилку» та матеріали для викладача.</p>
+      <div class="resource-strip">
+        <a href="https://drive.google.com/drive/folders/1PjwTkhzRL8C-iNjQnfxSBXaUTDlCDVrv" target="_blank" rel="noopener"><strong>📂 Загальна папка кейсів ТУ</strong><span>Структура на Google Drive</span></a>
+        <a href="https://docs.google.com/document/d/1RkIyOLJVpYoC2Ca299a9qRkTxg1wm6P4/edit" target="_blank" rel="noopener"><strong>📋 Перелік кейсів</strong><span>Зведений реєстр</span></a>
+        <a href="https://docs.google.com/document/d/1ApOY-TCwwW_hqJOk1viaGMLl_sQ43fC7/edit" target="_blank" rel="noopener"><strong>🎨 Візуальні картки</strong><span>Матеріали для друку</span></a>
+        <a href="https://docs.google.com/document/d/1vSJc_Cx2Z9v64AwyJwqkWBJDdp3nc9sq/edit" target="_blank" rel="noopener"><strong>🔑 Ключі для викладача</strong><span>Методичні орієнтири</span></a>
+      </div>
+      <div class="case-grid"><a class="case-card" href="https://drive.google.com/drive/folders/1BBJFnFBTfppoSZAPH0FF14IB06aH_LTA" target="_blank" rel="noopener"><span class="case-number">Кейс 01</span><h3>Приймання сировини: продукт є, але чи можна його приймати</h3><span class="card-link">Відкрити матеріали →</span></a>
+<a class="case-card" href="https://drive.google.com/drive/folders/1jEzXDAqR2nOzM3N6TSlpHGyPNIcylerS" target="_blank" rel="noopener"><span class="case-number">Кейс 02</span><h3>Овочевий цех: відходів забагато, нарізка різна</h3><span class="card-link">Відкрити матеріали →</span></a>
+<a class="case-card" href="https://drive.google.com/drive/folders/1dpleveHjjC_7Q4RmD5Uk7O-pl9gV_dLp" target="_blank" rel="noopener"><span class="case-number">Кейс 03</span><h3>Рибна ділянка: один спосіб розбирання для всіх видів риби</h3><span class="card-link">Відкрити матеріали →</span></a>
+<a class="case-card" href="https://drive.google.com/drive/folders/1mUGmq5-qP0x-eGD48xBWIlkmiFuFwXMq" target="_blank" rel="noopener"><span class="case-number">Кейс 04</span><h3>М’ясний цех: неправильний вибір частини — невдалий напівфабрикат</h3><span class="card-link">Відкрити матеріали →</span></a>
+<a class="case-card" href="https://drive.google.com/drive/folders/1Q-UMOth8FfIIkBxd2JcBYyrmSN4bIjXe" target="_blank" rel="noopener"><span class="case-number">Кейс 05</span><h3>Сніданок: омлет сухий, сирна страва втратила форму</h3><span class="card-link">Відкрити матеріали →</span></a>
+<a class="case-card" href="https://drive.google.com/drive/folders/1XjvxRqYOKKWQSsciX8zlCQjEyIb_bFOu" target="_blank" rel="noopener"><span class="case-number">Кейс 06</span><h3>Обідня лінія: мутний бульйон, неоднорідний суп і соус із грудочками</h3><span class="card-link">Відкрити матеріали →</span></a>
+<a class="case-card" href="https://drive.google.com/drive/folders/1K0ExFpxkR23W8gsY8c6Hd6XxBMLrKFUa" target="_blank" rel="noopener"><span class="case-number">Кейс 07</span><h3>Гарнірна станція: каша не тієї консистенції, бобові тверді, макарони злиплись</h3><span class="card-link">Відкрити матеріали →</span></a>
+<a class="case-card" href="https://drive.google.com/drive/folders/14jTAZEv_qvO-X4NCcQTxsJR0B_IYdmmU" target="_blank" rel="noopener"><span class="case-number">Кейс 08</span><h3>Овочева страва: колір втрачено, гарнір перевантажений, гриби водянисті</h3><span class="card-link">Відкрити матеріали →</span></a>
+<a class="case-card" href="https://drive.google.com/drive/folders/1VPruuNRcPA4ZVtb1pfU6Ij_BzreW8sLh" target="_blank" rel="noopener"><span class="case-number">Кейс 09</span><h3>Рибне меню: усі порції смажать однаково</h3><span class="card-link">Відкрити матеріали →</span></a>
+<a class="case-card" href="https://drive.google.com/drive/folders/1_4zUiZRS3JE4B8srlqyinJ5x_a8TglSo" target="_blank" rel="noopener"><span class="case-number">Кейс 10</span><h3>М’ясна страва: спосіб приготування не відповідає напівфабрикату</h3><span class="card-link">Відкрити матеріали →</span></a>
+<a class="case-card" href="https://drive.google.com/drive/folders/1oC9GEfYyXKtWqJvu27b1OIyUYbEyBCcA" target="_blank" rel="noopener"><span class="case-number">Кейс 11</span><h3>Тісто «не працює»: липке, рветься або не має потрібної структури</h3><span class="card-link">Відкрити матеріали →</span></a>
+<a class="case-card" href="https://drive.google.com/drive/folders/11qC_N1ImedrsEOGrGpYNmwpM1TnyKBnu" target="_blank" rel="noopener"><span class="case-number">Кейс 12</span><h3>Холодний цех: красиво, але небезпечно</h3><span class="card-link">Відкрити матеріали →</span></a>
+<a class="case-card" href="https://drive.google.com/drive/folders/1XxpMfWI6FFF4R6igPG_97PztyboIYWYP" target="_blank" rel="noopener"><span class="case-number">Кейс 13</span><h3>Десертна станція: желе не тримає форму, напій втратив аромат</h3><span class="card-link">Відкрити матеріали →</span></a></div>
     </div>
   </section>
 </main>
