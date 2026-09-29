@@ -11,88 +11,44 @@
   <style>
     .meeting-drive{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;margin-top:28px}
     .meeting-panel{padding:30px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(135deg,#fff,#f4f9fb);box-shadow:var(--shadow)}
-    .meeting-panel h3{margin:8px 0 10px;color:var(--deep);font-size:28px;line-height:1.25}
-    .meeting-panel p{margin:0;color:var(--muted)}
+    .meeting-panel h3{margin:8px 0 10px;color:var(--deep);font-size:28px;line-height:1.25}.meeting-panel p{margin:0;color:var(--muted)}
     .meeting-stat{display:grid;place-items:center;text-align:center;padding:30px;border-radius:22px;background:linear-gradient(135deg,#102f49,#1e638c);color:#fff;box-shadow:var(--shadow)}
     .meeting-stat strong{display:block;font-size:44px;line-height:1}.meeting-stat span{display:block;margin-top:10px;color:#dce8ef;font-size:14px}
-    .meeting-list{display:grid;gap:22px;margin-top:28px}
-    .meeting-card{padding:28px;border:1px solid var(--line);border-radius:22px;background:#fff;box-shadow:var(--shadow)}
-    .meeting-head{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;flex-wrap:wrap}
-    .meeting-head .meta{font-size:12px;font-weight:800;color:var(--gold);text-transform:uppercase;letter-spacing:.08em}
-    .meeting-head h3{margin:8px 0 4px;color:var(--deep);font-size:28px;line-height:1.25}
-    .meeting-date{padding:10px 14px;border-radius:999px;background:var(--soft);color:var(--deep);font-size:13px;font-weight:800;white-space:nowrap}
-    .meeting-copy{margin-top:18px}.meeting-copy p{margin:0 0 12px;color:var(--muted)}
-    .meeting-copy .slogan{font-weight:800;color:var(--deep)}
-    .meeting-media{margin-top:22px;padding:26px;border:1px dashed #b9cad5;border-radius:18px;background:linear-gradient(135deg,#f8fbfc,#fff);text-align:center}
-    .meeting-media strong{display:block;color:var(--deep);font-size:18px}.meeting-media span{display:block;margin-top:7px;color:var(--muted);font-size:14px}
-    .meeting-docs{margin-top:22px;padding-top:20px;border-top:1px solid var(--line)}
-    .meeting-docs h4{margin:0 0 10px;color:var(--deep);font-size:17px}.meeting-docs p{margin:0;color:var(--muted);font-size:14px}
-    .meeting-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
-    @media(max-width:760px){.meeting-drive{grid-template-columns:1fr}}
+    .meeting-list{display:grid;gap:22px;margin-top:28px}.meeting-card{padding:28px;border:1px solid var(--line);border-radius:22px;background:#fff;box-shadow:var(--shadow)}
+    .meeting-head{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;flex-wrap:wrap}.meeting-head .meta{font-size:12px;font-weight:800;color:var(--gold);text-transform:uppercase;letter-spacing:.08em}.meeting-head h3{margin:8px 0 4px;color:var(--deep);font-size:28px;line-height:1.25}.meeting-date{padding:10px 14px;border-radius:999px;background:var(--soft);color:var(--deep);font-size:13px;font-weight:800;white-space:nowrap}
+    .meeting-layout{display:grid;grid-template-columns:minmax(250px,330px) 1fr;gap:26px;align-items:start;margin-top:22px}
+    .meeting-media{border-radius:18px;overflow:hidden;background:#0f2334;box-shadow:0 10px 28px rgba(16,47,73,.16)}.meeting-media iframe{display:block;width:100%;aspect-ratio:9/16;border:0;background:#0f2334}
+    .meeting-copy p{margin:0 0 12px;color:var(--muted)}.meeting-copy .slogan{font-weight:800;color:var(--deep)}
+    .meeting-docs{margin-top:22px;padding-top:20px;border-top:1px solid var(--line)}.meeting-docs h4{margin:0 0 10px;color:var(--deep);font-size:17px}.meeting-docs p{margin:0;color:var(--muted);font-size:14px}.meeting-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+    @media(max-width:760px){.meeting-drive,.meeting-layout{grid-template-columns:1fr}.meeting-media{max-width:290px;margin:0 auto}}
   </style>
 </head>
 <body>
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="index.html" aria-label="Головна сторінка">
-      <span class="brand-mark">РЗ</span>
-      <span><strong>Руслана ЗАЯЦЬ</strong><small>персональний сайт педпрацівника</small></span>
-    </a>
-    <nav class="nav" aria-label="Головна навігація">
-      <a href="index.html#about">Про мене</a>
-      <a href="index.html#students">Для студентів</a>
-      <a href="index.html#method">Методична робота</a>
-      <a href="cmk-fpo.html">ЦМК ФПО</a>
-      <a href="portfolio.html">Портфоліо</a>
-      <a href="index.html#contact">Контакти</a>
-    </nav>
+    <a class="brand" href="index.html" aria-label="Головна сторінка"><span class="brand-mark">РЗ</span><span><strong>Руслана ЗАЯЦЬ</strong><small>персональний сайт педпрацівника</small></span></a>
+    <nav class="nav" aria-label="Головна навігація"><a href="index.html#about">Про мене</a><a href="index.html#students">Для студентів</a><a href="index.html#method">Методична робота</a><a href="cmk-fpo.html">ЦМК ФПО</a><a href="portfolio.html">Портфоліо</a><a href="index.html#contact">Контакти</a></nav>
   </div>
 </header>
 
 <main>
-  <section class="subhero">
-    <div class="container">
-      <a class="back-link" href="cmk-fpo.html#work">← До роботи ЦМК</a>
-      <span class="eyebrow">Хронологія роботи комісії</span>
-      <h1>Засідання ЦМК фахової передвищої освіти</h1>
-      <p>Окремі сторінки засідань із коротким підсумком, фото або відео, протоколами та матеріалами, розглянутими членами комісії.</p>
+  <section class="subhero"><div class="container"><a class="back-link" href="cmk-fpo.html#work">← До роботи ЦМК</a><span class="eyebrow">Хронологія роботи комісії</span><h1>Засідання ЦМК фахової передвищої освіти</h1><p>Засідання з коротким підсумком, фото або відео, протоколами та матеріалами, розглянутими членами комісії.</p></div></section>
+
+  <section class="section"><div class="container">
+    <div class="section-heading"><div><span class="eyebrow">Google Drive</span><h2>Публічні матеріали засідань</h2></div><div class="section-symbol">📝</div></div>
+    <div class="meeting-drive">
+      <div class="meeting-panel"><span class="eyebrow">Електронна база</span><h3>Засідання ЦМК</h3><p>Публічні версії протоколів, фото, відео та матеріалів, які можна розміщувати на персональному навчально-методичному сайті.</p><div class="meeting-actions"><a class="btn btn-primary" href="https://drive.google.com/drive/folders/13Oyzlmr3BSrH87zW5ulgposb2VxeTZ8W" target="_blank" rel="noopener noreferrer">Відкрити папку на Google Drive ↗</a></div></div>
+      <div class="meeting-stat"><div><strong>№1</strong><span>перше засідання 2026/2027 навчального року</span></div></div>
     </div>
-  </section>
+  </div></section>
 
-  <section class="section">
-    <div class="container">
-      <div class="section-heading">
-        <div><span class="eyebrow">Google Drive</span><h2>Публічні матеріали засідань</h2></div>
-        <div class="section-symbol">📝</div>
-      </div>
-      <div class="meeting-drive">
-        <div class="meeting-panel">
-          <span class="eyebrow">Електронна база</span>
-          <h3>Засідання ЦМК</h3>
-          <p>Тут зберігатимуться публічні версії протоколів, фото, відео та матеріалів, які можна розміщувати на персональному навчально-методичному сайті.</p>
-          <div class="meeting-actions">
-            <a class="btn btn-primary" href="https://drive.google.com/drive/folders/13Oyzlmr3BSrH87zW5ulgposb2VxeTZ8W" target="_blank" rel="noopener noreferrer">Відкрити папку на Google Drive ↗</a>
-          </div>
-        </div>
-        <div class="meeting-stat"><div><strong>№1</strong><span>перше засідання 2026/2027 навчального року</span></div></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="meetings" class="section section-gradient">
-    <div class="container">
-      <div class="section-heading">
-        <div><span class="eyebrow">2026/2027 навчальний рік</span><h2>Проведені засідання</h2></div>
-        <div class="section-symbol">👥</div>
-      </div>
-
-      <div class="meeting-list">
-        <article class="meeting-card">
-          <div class="meeting-head">
-            <div><span class="meta">Засідання №1</span><h3>Перше засідання Циклової методичної комісії фахової передвищої освіти</h3></div>
-            <div class="meeting-date">16 вересня 2026</div>
-          </div>
-
+  <section id="meetings" class="section section-gradient"><div class="container">
+    <div class="section-heading"><div><span class="eyebrow">2026/2027 навчальний рік</span><h2>Проведені засідання</h2></div><div class="section-symbol">👥</div></div>
+    <div class="meeting-list">
+      <article class="meeting-card">
+        <div class="meeting-head"><div><span class="meta">Засідання №1</span><h3>Перше засідання Циклової методичної комісії фахової передвищої освіти</h3></div><div class="meeting-date">16 вересня 2026</div></div>
+        <div class="meeting-layout">
+          <div class="meeting-media"><iframe src="https://drive.google.com/file/d/1iWeGmnBqzTUDyofoJ4WSAjelj6zC1Fr9/preview" title="Перше засідання ЦМК фахової передвищої освіти" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
           <div class="meeting-copy">
             <p>В Одеському вищому професійному училищі морського туристичного сервісу відбулося перше у 2026/2027 навчальному році засідання Циклової методичної комісії фахової передвищої освіти.</p>
             <p>У центрі уваги — підготовка студентів за спеціальністю G13 «Харчові технології», актуальні завдання та плани на навчальний рік.</p>
@@ -100,28 +56,15 @@
             <p>Попереду — обмін досвідом, пошук нових рішень і робота над тим, щоб навчання відповідало сучасним вимогам та потребам майбутніх фахівців.</p>
             <p>Розпочинаємо навчальний рік із робочим настроєм і готовністю до нових професійних викликів.</p>
             <p class="slogan">🎓 Фахова передвища освіта — від професії до управління!</p>
+            <div class="meeting-actions"><a class="card-link" href="https://drive.google.com/file/d/1iWeGmnBqzTUDyofoJ4WSAjelj6zC1Fr9/view" target="_blank" rel="noopener noreferrer">Відкрити відео на Google Drive ↗</a></div>
           </div>
-
-          <div class="meeting-media">
-            <strong>Фото або відео засідання буде додано</strong>
-            <span>Після отримання медіаматеріалу тут буде розміщено одне основне фото або коротке відео із засідання.</span>
-          </div>
-
-          <div class="meeting-docs">
-            <h4>Документи та матеріали засідання</h4>
-            <p>Протокол, порядок денний та документи, розглянуті на засіданні, будуть додані окремими посиланнями після завантаження затверджених версій.</p>
-            <div class="meeting-actions">
-              <a class="card-link" href="https://drive.google.com/drive/folders/1Z-gfDEDDUiQeXfpwBjhuR-PD1p7EHMIP" target="_blank" rel="noopener noreferrer">Відкрити папку засідання №1 ↗</a>
-            </div>
-          </div>
-        </article>
-      </div>
+        </div>
+        <div class="meeting-docs"><h4>Документи та матеріали засідання</h4><p>Публічний протокол і документи, розглянуті на засіданні, будуть додані сюди після надходження затверджених версій. Робоча папка засідання вже сформована.</p><div class="meeting-actions"><a class="card-link" href="https://drive.google.com/drive/folders/1Z-gfDEDDUiQeXfpwBjhuR-PD1p7EHMIP" target="_blank" rel="noopener noreferrer">Відкрити папку засідання №1 ↗</a></div></div>
+      </article>
     </div>
-  </section>
+  </div></section>
 </main>
 
-<footer class="site-footer">
-  <div class="container footer-inner"><span>© 2026 Руслана ЗАЯЦЬ</span><span>Засідання ЦМК фахової передвищої освіти</span></div>
-</footer>
+<footer class="site-footer"><div class="container footer-inner"><span>© 2026 Руслана ЗАЯЦЬ</span><span>Засідання ЦМК фахової передвищої освіти</span></div></footer>
 </body>
 </html>
