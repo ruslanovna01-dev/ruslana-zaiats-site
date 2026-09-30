@@ -31,8 +31,20 @@
     .result-box h4{margin:0 0 8px;color:var(--deep);font-size:18px}.result-box p{margin:0 0 14px}
     .result-media{max-width:420px;border-radius:14px;overflow:hidden;background:#0f2334}
     .result-media iframe{display:block;width:100%;aspect-ratio:16/9;border:0}
+    .program-box{margin-top:24px;padding:22px;border:1px solid #cbdbe4;border-radius:18px;background:linear-gradient(135deg,#f7fbfd,#fff)}
+    .program-box h4{margin:0 0 4px;color:var(--deep);font-size:21px}.program-box .program-subtitle{margin:0 0 16px;color:var(--muted);font-size:14px}
+    .program-meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0 0 18px}
+    .program-meta div{padding:11px 13px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--deep);font-size:14px}
+    .program-meta strong{display:block;margin-bottom:3px;color:var(--gold);font-size:11px;text-transform:uppercase;letter-spacing:.06em}
+    .program-topic{margin:14px 0 8px!important;color:var(--deep)!important;font-weight:800}
+    .program-list{margin:8px 0 0;padding-left:22px;color:var(--muted)}
+    .program-list li{margin:7px 0;line-height:1.45}
+    .students-details{margin-top:18px;border-top:1px solid var(--line);padding-top:16px}
+    .students-details summary{cursor:pointer;color:var(--deep);font-weight:800;list-style:none;display:flex;align-items:center;gap:8px}
+    .students-details summary::-webkit-details-marker{display:none}.students-details summary::before{content:'▸';color:var(--gold);font-size:14px}.students-details[open] summary::before{content:'▾'}
+    .students-wrap{overflow-x:auto;margin-top:14px}.students-table{width:100%;border-collapse:collapse;min-width:520px;background:#fff}.students-table th,.students-table td{border:1px solid var(--line);padding:9px 10px;text-align:left;font-size:13px}.students-table th{background:#eef5f8;color:var(--deep);font-weight:800}.students-table td:first-child{width:54px;text-align:center}.students-table td:nth-child(2){width:110px;font-weight:700;color:var(--deep)}
     .subsection-heading{margin-top:42px}
-    @media(max-width:760px){.stake-drive,.event-card{grid-template-columns:1fr}.event-media{max-width:290px}}
+    @media(max-width:760px){.stake-drive,.event-card,.program-meta{grid-template-columns:1fr}.event-media{max-width:290px}.program-box{padding:18px}}
   </style>
 </head>
 <body>
@@ -75,11 +87,10 @@
         <div class="stake-panel">
           <span class="eyebrow">Google Drive</span>
           <h3>Роботодавці та стейкхолдери</h3>
-          <p>Відео, фото, програми та інші матеріали спільних заходів, що можуть бути оприлюднені на персональному навчально-методичному сайті.</p>
+          <p>Відео, фото та інші матеріали спільних заходів, що можуть бути оприлюднені на персональному навчально-методичному сайті.</p>
           <div class="stake-actions">
             <a class="btn btn-primary" href="https://drive.google.com/drive/folders/1AghGQmVmd8ZByZ9hWMJ0uDMU6rpcJhAR" target="_blank" rel="noopener noreferrer">Відкрити папку на Google Drive ↗</a>
             <a class="btn btn-ghost" href="https://drive.google.com/drive/folders/1wNKsMTF9vICQ1y0lMMVQv6w6q9PJgBj3" target="_blank" rel="noopener noreferrer">Terrace Sea View • 25.09.2026 ↗</a>
-            <a class="btn btn-ghost" href="https://drive.google.com/drive/folders/1j0VYiQIrg7ro14f5GsKazUQq1IgXrSwW" target="_blank" rel="noopener noreferrer">Програми заходів ↗</a>
           </div>
         </div>
         <div class="stake-side"><div><strong>2026/2027</strong><span>навчальний рік • практична взаємодія з роботодавцями</span></div></div>
@@ -109,8 +120,54 @@
             <div class="event-tags"><span class="event-tag">Terrace Sea View</span><span class="event-tag">Урок-екскурсія</span><span class="event-tag">Фахова передвища освіта</span></div>
             <div class="event-actions">
               <a class="card-link" href="https://drive.google.com/file/d/1HY7-9XFqO9lHLglrtwJx_l6w_zftOp_0/view" target="_blank" rel="noopener noreferrer">Відкрити відео на Google Drive ↗</a>
-              <a class="card-link" href="https://drive.google.com/file/d/1s0xms7Ok-whJUy_zMnAQrLyakA91TW6-/view" target="_blank" rel="noopener noreferrer">Переглянути програму уроку-екскурсії ↗</a>
             </div>
+
+            <div class="program-box">
+              <h4>Програма проведення уроку-екскурсії</h4>
+              <p class="program-subtitle">для студентів ДНЗ «ОВПУ МТС»</p>
+              <div class="program-meta">
+                <div><strong>Дата проведення</strong>25 вересня 2026 року</div>
+                <div><strong>Час проведення</strong>10:00</div>
+                <div><strong>Місце проведення</strong>ресторан «Terrace Sea View», пляж Ланжерон, 1Б, м. Одеса</div>
+                <div><strong>Проводить</strong>управляюча рестораном «Terrace Sea View»</div>
+                <div><strong>Учасники</strong>студенти навчальних груп ФМБ-50, ФМБ-51, ФМБ-41, ТУ-18К, ФМБ-42К</div>
+              </div>
+              <p class="program-topic">Тема: «Сучасний ресторан зсередини: організація роботи, сервіс і професійні можливості»</p>
+              <p><strong>У програмі:</strong></p>
+              <ul class="program-list">
+                <li>знайомство з концепцією та структурою ресторану;</li>
+                <li>організація роботи виробничих і торговельних приміщень;</li>
+                <li>взаємодія кухні, залу та адміністрації;</li>
+                <li>основні етапи обслуговування гостей;</li>
+                <li>командна робота та ресторанна дисципліна;</li>
+                <li>вимоги роботодавця до молодого спеціаліста;</li>
+                <li>можливості професійного розвитку та кар’єрного зростання.</li>
+              </ul>
+
+              <details class="students-details">
+                <summary>Список студентів — 12 учасників</summary>
+                <div class="students-wrap">
+                  <table class="students-table">
+                    <thead><tr><th>№</th><th>Навчальна група</th><th>ПІБ студента</th></tr></thead>
+                    <tbody>
+                      <tr><td>1</td><td>ФМБ-50</td><td>Казяр Марта</td></tr>
+                      <tr><td>2</td><td>ФМБ-50</td><td>Мадай Дар’я</td></tr>
+                      <tr><td>3</td><td>ФМБ-50</td><td>Власова Олександра</td></tr>
+                      <tr><td>4</td><td>ФМБ-51</td><td>Шустова Дар’я</td></tr>
+                      <tr><td>5</td><td>ФМБ-41</td><td>Бородянка Христина</td></tr>
+                      <tr><td>6</td><td>ФМБ-41</td><td>Шарапанюк В’ячеслав</td></tr>
+                      <tr><td>7</td><td>ТУ-18К</td><td>Красножен Катерина</td></tr>
+                      <tr><td>8</td><td>ТУ-18К</td><td>Пирожок Валерія</td></tr>
+                      <tr><td>9</td><td>ТУ-18К</td><td>Вишневський Давид</td></tr>
+                      <tr><td>10</td><td>ТУ-18К</td><td>Обжолінський Павло</td></tr>
+                      <tr><td>11</td><td>ТУ-18К</td><td>Музикант Ілля</td></tr>
+                      <tr><td>12</td><td>ФМБ-42К</td><td>Середа Олег</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </details>
+            </div>
+
             <p class="slogan">🎓 Фахова передвища освіта — від професії до управління.</p>
           </div>
         </article>
@@ -130,7 +187,51 @@
             <div class="event-tags"><span class="event-tag">Шеф-кухар — Іванов Олександр</span><span class="event-tag">Terrace Sea View</span><span class="event-tag">Майстер-клас</span></div>
             <div class="event-actions">
               <a class="card-link" href="https://drive.google.com/file/d/1TY5rBbpMOUjlb7DSjBb0nMmU-g3rLByk/view" target="_blank" rel="noopener noreferrer">Відкрити відео на Google Drive ↗</a>
-              <a class="card-link" href="https://drive.google.com/file/d/1vbSPN2gHNXAlL2oNEWVHrBNRZwbgDJEz/view" target="_blank" rel="noopener noreferrer">Переглянути програму майстер-класу ↗</a>
+            </div>
+
+            <div class="program-box">
+              <h4>Програма проведення майстер-класу</h4>
+              <p class="program-subtitle">для студентів ДНЗ «ОВПУ МТС»</p>
+              <div class="program-meta">
+                <div><strong>Дата проведення</strong>25 вересня 2026 року</div>
+                <div><strong>Час проведення</strong>12:00</div>
+                <div><strong>Місце проведення</strong>ресторан «Terrace Sea View», пляж Ланжерон, 1Б, м. Одеса</div>
+                <div><strong>Проводить</strong>шеф-кухар ресторану «Terrace Sea View» Іванов Олександр</div>
+                <div><strong>Учасники</strong>студенти навчальних груп ФМБ-50, ФМБ-51, ФМБ-41, ТУ-18К, ФМБ-42К</div>
+              </div>
+              <p class="program-topic">Тема: «Приготування рибних страв: дорадо»</p>
+              <p><strong>У програмі:</strong></p>
+              <ul class="program-list">
+                <li>ознайомлення з рибною сировиною та вимогами до її якості;</li>
+                <li>підготовка дорадо до кулінарної обробки;</li>
+                <li>демонстрація професійних прийомів приготування рибної страви;</li>
+                <li>дотримання санітарних вимог, температурних режимів і принципів HACCP;</li>
+                <li>оформлення та подавання готової страви;</li>
+                <li>професійне спілкування шеф-кухаря зі студентами та відповіді на запитання.</li>
+              </ul>
+
+              <details class="students-details">
+                <summary>Список студентів — 12 учасників</summary>
+                <div class="students-wrap">
+                  <table class="students-table">
+                    <thead><tr><th>№</th><th>Навчальна група</th><th>ПІБ студента</th></tr></thead>
+                    <tbody>
+                      <tr><td>1</td><td>ФМБ-50</td><td>Казяр Марта</td></tr>
+                      <tr><td>2</td><td>ФМБ-50</td><td>Мадай Дар’я</td></tr>
+                      <tr><td>3</td><td>ФМБ-50</td><td>Власова Олександра</td></tr>
+                      <tr><td>4</td><td>ФМБ-51</td><td>Шустова Дар’я</td></tr>
+                      <tr><td>5</td><td>ФМБ-41</td><td>Бородянка Христина</td></tr>
+                      <tr><td>6</td><td>ФМБ-41</td><td>Шарапанюк В’ячеслав</td></tr>
+                      <tr><td>7</td><td>ТУ-18К</td><td>Красножен Катерина</td></tr>
+                      <tr><td>8</td><td>ТУ-18К</td><td>Пирожок Валерія</td></tr>
+                      <tr><td>9</td><td>ТУ-18К</td><td>Вишневський Давид</td></tr>
+                      <tr><td>10</td><td>ТУ-18К</td><td>Обжолінський Павло</td></tr>
+                      <tr><td>11</td><td>ТУ-18К</td><td>Музикант Ілля</td></tr>
+                      <tr><td>12</td><td>ФМБ-42К</td><td>Середа Олег</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </details>
             </div>
 
             <div class="result-box">
