@@ -54,6 +54,9 @@
     .evidence-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:22px}
     .evidence-shot{margin:0;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 26px rgba(16,47,73,.10)}
     .evidence-shot img{display:block;width:100%;max-width:420px;height:auto;margin:0 auto}
+    .law-week-evidence-gallery{grid-template-columns:repeat(2,minmax(0,320px));justify-content:center}
+    .law-week-evidence-gallery .evidence-shot img{width:100%;max-width:280px;height:auto}
+    @media(max-width:700px){.law-week-evidence-gallery{grid-template-columns:minmax(0,320px)}}
     .evidence-shot figcaption{padding:12px 16px;color:var(--muted);font-size:14px;line-height:1.45}
 
     .materials-showcase{display:grid;gap:22px;margin-top:24px}
@@ -193,7 +196,7 @@
     <div class="container">
       <div class="section-heading"><div><span class="eyebrow">Фотозвіт</span><h2>Тиждень правових знань: онлайн-зустріч</h2></div><div class="section-symbol">📸</div></div>
       <div class="evidence"><strong>Фрагменти виховного заходу</strong><p>Перегляд тематичних презентацій, обговорення прав дитини, відповідального ставлення до азартних ігор та правил безпечної поведінки в інформаційному просторі.</p>
-        <div class="evidence-gallery">
+        <div class="evidence-gallery law-week-evidence-gallery">
           <figure class="evidence-shot"><img src="assets/fmb42k-law-week-1.webp" alt="Три скріншоти онлайн-заходу: електронні плакати про азартні ігри, шахрайство та безпечну поведінку"><figcaption>Електронні плакати та участь студентів у Google Meet.</figcaption></figure>
           <figure class="evidence-shot"><img src="assets/fmb42k-law-week-2.webp" alt="Три скріншоти онлайн-заходу: презентації про Конвенцію ООН про права дитини та Закон України Про охорону дитинства"><figcaption>Презентації та практичне обговорення прав дитини.</figcaption></figure>
         </div>
