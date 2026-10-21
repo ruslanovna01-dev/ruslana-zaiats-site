@@ -32,7 +32,7 @@
     .evidence p{margin:0;color:var(--muted);line-height:1.6}
     .product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}
     .product-card{display:flex;flex-direction:column;overflow:hidden;border-radius:22px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow)}
-    .product-card img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:#eef3f7}
+    .product-card img{width:100%;aspect-ratio:16/9;object-fit:contain;display:block;background:#eef3f7}
     .product-body{padding:22px;display:flex;flex-direction:column;gap:10px;flex:1}
     .product-body h3{margin:0;color:var(--deep);font-size:21px;line-height:1.25}
     .product-body p{margin:0;color:var(--muted);line-height:1.55}
@@ -41,11 +41,19 @@
     .product-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:999px;text-decoration:none;font-weight:800;font-size:14px;background:var(--deep);color:#fff}
     .product-btn.alt{background:#eef6fb;color:var(--deep);border:1px solid #c9dbe7}
     .poster-list{margin:8px 0 0;padding-left:20px;color:var(--muted);line-height:1.55}
+    .product-cover{position:relative;aspect-ratio:16/9;display:grid;place-items:center;overflow:hidden;background:linear-gradient(135deg,#e8f3fc,#fff6de)}
+    .product-cover>img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+    .product-cover-fallback{display:none;align-items:center;justify-content:center;flex-direction:column;text-align:center;gap:12px;padding:24px;color:var(--deep)}
+    .product-cover-fallback strong{font-size:clamp(17px,2vw,23px);line-height:1.3}
+    .product-cover-fallback span{font-size:38px}
+    .product-cover.is-fallback>img{display:none}
+    .product-cover.is-fallback .product-cover-fallback{display:flex}
     @media(max-width:980px){.product-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:680px){.evidence-gallery{grid-template-columns:1fr}}
     @media(max-width:680px){.product-grid{grid-template-columns:1fr}}
-    .evidence-gallery{display:grid;grid-template-columns:1fr;gap:18px;margin-top:22px}
+    .evidence-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:22px}
     .evidence-shot{margin:0;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 26px rgba(16,47,73,.10)}
-    .evidence-shot img{display:block;width:100%;height:auto}
+    .evidence-shot img{display:block;width:100%;max-width:420px;height:auto;margin:0 auto}
     .evidence-shot figcaption{padding:12px 16px;color:var(--muted);font-size:14px;line-height:1.45}
 
     .materials-showcase{display:grid;gap:22px;margin-top:24px}
@@ -135,7 +143,7 @@
 
       <div class="product-grid">
         <article class="product-card">
-          <img src="assets/fmb42k-law-week-2.webp" alt="Презентація Конвенція ООН про права дитини — фрагменти онлайн-показу">
+          <div class="product-cover"><img loading="lazy" src="https://drive.google.com/thumbnail?id=14SOfOQ7Rpn6o8Y2GpI-GY_isTkCYutz74MDXDcjqseQ&amp;sz=w1600" alt="Титульний слайд презентації «Конвенція ООН про права дитини»" onerror="this.parentElement.classList.add('is-fallback')"><div class="product-cover-fallback" aria-hidden="true"><span>📘</span><strong>Конвенція ООН про права дитини</strong></div></div>
           <div class="product-body">
             <span class="product-meta">Презентація • 9 слайдів</span>
             <h3>«Конвенція ООН про права дитини»</h3>
@@ -147,7 +155,7 @@
         </article>
 
         <article class="product-card">
-          <img src="assets/fmb42k-law-week-2.webp" alt="Презентація Закон України Про охорону дитинства — фрагменти онлайн-показу">
+          <div class="product-cover"><img loading="lazy" src="https://drive.google.com/thumbnail?id=1QAYXz9OH2dr4IojeOIX5S1vrQe3FR4KrcqGgNbUr9f0&amp;sz=w1600" alt="Титульний слайд презентації «Про охорону дитинства»" onerror="this.parentElement.classList.add('is-fallback')"><div class="product-cover-fallback" aria-hidden="true"><span>🛡️</span><strong>Закон України «Про охорону дитинства»</strong></div></div>
           <div class="product-body">
             <span class="product-meta">Презентація • 9 слайдів</span>
             <h3>Закон України «Про охорону дитинства»</h3>
@@ -159,7 +167,7 @@
         </article>
 
         <article class="product-card">
-          <img src="assets/fmb42k-law-week-1.webp" alt="Електронні плакати Азартні ігри та лотерея. Законно? — демонстрація під час Google Meet">
+          <div class="product-cover"><img loading="lazy" src="https://drive.google.com/thumbnail?id=1Zb5gQKsfx4f95LaBGw8qXMDRA2A8x7znGgk0jfq2pMk&amp;sz=w1600" alt="Презентація електронних плакатів «Азартні ігри та лотерея. Законно?»" onerror="this.parentElement.classList.add('is-fallback')"><div class="product-cover-fallback" aria-hidden="true"><span>⚖️</span><strong>Азартні ігри та лотерея. Законно?</strong></div></div>
           <div class="product-body">
             <span class="product-meta">Комплект • 5 електронних плакатів</span>
             <h3>«Азартні ігри та лотерея. Законно?»</h3>
@@ -232,42 +240,42 @@
         <div class="event-photos">
         <figure class="event-photo">
           <a href="https://drive.google.com/file/d/1a7LToE_abFUm-CYDrQoHQuch08_MabEV/view" target="_blank" rel="noopener noreferrer" aria-label="Переглянути фото 1: Початок онлайн-виховної години «Безпека щодня: правила, що зберігають життя».">
-            <img loading="lazy" src="https://drive.google.com/thumbnail?id=1a7LToE_abFUm-CYDrQoHQuch08_MabEV&amp;sz=w1200" alt="Початок онлайн-виховної години «Безпека щодня: правила, що зберігають життя».">
+            <img loading="lazy" src="https://drive.google.com/thumbnail?id=1a7LToE_abFUm-CYDrQoHQuch08_MabEV&amp;sz=w1600" alt="Початок онлайн-виховної години «Безпека щодня: правила, що зберігають життя».">
           </a>
           <figcaption>Початок онлайн-виховної години «Безпека щодня: правила, що зберігають життя». <a href="https://drive.google.com/file/d/1a7LToE_abFUm-CYDrQoHQuch08_MabEV/view" target="_blank" rel="noopener noreferrer">Відкрити фото ↗</a></figcaption>
         </figure>
 
         <figure class="event-photo">
           <a href="https://drive.google.com/file/d/1bi0XwDho2ASReoSDCF7mAR5QLt5dJA_-/view" target="_blank" rel="noopener noreferrer" aria-label="Переглянути фото 2: Мінна безпека: як поводитися з підозрілими та вибухонебезпечними предметами.">
-            <img loading="lazy" src="https://drive.google.com/thumbnail?id=1bi0XwDho2ASReoSDCF7mAR5QLt5dJA_-&amp;sz=w1200" alt="Мінна безпека: як поводитися з підозрілими та вибухонебезпечними предметами.">
+            <img loading="lazy" src="https://drive.google.com/thumbnail?id=1bi0XwDho2ASReoSDCF7mAR5QLt5dJA_-&amp;sz=w1600" alt="Мінна безпека: як поводитися з підозрілими та вибухонебезпечними предметами.">
           </a>
           <figcaption>Мінна безпека: як поводитися з підозрілими та вибухонебезпечними предметами. <a href="https://drive.google.com/file/d/1bi0XwDho2ASReoSDCF7mAR5QLt5dJA_-/view" target="_blank" rel="noopener noreferrer">Відкрити фото ↗</a></figcaption>
         </figure>
 
         <figure class="event-photo">
           <a href="https://drive.google.com/file/d/1iphlDmZtPhhcqXSnFvnc0rrWveIh3TXp/view" target="_blank" rel="noopener noreferrer" aria-label="Переглянути фото 3: Особиста гігієна та культура безпечної роботи з харчовими продуктами.">
-            <img loading="lazy" src="https://drive.google.com/thumbnail?id=1iphlDmZtPhhcqXSnFvnc0rrWveIh3TXp&amp;sz=w1200" alt="Особиста гігієна та культура безпечної роботи з харчовими продуктами.">
+            <img loading="lazy" src="https://drive.google.com/thumbnail?id=1iphlDmZtPhhcqXSnFvnc0rrWveIh3TXp&amp;sz=w1600" alt="Особиста гігієна та культура безпечної роботи з харчовими продуктами.">
           </a>
           <figcaption>Особиста гігієна та культура безпечної роботи з харчовими продуктами. <a href="https://drive.google.com/file/d/1iphlDmZtPhhcqXSnFvnc0rrWveIh3TXp/view" target="_blank" rel="noopener noreferrer">Відкрити фото ↗</a></figcaption>
         </figure>
 
         <figure class="event-photo">
           <a href="https://drive.google.com/file/d/1SXDt2VF_830PDYp7WhI-qi0e5B3Czf2z/view" target="_blank" rel="noopener noreferrer" aria-label="Переглянути фото 4: Практичне обговорення ситуацій: підозрілий предмет, електроприлади, шахрайські повідомлення, небезпека на льоду.">
-            <img loading="lazy" src="https://drive.google.com/thumbnail?id=1SXDt2VF_830PDYp7WhI-qi0e5B3Czf2z&amp;sz=w1200" alt="Практичне обговорення ситуацій: підозрілий предмет, електроприлади, шахрайські повідомлення, небезпека на льоду.">
+            <img loading="lazy" src="https://drive.google.com/thumbnail?id=1SXDt2VF_830PDYp7WhI-qi0e5B3Czf2z&amp;sz=w1600" alt="Практичне обговорення ситуацій: підозрілий предмет, електроприлади, шахрайські повідомлення, небезпека на льоду.">
           </a>
           <figcaption>Практичне обговорення ситуацій: підозрілий предмет, електроприлади, шахрайські повідомлення, небезпека на льоду. <a href="https://drive.google.com/file/d/1SXDt2VF_830PDYp7WhI-qi0e5B3Czf2z/view" target="_blank" rel="noopener noreferrer">Відкрити фото ↗</a></figcaption>
         </figure>
 
         <figure class="event-photo">
           <a href="https://drive.google.com/file/d/1tPBWUSsH3CDC4DWrYM2EydzAlBzxl_f2/view" target="_blank" rel="noopener noreferrer" aria-label="Переглянути фото 5: Правило «НЕ»: не підходь, не чіпай, відійди, повідом.">
-            <img loading="lazy" src="https://drive.google.com/thumbnail?id=1tPBWUSsH3CDC4DWrYM2EydzAlBzxl_f2&amp;sz=w1200" alt="Правило «НЕ»: не підходь, не чіпай, відійди, повідом.">
+            <img loading="lazy" src="https://drive.google.com/thumbnail?id=1tPBWUSsH3CDC4DWrYM2EydzAlBzxl_f2&amp;sz=w1600" alt="Правило «НЕ»: не підходь, не чіпай, відійди, повідом.">
           </a>
           <figcaption>Правило «НЕ»: не підходь, не чіпай, відійди, повідом. <a href="https://drive.google.com/file/d/1tPBWUSsH3CDC4DWrYM2EydzAlBzxl_f2/view" target="_blank" rel="noopener noreferrer">Відкрити фото ↗</a></figcaption>
         </figure>
 
         <figure class="event-photo">
           <a href="https://drive.google.com/file/d/1yoxnMdJrB9GjTfaVH1j4OT42U3dJkHRj/view" target="_blank" rel="noopener noreferrer" aria-label="Переглянути фото 6: Безпечна поведінка біля моря, річок та інших водойм.">
-            <img loading="lazy" src="https://drive.google.com/thumbnail?id=1yoxnMdJrB9GjTfaVH1j4OT42U3dJkHRj&amp;sz=w1200" alt="Безпечна поведінка біля моря, річок та інших водойм.">
+            <img loading="lazy" src="https://drive.google.com/thumbnail?id=1yoxnMdJrB9GjTfaVH1j4OT42U3dJkHRj&amp;sz=w1600" alt="Безпечна поведінка біля моря, річок та інших водойм.">
           </a>
           <figcaption>Безпечна поведінка біля моря, річок та інших водойм. <a href="https://drive.google.com/file/d/1yoxnMdJrB9GjTfaVH1j4OT42U3dJkHRj/view" target="_blank" rel="noopener noreferrer">Відкрити фото ↗</a></figcaption>
         </figure>
@@ -301,35 +309,35 @@
         <div class="event-photos">
         <figure class="event-photo">
           <a href="https://drive.google.com/file/d/1TzCzVEIzc2qFQJp36AHNVE67-9zKXHdf/view" target="_blank" rel="noopener noreferrer" aria-label="Переглянути фото 1: Тема перегляду: «Інновації сьогодні. Харчування завтра» — Всесвітній день продовольства 2026.">
-            <img loading="lazy" src="https://drive.google.com/thumbnail?id=1TzCzVEIzc2qFQJp36AHNVE67-9zKXHdf&amp;sz=w1200" alt="Тема перегляду: «Інновації сьогодні. Харчування завтра» — Всесвітній день продовольства 2026.">
+            <img loading="lazy" src="https://drive.google.com/thumbnail?id=1TzCzVEIzc2qFQJp36AHNVE67-9zKXHdf&amp;sz=w1600" alt="Тема перегляду: «Інновації сьогодні. Харчування завтра» — Всесвітній день продовольства 2026.">
           </a>
           <figcaption>Тема перегляду: «Інновації сьогодні. Харчування завтра» — Всесвітній день продовольства 2026. <a href="https://drive.google.com/file/d/1TzCzVEIzc2qFQJp36AHNVE67-9zKXHdf/view" target="_blank" rel="noopener noreferrer">Відкрити фото ↗</a></figcaption>
         </figure>
 
         <figure class="event-photo">
           <a href="https://drive.google.com/file/d/1oqtc3CjBBMV21eP-AV4G-HwDn3uOJAVX/view" target="_blank" rel="noopener noreferrer" aria-label="Переглянути фото 2: Знайомство з міжнародною ініціативою World Food Day та ідеєю спільних дій.">
-            <img loading="lazy" src="https://drive.google.com/thumbnail?id=1oqtc3CjBBMV21eP-AV4G-HwDn3uOJAVX&amp;sz=w1200" alt="Знайомство з міжнародною ініціативою World Food Day та ідеєю спільних дій.">
+            <img loading="lazy" src="https://drive.google.com/thumbnail?id=1oqtc3CjBBMV21eP-AV4G-HwDn3uOJAVX&amp;sz=w1600" alt="Знайомство з міжнародною ініціативою World Food Day та ідеєю спільних дій.">
           </a>
           <figcaption>Знайомство з міжнародною ініціативою World Food Day та ідеєю спільних дій. <a href="https://drive.google.com/file/d/1oqtc3CjBBMV21eP-AV4G-HwDn3uOJAVX/view" target="_blank" rel="noopener noreferrer">Відкрити фото ↗</a></figcaption>
         </figure>
 
         <figure class="event-photo">
           <a href="https://drive.google.com/file/d/14OXZZcAXE7DY0T5odAc5RxayB9i8LJtQ/view" target="_blank" rel="noopener noreferrer" aria-label="Переглянути фото 3: Інформаційні матеріали FAO про сталу продовольчу систему та участь молоді.">
-            <img loading="lazy" src="https://drive.google.com/thumbnail?id=14OXZZcAXE7DY0T5odAc5RxayB9i8LJtQ&amp;sz=w1200" alt="Інформаційні матеріали FAO про сталу продовольчу систему та участь молоді.">
+            <img loading="lazy" src="https://drive.google.com/thumbnail?id=14OXZZcAXE7DY0T5odAc5RxayB9i8LJtQ&amp;sz=w1600" alt="Інформаційні матеріали FAO про сталу продовольчу систему та участь молоді.">
           </a>
           <figcaption>Інформаційні матеріали FAO про сталу продовольчу систему та участь молоді. <a href="https://drive.google.com/file/d/14OXZZcAXE7DY0T5odAc5RxayB9i8LJtQ/view" target="_blank" rel="noopener noreferrer">Відкрити фото ↗</a></figcaption>
         </figure>
 
         <figure class="event-photo">
           <a href="https://drive.google.com/file/d/1LFbCnN02Mrow34b7E3SHHHuv8kATpbUl/view" target="_blank" rel="noopener noreferrer" aria-label="Переглянути фото 4: Віртуальні освітні ресурси FAO: Музей харчування та міжнародні ініціативи.">
-            <img loading="lazy" src="https://drive.google.com/thumbnail?id=1LFbCnN02Mrow34b7E3SHHHuv8kATpbUl&amp;sz=w1200" alt="Віртуальні освітні ресурси FAO: Музей харчування та міжнародні ініціативи.">
+            <img loading="lazy" src="https://drive.google.com/thumbnail?id=1LFbCnN02Mrow34b7E3SHHHuv8kATpbUl&amp;sz=w1600" alt="Віртуальні освітні ресурси FAO: Музей харчування та міжнародні ініціативи.">
           </a>
           <figcaption>Віртуальні освітні ресурси FAO: Музей харчування та міжнародні ініціативи. <a href="https://drive.google.com/file/d/1LFbCnN02Mrow34b7E3SHHHuv8kATpbUl/view" target="_blank" rel="noopener noreferrer">Відкрити фото ↗</a></figcaption>
         </figure>
 
         <figure class="event-photo">
           <a href="https://drive.google.com/file/d/1c7oAnNV8aFF29w176CGiOwCdZOG-0daE/view" target="_blank" rel="noopener noreferrer" aria-label="Переглянути фото 5: Обговорення втрат продовольства й харчових відходів: від виробництва до споживання.">
-            <img loading="lazy" src="https://drive.google.com/thumbnail?id=1c7oAnNV8aFF29w176CGiOwCdZOG-0daE&amp;sz=w1200" alt="Обговорення втрат продовольства й харчових відходів: від виробництва до споживання.">
+            <img loading="lazy" src="https://drive.google.com/thumbnail?id=1c7oAnNV8aFF29w176CGiOwCdZOG-0daE&amp;sz=w1600" alt="Обговорення втрат продовольства й харчових відходів: від виробництва до споживання.">
           </a>
           <figcaption>Обговорення втрат продовольства й харчових відходів: від виробництва до споживання. <a href="https://drive.google.com/file/d/1c7oAnNV8aFF29w176CGiOwCdZOG-0daE/view" target="_blank" rel="noopener noreferrer">Відкрити фото ↗</a></figcaption>
         </figure>
