@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Риба та морепродукти: технологічний квест — Руслана ЗАЯЦЬ</title>
+<meta name="robots" content="noindex,nofollow">
+<style>
+:root{--deep:#102f49;--blue:#176b8f;--blue2:#268eb5;--gold:#d8a62e;--soft:#f3f8fa;--line:#d7e4ea;--text:#173244;--muted:#607b89;--ok:#17724b;--bad:#a73b32}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif;background:linear-gradient(180deg,#eef6f9 0,#fff 42%);color:var(--text)}
+button,input{font:inherit}.app{max-width:980px;margin:auto;padding:18px 14px 60px}.hero{border-radius:28px;padding:28px;background:linear-gradient(135deg,var(--deep),#1e638c);color:#fff;box-shadow:0 18px 48px rgba(16,47,73,.18);position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;right:-90px;top:-110px;background:rgba(255,255,255,.07)}.eyebrow{font-size:12px;font-weight:900;letter-spacing:.11em;text-transform:uppercase;color:#ffd77a}.hero h1{margin:8px 0 8px;font-size:clamp(28px,5vw,46px);line-height:1.06}.hero p{margin:0;max-width:760px;line-height:1.6;color:#e5f0f5}
+.panel{background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px;margin-top:16px;box-shadow:0 8px 26px rgba(15,49,71,.06)}.identity{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}.field label{display:block;font-size:13px;font-weight:850;margin-bottom:6px}.field input{width:100%;padding:12px 13px;border:1px solid #c7d8e0;border-radius:12px;outline:none}.field input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(23,107,143,.1)}
+.start{display:flex;align-items:center;justify-content:space-between;gap:18px}.btn{border:0;border-radius:14px;padding:13px 18px;font-weight:850;cursor:pointer}.btn-primary{background:var(--blue);color:#fff}.btn-primary:hover{background:#125e7e}.btn-soft{background:#edf5f8;color:var(--deep)}.note{font-size:13px;color:var(--muted);line-height:1.5}
+#quiz{display:none}.topbar{position:sticky;top:8px;z-index:20;background:rgba(255,255,255,.93);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:16px;padding:10px 12px;margin:14px 0;box-shadow:0 6px 18px rgba(15,49,71,.08)}.toprow{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:13px;font-weight:800}.progress{height:8px;background:#e7eff3;border-radius:999px;overflow:hidden;margin-top:8px}.progress>span{display:block;height:100%;background:linear-gradient(90deg,var(--blue),#54b3cf);width:0;transition:.3s}
+.qcard{background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px;margin:14px 0;box-shadow:0 7px 23px rgba(15,49,71,.055)}.qhead{display:flex;gap:12px;align-items:flex-start}.qnum{width:38px;height:38px;flex:0 0 38px;display:grid;place-items:center;border-radius:12px;background:#eaf4f8;color:var(--blue);font-weight:900}.qtitle{font-size:18px;font-weight:850;line-height:1.45}.hint{font-size:13px;color:var(--muted);margin:7px 0 0}
+.visual{margin:16px 0;border-radius:18px;overflow:hidden;background:#f4f9fb;border:1px solid #dbe8ed;padding:14px}.visual svg{display:block;width:100%;height:auto;max-height:320px}.options{display:grid;gap:9px;margin-top:14px}.opt{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;background:#fff;border:1px solid #d4e1e7;border-radius:14px;padding:12px;cursor:pointer;color:var(--text)}.opt:hover{background:#f7fbfc}.opt.selected{border-color:var(--blue);background:#edf7fa;box-shadow:0 0 0 2px rgba(23,107,143,.08)}.opt .mark{width:24px;height:24px;flex:0 0 24px;border-radius:8px;background:#edf3f5;display:grid;place-items:center;font-size:12px;font-weight:900}.opt.selected .mark{background:var(--blue);color:#fff}
+.sequence{display:grid;gap:9px;margin-top:14px}.seq{border:1px solid #d4e1e7;border-radius:14px;padding:12px;background:#fff;cursor:pointer;display:flex;align-items:center;gap:10px}.seq.chosen{background:#edf7fa;border-color:var(--blue)}.seqno{width:28px;height:28px;border-radius:9px;background:#edf3f5;display:grid;place-items:center;font-weight:900;color:var(--blue)}.seq.chosen .seqno{background:var(--blue);color:#fff}
+.hotspots{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin-top:12px}.hot{border:1px solid #cddde5;background:#fff;border-radius:12px;padding:10px;cursor:pointer;font-weight:750}.hot.selected{background:var(--blue);border-color:var(--blue);color:#fff}
+.navrow{display:flex;justify-content:flex-end;margin-top:18px}.finish{width:100%;padding:15px;font-size:16px}.error{display:none;margin-top:10px;padding:10px 12px;border-radius:12px;background:#fff1ef;color:var(--bad);border:1px solid #f2cbc7}
+#result{display:none;text-align:center}.ring{width:150px;height:150px;border-radius:50%;margin:8px auto 18px;display:grid;place-items:center;background:conic-gradient(var(--blue) calc(var(--p)*1%),#e6eef2 0);position:relative}.ring:after{content:"";position:absolute;width:116px;height:116px;border-radius:50%;background:#fff}.ring strong{position:relative;z-index:1;font-size:34px;color:var(--deep)}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}.metric{padding:14px;border-radius:15px;background:#f4f8fa}.metric strong{display:block;font-size:22px;color:var(--deep)}.metric span{font-size:12px;color:var(--muted)}.result-msg{font-size:18px;font-weight:800}.review{margin-top:18px;text-align:left}.review-item{border:1px solid var(--line);border-radius:14px;padding:12px;margin:8px 0}.review-item.ok{border-left:5px solid var(--ok)}.review-item.bad{border-left:5px solid var(--bad)}.preview-badge{display:inline-block;margin-top:14px;padding:7px 10px;border-radius:999px;background:#fff6d8;color:#74570b;font-size:12px;font-weight:850}
+@media(max-width:720px){.identity,.metrics{grid-template-columns:1fr}.start{align-items:stretch;flex-direction:column}.hero{padding:23px}.qcard{padding:17px}}
+</style>
+</head>
+<body>
+<main class="app">
+<section class="hero"><span class="eyebrow">ТУ • навчальний модуль 3</span><h1>Риба та морепродукти: технологічний квест</h1><p>12 інтерактивних завдань з приймання, механічної обробки, напівфабрикатів, морепродуктів, якості та безпеки.</p><span class="preview-badge">Попередня версія для перевірки</span></section>
+<section id="intro" class="panel">
+  <div class="start">
+    <div><h2 style="margin:0 0 6px">Перед початком</h2><div class="note">12 завдань • кожне завдання = 1 бал • підсумок: 12-бальна, 100-бальна шкала та ECTS.</div></div>
+    <button class="btn btn-primary" id="startBtn">Розпочати квест →</button>
+  </div>
+  <div class="identity" style="margin-top:18px">
+    <div class="field"><label>Прізвище</label><input id="surname" autocomplete="family-name"></div>
+    <div class="field"><label>Ім’я</label><input id="firstName" autocomplete="given-name"></div>
+    <div class="field"><label>Група</label><input id="group" placeholder="Наприклад, ФМБ-40"></div>
+  </div>
+  <div id="introError" class="error"></div>
+</section>
+<section id="quiz">
+  <div class="topbar"><div class="toprow"><span id="studentLine"></span><span id="counter">1 / 12</span></div><div class="progress"><span id="bar"></span></div></div>
+  <div id="questions"></div>
+  <section class="panel"><button class="btn btn-primary finish" id="finishBtn">Завершити та отримати результат</button><div id="quizError" class="error"></div></section>
+</section>
+<section id="result" class="panel">
+  <span class="eyebrow" style="color:var(--gold)">Результат</span><h2 id="resultTitle">Квест завершено</h2>
+  <div class="ring" id="ring" style="--p:0"><strong id="percent">0%</strong></div>
+  <div class="result-msg" id="resultMsg"></div>
+  <div class="metrics"><div class="metric"><strong id="raw12">0/12</strong><span>12-бальна</span></div><div class="metric"><strong id="raw100">0</strong><span>100-бальна</span></div><div class="metric"><strong id="ects">F</strong><span>ECTS</span></div><div class="metric"><strong id="timeSpent">0:00</strong><span>час</span></div></div>
+  <div class="note" id="saveStatus">У режимі попереднього перегляду результат зберігається лише на цьому пристрої.</div>
+  <div class="review" id="review"></div>
+  <button class="btn btn-soft" onclick="location.reload()">Пройти ще раз</button>
+</section>
+</main>
+<script>
+const GAME_ID="fish-seafood-quest";
+const GAME_TITLE="Риба та морепродукти: технологічний квест";
+const RESULTS_ENDPOINT="";
+const QUESTIONS=[{"id":"f1","type":"single","prompt":"За візуальними ознаками вибери картку, що більше відповідає доброякісній свіжій рибі.","visual":"\u003csvg viewBox=\"0 0 760 260\">\u003crect x=\"20\" y=\"18\" width=\"340\" height=\"220\" rx=\"20\" fill=\"#eaf7fb\"/>\u003cellipse cx=\"190\" cy=\"130\" rx=\"115\" ry=\"52\" fill=\"#7ec8dd\"/>\u003cpolygon points=\"80,130 34,92 34,168\" fill=\"#5aaac5\"/>\u003ccircle cx=\"260\" cy=\"118\" r=\"12\" fill=\"#fff\"/>\u003ccircle cx=\"260\" cy=\"118\" r=\"6\" fill=\"#173244\"/>\u003cpath d=\"M244 142 Q262 153 280 142\" stroke=\"#176b8f\" stroke-width=\"4\" fill=\"none\"/>\u003ctext x=\"190\" y=\"212\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"700\" fill=\"#17724b\">A • прозоре око • пружна тканина\u003c/text>\u003crect x=\"400\" y=\"18\" width=\"340\" height=\"220\" rx=\"20\" fill=\"#fbefed\"/>\u003cellipse cx=\"570\" cy=\"130\" rx=\"115\" ry=\"52\" fill=\"#a6b6bd\"/>\u003cpolygon points=\"460,130 414,92 414,168\" fill=\"#8ea1a9\"/>\u003ccircle cx=\"640\" cy=\"118\" r=\"12\" fill=\"#c7d0d4\"/>\u003ccircle cx=\"640\" cy=\"118\" r=\"5\" fill=\"#697b83\"/>\u003cpath d=\"M624 150 Q642 137 660 150\" stroke=\"#7f5551\" stroke-width=\"4\" fill=\"none\"/>\u003ctext x=\"570\" y=\"212\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"700\" fill=\"#a73b32\">B • мутне око • м’яка тканина\u003c/text>\u003c/svg>","options":["Картка A","Картка B","Обидві","Жодна"],"correct":0,"feedback":"Для доброякісної свіжої риби характерні прозорі очі, пружна тканина та властивий запах."},{"id":"f2","type":"multi","prompt":"Що перевіряють під час приймання риби?","hint":"Обери всі правильні пункти.","options":["Документи й маркування","Температуру та стан тари","Запах і зовнішній вигляд","Лише ціну партії"],"correct":[0,1,2],"feedback":"Під час приймання оцінюють документи, температуру, тару та органолептичні ознаки якості."},{"id":"f3","type":"sequence","prompt":"Встанови правильну технологічну послідовність первинної обробки лускатої риби.","items":["Патрання","Приймання / оцінка якості","Промивання","Очищення від луски","Нарізання на напівфабрикати"],"correct":[1,3,0,2,4],"feedback":"Базова послідовність: приймання → очищення → патрання → промивання → нарізання."},{"id":"f4","type":"single","prompt":"На рисунку показано два види напівфабрикатів. Де зображено «кругляк»?","visual":"\u003csvg viewBox=\"0 0 760 260\">\u003crect x=\"20\" y=\"20\" width=\"340\" height=\"210\" rx=\"18\" fill=\"#f5fafc\" stroke=\"#d2e2e8\"/>\u003ctext x=\"190\" y=\"52\" text-anchor=\"middle\" font-size=\"17\" font-weight=\"800\">A\u003c/text>\u003cellipse cx=\"190\" cy=\"130\" rx=\"78\" ry=\"60\" fill=\"#f2c9a5\" stroke=\"#aa7354\" stroke-width=\"4\"/>\u003cellipse cx=\"190\" cy=\"130\" rx=\"28\" ry=\"20\" fill=\"#f7f1e8\" stroke=\"#aa7354\"/>\u003ccircle cx=\"190\" cy=\"130\" r=\"7\" fill=\"#d9c2a8\"/>\u003ctext x=\"190\" y=\"210\" text-anchor=\"middle\" font-size=\"14\" fill=\"#607b89\">поперечний порційний шматок\u003c/text>\u003crect x=\"400\" y=\"20\" width=\"340\" height=\"210\" rx=\"18\" fill=\"#f5fafc\" stroke=\"#d2e2e8\"/>\u003ctext x=\"570\" y=\"52\" text-anchor=\"middle\" font-size=\"17\" font-weight=\"800\">B\u003c/text>\u003cpath d=\"M470 150 Q540 78 675 110 Q640 167 500 184 Z\" fill=\"#f2c9a5\" stroke=\"#aa7354\" stroke-width=\"4\"/>\u003ctext x=\"570\" y=\"210\" text-anchor=\"middle\" font-size=\"14\" fill=\"#607b89\">пласт філе\u003c/text>\u003c/svg>","options":["A","B","Обидва","Жоден"],"correct":0,"feedback":"«Кругляк» — шматок риби, нарізаний поперек тушки."},{"id":"f5","type":"multi","prompt":"Познач нерибні продукти моря.","options":["Креветки","Мідії","Кальмари","Короп"],"correct":[0,1,2],"feedback":"Креветки, мідії та кальмари належать до нерибних продуктів моря; короп — риба."},{"id":"f6","type":"single","prompt":"Чому під час патрання не можна пошкоджувати жовчний міхур?","options":["Може з’явитися гіркий присмак","Риба втратить усі кістки","Збільшиться вихід напівфабрикату","Поліпшиться запах"],"correct":0,"feedback":"Пошкодження жовчного міхура може спричинити потрапляння жовчі на м’якоть і появу гіркоти."},{"id":"f7","type":"sequence","prompt":"Встанови безпечну послідовність роботи із замороженою рибою.","items":["Механічна обробка на чистому робочому місці","Контрольоване відтаювання у холодильних умовах","Оцінка якості після відтаювання","Розміщення замороженої сировини на зберігання до обробки"],"correct":[3,1,2,0],"feedback":"Відтаювання має бути контрольованим; після нього оцінюють стан сировини й лише потім переходять до механічної обробки."},{"id":"f8","type":"hotspot","prompt":"Який інвентар слід обрати для оброблення сирої риби, щоб зменшити ризик перехресного забруднення?","visual":"\u003csvg viewBox=\"0 0 760 220\">\u003crect x=\"35\" y=\"50\" width=\"190\" height=\"120\" rx=\"18\" fill=\"#d9eff7\"/>\u003cpath d=\"M70 128 L170 82 L180 98 L80 144 Z\" fill=\"#b9c6cc\"/>\u003crect x=\"58\" y=\"128\" width=\"48\" height=\"13\" rx=\"6\" fill=\"#315f76\"/>\u003ctext x=\"130\" y=\"195\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"700\">Окремі ніж і дошка\u003c/text>\u003crect x=\"285\" y=\"50\" width=\"190\" height=\"120\" rx=\"18\" fill=\"#fff0d7\"/>\u003cpath d=\"M320 128 L420 82 L430 98 L330 144 Z\" fill=\"#b9c6cc\"/>\u003ctext x=\"380\" y=\"195\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"700\">Спільний ніж без миття\u003c/text>\u003crect x=\"535\" y=\"50\" width=\"190\" height=\"120\" rx=\"18\" fill=\"#f1f4f5\"/>\u003ccircle cx=\"630\" cy=\"111\" r=\"43\" fill=\"none\" stroke=\"#748a94\" stroke-width=\"7\"/>\u003ctext x=\"630\" y=\"195\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"700\">Лише тарілка\u003c/text>\u003c/svg>","hotspots":[{"value":"separate","label":"Окремі ніж і дошка"},{"value":"shared","label":"Спільний ніж без миття"},{"value":"plate","label":"Лише тарілка"}],"correct":"separate","feedback":"Для сирої риби використовують окремо визначений чистий інвентар і не допускають контакту з готовою продукцією."},{"id":"f9","type":"single","prompt":"Що відбувається з кальмарами за надмірно тривалої теплової обробки?","options":["Стають жорсткими","Завжди стають ніжнішими","Повністю втрачають білок","Перетворюються на овочевий гарнір"],"correct":0,"feedback":"Надмірна теплова обробка кальмарів погіршує текстуру й робить їх жорсткими."},{"id":"f10","type":"multi","prompt":"Які дії допомагають попередити перехресне забруднення?","options":["Окремий інвентар для сирої риби","Миття й санітарна обробка робочої поверхні","Зберігання готових продуктів поруч із сирою рибою без розділення","Своєчасне видалення відходів"],"correct":[0,1,3],"feedback":"Розділення інвентарю, санітарна обробка та контроль відходів знижують ризик перенесення забруднення."},{"id":"f11","type":"single","prompt":"Які відходи за належної якості можуть бути використані як харчові, наприклад для бульйону?","visual":"\u003csvg viewBox=\"0 0 760 210\">\u003cg transform=\"translate(35 30)\">\u003crect width=\"210\" height=\"145\" rx=\"18\" fill=\"#eaf7fb\"/>\u003cpath d=\"M45 82 Q100 26 165 78 Q120 130 45 82\" fill=\"#7ec8dd\"/>\u003ccircle cx=\"141\" cy=\"70\" r=\"5\" fill=\"#173244\"/>\u003ctext x=\"105\" y=\"132\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"700\">Чиста голова, кістки\u003c/text>\u003c/g>\u003cg transform=\"translate(275 30)\">\u003crect width=\"210\" height=\"145\" rx=\"18\" fill=\"#fbeeed\"/>\u003cpath d=\"M48 60 Q103 110 160 55\" stroke=\"#8c5c56\" stroke-width=\"16\" fill=\"none\"/>\u003ctext x=\"105\" y=\"132\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"700\">Зіпсовані нутрощі\u003c/text>\u003c/g>\u003cg transform=\"translate(515 30)\">\u003crect width=\"210\" height=\"145\" rx=\"18\" fill=\"#f2f4f5\"/>\u003cpath d=\"M65 45 L145 45 L160 108 L50 108 Z\" fill=\"#c9d0d3\"/>\u003ctext x=\"105\" y=\"132\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"700\">Пакувальна плівка\u003c/text>\u003c/g>\u003c/svg>","options":["Чиста голова, кістки, обрізки","Зіпсовані нутрощі","Пакувальна плівка","Усе перелічене"],"correct":0,"feedback":"Харчовими можуть бути лише придатні за якістю частини; зіпсована сировина й пакування не використовуються."},{"id":"f12","type":"single","prompt":"Який результат механічної обробки є правильним?","options":["Чистий напівфабрикат заданої форми без залишків луски, нутрощів і стороннього запаху","Філе з великою кількістю кісток і залишками крові","Риба з пошкодженим жовчним міхуром","Напівфабрикат без контролю якості"],"correct":0,"feedback":"Якісний напівфабрикат має бути чистим, належно обробленим, заданої форми та без ознак псування чи залишків неїстівних частин."}];
+const answers={}; let startedAt=0;
+function $(s){return document.querySelector(s)}
+function safe(t){return String(t).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+function render(){
+ const root=$("#questions"); root.innerHTML="";
+ QUESTIONS.forEach((q,i)=>{
+  const el=document.createElement("article"); el.className="qcard"; el.dataset.q=q.id;
+  let body='<div class="qhead"><div class="qnum">'+(i+1)+'</div><div><div class="qtitle">'+q.prompt+'</div>'+(q.hint?'<div class="hint">'+q.hint+'</div>':'')+'</div></div>';
+  if(q.visual) body+='<div class="visual">'+q.visual+'</div>';
+  if(q.type==="single"||q.type==="multi"){
+    body+='<div class="options">'+q.options.map((o,oi)=>'<button type="button" class="opt" data-value="'+oi+'"><span class="mark">'+String.fromCharCode(65+oi)+'</span><span>'+o+'</span></button>').join("")+'</div>';
+  }else if(q.type==="sequence"){
+    body+='<div class="sequence">'+q.items.map((o,oi)=>'<button type="button" class="seq" data-value="'+oi+'"><span class="seqno">•</span><span>'+o+'</span></button>').join("")+'</div><button type="button" class="btn btn-soft resetseq" style="margin-top:10px">Скинути порядок</button>';
+  }else if(q.type==="hotspot"){
+    body+='<div class="hotspots">'+q.hotspots.map(h=>'<button type="button" class="hot" data-value="'+safe(h.value)+'">'+h.label+'</button>').join("")+'</div>';
+  }
+  el.innerHTML=body; root.appendChild(el);
+ });
+ bind();
+}
+function bind(){
+ document.querySelectorAll(".qcard").forEach(card=>{
+  const q=QUESTIONS.find(x=>x.id===card.dataset.q);
+  if(q.type==="single"){
+    card.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{card.querySelectorAll(".opt").forEach(x=>x.classList.remove("selected"));b.classList.add("selected");answers[q.id]=Number(b.dataset.value); updateProgress();});
+  }else if(q.type==="multi"){
+    card.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{b.classList.toggle("selected");answers[q.id]=[...card.querySelectorAll(".opt.selected")].map(x=>Number(x.dataset.value)).sort((a,b)=>a-b);updateProgress();});
+  }else if(q.type==="sequence"){
+    answers[q.id]=[];
+    card.querySelectorAll(".seq").forEach(b=>b.onclick=()=>{if(b.classList.contains("chosen"))return;b.classList.add("chosen");answers[q.id].push(Number(b.dataset.value));b.querySelector(".seqno").textContent=answers[q.id].length;updateProgress();});
+    card.querySelector(".resetseq").onclick=()=>{answers[q.id]=[];card.querySelectorAll(".seq").forEach(b=>{b.classList.remove("chosen");b.querySelector(".seqno").textContent="•"});updateProgress();};
+  }else if(q.type==="hotspot"){
+    card.querySelectorAll(".hot").forEach(b=>b.onclick=()=>{card.querySelectorAll(".hot").forEach(x=>x.classList.remove("selected"));b.classList.add("selected");answers[q.id]=b.dataset.value;updateProgress();});
+  }
+ });
+}
+function isAnswered(q){const a=answers[q.id]; if(q.type==="multi"||q.type==="sequence")return Array.isArray(a)&&a.length>0; return a!==undefined&&a!==null&&a!==""}
+function updateProgress(){const n=QUESTIONS.filter(isAnswered).length;$("#bar").style.width=(n/QUESTIONS.length*100)+"%";$("#counter").textContent=n+" / "+QUESTIONS.length;}
+function equal(a,b){if(Array.isArray(b)){return Array.isArray(a)&&a.length===b.length&&a.every((v,i)=>v===b[i])}return a===b}
+function ects(p){if(p>=90)return"A";if(p>=82)return"B";if(p>=75)return"C";if(p>=69)return"D";if(p>=60)return"E";if(p>=35)return"FX";return"F"}
+function level(p){if(p>=90)return"Відмінний результат";if(p>=75)return"Достатній рівень";if(p>=60)return"Результат зараховано";return"Потрібно повторити матеріал"}
+function fmt(ms){const s=Math.round(ms/1000);return Math.floor(s/60)+":"+String(s%60).padStart(2,"0")}
+$("#startBtn").onclick=()=>{
+ const surname=$("#surname").value.trim(), firstName=$("#firstName").value.trim(), group=$("#group").value.trim();
+ if(!surname||!firstName||!group){$("#introError").style.display="block";$("#introError").textContent="Заповни прізвище, ім’я та групу.";return}
+ localStorage.setItem("quizStudent",JSON.stringify({surname,firstName,group}));
+ $("#intro").style.display="none";$("#quiz").style.display="block";$("#studentLine").textContent=surname+" "+firstName+" • "+group;startedAt=Date.now();render();scrollTo({top:0,behavior:"smooth"});
+}
+$("#finishBtn").onclick=async()=>{
+ const missing=QUESTIONS.filter(q=>!isAnswered(q)); if(missing.length){$("#quizError").style.display="block";$("#quizError").textContent="Ще не виконано завдань: "+missing.map(q=>QUESTIONS.indexOf(q)+1).join(", ")+". ";document.querySelector('[data-q="'+missing[0].id+'"]').scrollIntoView({behavior:"smooth",block:"center"});return}
+ let raw=0; const review=[];
+ QUESTIONS.forEach((q,i)=>{const ok=equal(answers[q.id],q.correct);if(ok)raw++;review.push({n:i+1,ok,feedback:q.feedback||""})});
+ const p=Math.round(raw/12*100), e=ects(p), elapsed=Date.now()-startedAt; const grade12=raw;
+ const st=JSON.parse(localStorage.getItem("quizStudent")||"{}");
+ const payload={timestamp:new Date().toISOString(),surname:st.surname,firstName:st.firstName,group:st.group,gameId:GAME_ID,gameTitle:GAME_TITLE,raw12:grade12,percent:p,ects:e,timeSeconds:Math.round(elapsed/1000),answers:answers,mistakes:review.filter(x=>!x.ok).map(x=>x.n)};
+ localStorage.setItem("lastQuizResult",JSON.stringify(payload));
+ if(RESULTS_ENDPOINT){try{await fetch(RESULTS_ENDPOINT,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)});$("#saveStatus").textContent="Результат надіслано до журналу викладача."}catch(e){$("#saveStatus").textContent="Результат збережено на пристрої; надсилання буде повторено після відновлення зв’язку."}}
+ $("#quiz").style.display="none";$("#result").style.display="block";$("#ring").style.setProperty("--p",p);$("#percent").textContent=p+"%";$("#raw12").textContent=grade12+"/12";$("#raw100").textContent=p;$("#ects").textContent=e;$("#timeSpent").textContent=fmt(elapsed);$("#resultMsg").textContent=level(p);
+ $("#review").innerHTML="<h3>Розбір виконання</h3>"+review.map(x=>'<div class="review-item '+(x.ok?'ok':'bad')+'"><strong>Завдання '+x.n+': '+(x.ok?'✓ правильно':'✕ помилка')+'</strong>'+(x.feedback?'<div class="note" style="margin-top:5px">'+x.feedback+'</div>':'')+'</div>').join("");
+ scrollTo({top:0,behavior:"smooth"});
+}
+</script>
+</body></html>
