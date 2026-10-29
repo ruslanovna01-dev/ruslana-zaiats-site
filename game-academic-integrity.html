@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Місія «Чесний вибір» — Руслана ЗАЯЦЬ</title>
+<meta name="robots" content="noindex,nofollow">
+<style>
+:root{--deep:#102f49;--blue:#176b8f;--blue2:#268eb5;--gold:#d8a62e;--soft:#f3f8fa;--line:#d7e4ea;--text:#173244;--muted:#607b89;--ok:#17724b;--bad:#a73b32}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif;background:linear-gradient(180deg,#eef6f9 0,#fff 42%);color:var(--text)}
+button,input{font:inherit}.app{max-width:980px;margin:auto;padding:18px 14px 60px}.hero{border-radius:28px;padding:28px;background:linear-gradient(135deg,var(--deep),#1e638c);color:#fff;box-shadow:0 18px 48px rgba(16,47,73,.18);position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;right:-90px;top:-110px;background:rgba(255,255,255,.07)}.eyebrow{font-size:12px;font-weight:900;letter-spacing:.11em;text-transform:uppercase;color:#ffd77a}.hero h1{margin:8px 0 8px;font-size:clamp(28px,5vw,46px);line-height:1.06}.hero p{margin:0;max-width:760px;line-height:1.6;color:#e5f0f5}
+.panel{background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px;margin-top:16px;box-shadow:0 8px 26px rgba(15,49,71,.06)}.identity{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}.field label{display:block;font-size:13px;font-weight:850;margin-bottom:6px}.field input{width:100%;padding:12px 13px;border:1px solid #c7d8e0;border-radius:12px;outline:none}.field input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(23,107,143,.1)}
+.start{display:flex;align-items:center;justify-content:space-between;gap:18px}.btn{border:0;border-radius:14px;padding:13px 18px;font-weight:850;cursor:pointer}.btn-primary{background:var(--blue);color:#fff}.btn-primary:hover{background:#125e7e}.btn-soft{background:#edf5f8;color:var(--deep)}.note{font-size:13px;color:var(--muted);line-height:1.5}
+#quiz{display:none}.topbar{position:sticky;top:8px;z-index:20;background:rgba(255,255,255,.93);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:16px;padding:10px 12px;margin:14px 0;box-shadow:0 6px 18px rgba(15,49,71,.08)}.toprow{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:13px;font-weight:800}.progress{height:8px;background:#e7eff3;border-radius:999px;overflow:hidden;margin-top:8px}.progress>span{display:block;height:100%;background:linear-gradient(90deg,var(--blue),#54b3cf);width:0;transition:.3s}
+.qcard{background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px;margin:14px 0;box-shadow:0 7px 23px rgba(15,49,71,.055)}.qhead{display:flex;gap:12px;align-items:flex-start}.qnum{width:38px;height:38px;flex:0 0 38px;display:grid;place-items:center;border-radius:12px;background:#eaf4f8;color:var(--blue);font-weight:900}.qtitle{font-size:18px;font-weight:850;line-height:1.45}.hint{font-size:13px;color:var(--muted);margin:7px 0 0}
+.visual{margin:16px 0;border-radius:18px;overflow:hidden;background:#f4f9fb;border:1px solid #dbe8ed;padding:14px}.visual svg{display:block;width:100%;height:auto;max-height:320px}.options{display:grid;gap:9px;margin-top:14px}.opt{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;background:#fff;border:1px solid #d4e1e7;border-radius:14px;padding:12px;cursor:pointer;color:var(--text)}.opt:hover{background:#f7fbfc}.opt.selected{border-color:var(--blue);background:#edf7fa;box-shadow:0 0 0 2px rgba(23,107,143,.08)}.opt .mark{width:24px;height:24px;flex:0 0 24px;border-radius:8px;background:#edf3f5;display:grid;place-items:center;font-size:12px;font-weight:900}.opt.selected .mark{background:var(--blue);color:#fff}
+.sequence{display:grid;gap:9px;margin-top:14px}.seq{border:1px solid #d4e1e7;border-radius:14px;padding:12px;background:#fff;cursor:pointer;display:flex;align-items:center;gap:10px}.seq.chosen{background:#edf7fa;border-color:var(--blue)}.seqno{width:28px;height:28px;border-radius:9px;background:#edf3f5;display:grid;place-items:center;font-weight:900;color:var(--blue)}.seq.chosen .seqno{background:var(--blue);color:#fff}
+.hotspots{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin-top:12px}.hot{border:1px solid #cddde5;background:#fff;border-radius:12px;padding:10px;cursor:pointer;font-weight:750}.hot.selected{background:var(--blue);border-color:var(--blue);color:#fff}
+.navrow{display:flex;justify-content:flex-end;margin-top:18px}.finish{width:100%;padding:15px;font-size:16px}.error{display:none;margin-top:10px;padding:10px 12px;border-radius:12px;background:#fff1ef;color:var(--bad);border:1px solid #f2cbc7}
+#result{display:none;text-align:center}.ring{width:150px;height:150px;border-radius:50%;margin:8px auto 18px;display:grid;place-items:center;background:conic-gradient(var(--blue) calc(var(--p)*1%),#e6eef2 0);position:relative}.ring:after{content:"";position:absolute;width:116px;height:116px;border-radius:50%;background:#fff}.ring strong{position:relative;z-index:1;font-size:34px;color:var(--deep)}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}.metric{padding:14px;border-radius:15px;background:#f4f8fa}.metric strong{display:block;font-size:22px;color:var(--deep)}.metric span{font-size:12px;color:var(--muted)}.result-msg{font-size:18px;font-weight:800}.review{margin-top:18px;text-align:left}.review-item{border:1px solid var(--line);border-radius:14px;padding:12px;margin:8px 0}.review-item.ok{border-left:5px solid var(--ok)}.review-item.bad{border-left:5px solid var(--bad)}.preview-badge{display:inline-block;margin-top:14px;padding:7px 10px;border-radius:999px;background:#fff6d8;color:#74570b;font-size:12px;font-weight:850}
+@media(max-width:720px){.identity,.metrics{grid-template-columns:1fr}.start{align-items:stretch;flex-direction:column}.hero{padding:23px}.qcard{padding:17px}}
+</style>
+</head>
+<body>
+<main class="app">
+<section class="hero"><span class="eyebrow">Академічна доброчесність</span><h1>Місія «Чесний вибір»</h1><p>12 інтерактивних ситуацій про цитування, роботу з джерелами, самостійність і відповідальне використання ШІ.</p><span class="preview-badge">Попередня версія для перевірки</span></section>
+<section id="intro" class="panel">
+  <div class="start">
+    <div><h2 style="margin:0 0 6px">Перед початком</h2><div class="note">12 завдань • кожне завдання = 1 бал • підсумок: 12-бальна, 100-бальна шкала та ECTS.</div></div>
+    <button class="btn btn-primary" id="startBtn">Розпочати квест →</button>
+  </div>
+  <div class="identity" style="margin-top:18px">
+    <div class="field"><label>Прізвище</label><input id="surname" autocomplete="family-name"></div>
+    <div class="field"><label>Ім’я</label><input id="firstName" autocomplete="given-name"></div>
+    <div class="field"><label>Група</label><input id="group" placeholder="Наприклад, ФМБ-40"></div>
+  </div>
+  <div id="introError" class="error"></div>
+</section>
+<section id="quiz">
+  <div class="topbar"><div class="toprow"><span id="studentLine"></span><span id="counter">1 / 12</span></div><div class="progress"><span id="bar"></span></div></div>
+  <div id="questions"></div>
+  <section class="panel"><button class="btn btn-primary finish" id="finishBtn">Завершити та отримати результат</button><div id="quizError" class="error"></div></section>
+</section>
+<section id="result" class="panel">
+  <span class="eyebrow" style="color:var(--gold)">Результат</span><h2 id="resultTitle">Квест завершено</h2>
+  <div class="ring" id="ring" style="--p:0"><strong id="percent">0%</strong></div>
+  <div class="result-msg" id="resultMsg"></div>
+  <div class="metrics"><div class="metric"><strong id="raw12">0/12</strong><span>12-бальна</span></div><div class="metric"><strong id="raw100">0</strong><span>100-бальна</span></div><div class="metric"><strong id="ects">F</strong><span>ECTS</span></div><div class="metric"><strong id="timeSpent">0:00</strong><span>час</span></div></div>
+  <div class="note" id="saveStatus">У режимі попереднього перегляду результат зберігається лише на цьому пристрої.</div>
+  <div class="review" id="review"></div>
+  <button class="btn btn-soft" onclick="location.reload()">Пройти ще раз</button>
+</section>
+</main>
+<script>
+const GAME_ID="academic-integrity-quest";
+const GAME_TITLE="Місія «Чесний вибір»";
+const RESULTS_ENDPOINT="";
+const QUESTIONS=[{"id":"a1","type":"single","prompt":"Студент дослівно вставив у роботу абзац із вебсайту без лапок і без посилання. Як кваліфікувати цю дію?","options":["Коректне використання відкритої інформації","Плагіат","Допустиме редагування","Парафраз"],"correct":1,"feedback":"Дослівне використання чужого тексту потребує належного позначення цитати та посилання на джерело."},{"id":"a2","type":"single","prompt":"Подивись на дві картки. Яка оформлена доброчесно?","visual":"\u003csvg viewBox=\"0 0 760 250\" role=\"img\" aria-label=\"Два приклади використання цитати\">\u003crect x=\"20\" y=\"20\" width=\"340\" height=\"205\" rx=\"18\" fill=\"#fff\" stroke=\"#cbdde6\"/>\u003ctext x=\"42\" y=\"56\" font-size=\"18\" font-weight=\"700\" fill=\"#173244\">Картка A\u003c/text>\u003ctext x=\"42\" y=\"92\" font-size=\"16\" fill=\"#385b6c\">«Академічна доброчесність —\u003c/text>\u003ctext x=\"42\" y=\"118\" font-size=\"16\" fill=\"#385b6c\">важлива складова якості освіти».\u003c/text>\u003ctext x=\"42\" y=\"160\" font-size=\"15\" fill=\"#176b8f\">Джерело: Закон України, ст. 42\u003c/text>\u003crect x=\"400\" y=\"20\" width=\"340\" height=\"205\" rx=\"18\" fill=\"#fff\" stroke=\"#cbdde6\"/>\u003ctext x=\"422\" y=\"56\" font-size=\"18\" font-weight=\"700\" fill=\"#173244\">Картка B\u003c/text>\u003ctext x=\"422\" y=\"92\" font-size=\"16\" fill=\"#385b6c\">Академічна доброчесність —\u003c/text>\u003ctext x=\"422\" y=\"118\" font-size=\"16\" fill=\"#385b6c\">важлива складова якості освіти.\u003c/text>\u003ctext x=\"422\" y=\"160\" font-size=\"15\" fill=\"#a73b32\">Джерело не зазначено\u003c/text>\u003c/svg>","options":["Картка A","Картка B","Обидві","Жодна"],"correct":0,"feedback":"Цитата має бути позначена та супроводжуватися посиланням на джерело."},{"id":"a3","type":"multi","prompt":"Обери всі дії, що відповідають відповідальному використанню ШІ в навчанні.","hint":"Може бути кілька правильних відповідей.","options":["Перевірити факти й джерела","Дотриматися вимог викладача щодо використання ШІ","Приховати використання ШІ, якщо відповідь виглядає переконливо","Зазначити використання ШІ, якщо цього вимагають правила завдання"],"correct":[0,1,3],"feedback":"Відповідальне використання ШІ передбачає перевірку результату, дотримання умов завдання та прозорість там, де її вимагають правила."},{"id":"a4","type":"sequence","prompt":"Встанови правильну послідовність роботи з чужою ідеєю під час підготовки власного тексту.","hint":"Натискай картки в правильному порядку.","items":["Сформулювати думку власними словами","Прочитати та зрозуміти джерело","Додати посилання на джерело","Зафіксувати бібліографічні дані джерела"],"correct":[1,3,0,2],"feedback":"Спочатку джерело треба зрозуміти й зафіксувати, далі — сформулювати власний виклад і належно послатися."},{"id":"a5","type":"single","prompt":"Студент купив готову роботу й подав її як власну. Який принцип порушено?","options":["Самостійність та чесність","Лише вимоги до оформлення","Тільки пунктуальність","Жодного, якщо робота якісна"],"correct":0,"feedback":"Подання чужої роботи як власної суперечить принципам академічної доброчесності."},{"id":"a6","type":"hotspot","prompt":"На схемі процесу підготовки роботи вибери етап, на якому найкраще перевірити надійність фактичних тверджень, отриманих від ШІ.","visual":"\u003csvg viewBox=\"0 0 760 170\">\u003cdefs>\u003cmarker id=\"ar\" markerWidth=\"10\" markerHeight=\"10\" refX=\"8\" refY=\"3\" orient=\"auto\">\u003cpath d=\"M0,0 L0,6 L9,3 z\" fill=\"#7aa6b8\"/>\u003c/marker>\u003c/defs>\u003crect x=\"20\" y=\"48\" width=\"150\" height=\"70\" rx=\"14\" fill=\"#eaf4f8\"/>\u003ctext x=\"95\" y=\"79\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"700\" fill=\"#173244\">Запит до ШІ\u003c/text>\u003cline x1=\"170\" y1=\"83\" x2=\"215\" y2=\"83\" stroke=\"#7aa6b8\" stroke-width=\"3\" marker-end=\"url(#ar)\"/>\u003crect x=\"225\" y=\"48\" width=\"150\" height=\"70\" rx=\"14\" fill=\"#fff3d6\"/>\u003ctext x=\"300\" y=\"73\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"700\" fill=\"#173244\">Перевірка фактів\u003c/text>\u003ctext x=\"300\" y=\"94\" text-anchor=\"middle\" font-size=\"13\" fill=\"#607b89\">і джерел\u003c/text>\u003cline x1=\"375\" y1=\"83\" x2=\"420\" y2=\"83\" stroke=\"#7aa6b8\" stroke-width=\"3\" marker-end=\"url(#ar)\"/>\u003crect x=\"430\" y=\"48\" width=\"140\" height=\"70\" rx=\"14\" fill=\"#eaf4f8\"/>\u003ctext x=\"500\" y=\"79\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"700\" fill=\"#173244\">Редагування\u003c/text>\u003cline x1=\"570\" y1=\"83\" x2=\"610\" y2=\"83\" stroke=\"#7aa6b8\" stroke-width=\"3\" marker-end=\"url(#ar)\"/>\u003crect x=\"620\" y=\"48\" width=\"120\" height=\"70\" rx=\"14\" fill=\"#eaf4f8\"/>\u003ctext x=\"680\" y=\"79\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"700\" fill=\"#173244\">Подання\u003c/text>\u003c/svg>","hotspots":[{"value":"request","label":"Запит до ШІ"},{"value":"verify","label":"Перевірка фактів"},{"value":"edit","label":"Редагування"},{"value":"submit","label":"Подання"}],"correct":"verify","feedback":"Фактичні твердження та посилання, створені ШІ, треба перевіряти до включення в остаточний текст."},{"id":"a7","type":"single","prompt":"Студент повторно подає власну стару роботу як нову, не повідомивши про це й не отримавши дозволу. Яке поняття найближче описує ситуацію?","options":["Самоплагіат / недоброчесне повторне використання","Рецензування","Цитування","Взаємооцінювання"],"correct":0,"feedback":"Повторне подання раніше створеної роботи без належного повідомлення може розглядатися як недоброчесне повторне використання власного тексту."},{"id":"a8","type":"multi","prompt":"Познач усі приклади недоброчесної роботи з даними та джерелами.","options":["Вигадане джерело, якого не існує","Свідоме спотворення результатів дослідження","Точне цитування з посиланням","Використання чужого висновку без посилання"],"correct":[0,1,3],"feedback":"Вигадування, свідоме спотворення та привласнення чужих результатів суперечать академічній доброчесності."},{"id":"a9","type":"single","prompt":"Який із двох парафразів є коректнішим?","visual":"\u003csvg viewBox=\"0 0 760 260\">\u003crect x=\"18\" y=\"18\" width=\"724\" height=\"66\" rx=\"14\" fill=\"#eaf4f8\"/>\u003ctext x=\"38\" y=\"46\" font-size=\"14\" font-weight=\"700\" fill=\"#173244\">Джерело:\u003c/text>\u003ctext x=\"110\" y=\"46\" font-size=\"14\" fill=\"#385b6c\">Якість освіти пов’язана з довірою та дотриманням правил доброчесності.\u003c/text>\u003crect x=\"18\" y=\"102\" width=\"350\" height=\"136\" rx=\"16\" fill=\"#fff\" stroke=\"#cbdde6\"/>\u003ctext x=\"38\" y=\"132\" font-size=\"16\" font-weight=\"700\">A\u003c/text>\u003ctext x=\"38\" y=\"160\" font-size=\"14\" fill=\"#385b6c\">Довіра до освіти залежить, зокрема,\u003c/text>\u003ctext x=\"38\" y=\"183\" font-size=\"14\" fill=\"#385b6c\">від дотримання правил доброчесності\u003c/text>\u003ctext x=\"38\" y=\"210\" font-size=\"13\" fill=\"#176b8f\">(із посиланням на джерело).\u003c/text>\u003crect x=\"392\" y=\"102\" width=\"350\" height=\"136\" rx=\"16\" fill=\"#fff\" stroke=\"#cbdde6\"/>\u003ctext x=\"412\" y=\"132\" font-size=\"16\" font-weight=\"700\">B\u003c/text>\u003ctext x=\"412\" y=\"160\" font-size=\"14\" fill=\"#385b6c\">Якість освіти пов’язана з довірою\u003c/text>\u003ctext x=\"412\" y=\"183\" font-size=\"14\" fill=\"#385b6c\">та правилами доброчесності.\u003c/text>\u003ctext x=\"412\" y=\"210\" font-size=\"13\" fill=\"#a73b32\">(без посилання)\u003c/text>\u003c/svg>","options":["A","B","Обидва однаково коректні","Жоден"],"correct":0,"feedback":"Перефразування не скасовує необхідність посилатися на джерело чужої ідеї."},{"id":"a10","type":"sequence","prompt":"Що робити, якщо ти не впевнений, чи дозволено використовувати ШІ в конкретному завданні?","items":["Зберегти/зазначити факт використання, якщо це вимагається","Перевірити інструкцію до завдання","Уточнити правило у викладача","Використовувати ШІ відповідно до отриманих вимог"],"correct":[1,2,3,0],"feedback":"Спочатку треба з’ясувати правила, потім діяти в їхніх межах і забезпечити потрібну прозорість."},{"id":"a11","type":"single","prompt":"Індивідуальне завдання двоє студентів виконали разом і подали однакові відповіді як власні. Що тут не так?","options":["Порушено умову самостійного виконання","Нічого, якщо відповіді правильні","Проблема лише у форматуванні","Це автоматично дозволена командна робота"],"correct":0,"feedback":"Якщо завдання визначене як індивідуальне, спільне виконання та подання однакового результату суперечить установленим правилам."},{"id":"a12","type":"single","prompt":"Під час індивідуального тесту студент передає іншому готові відповіді. Найкраща оцінка ситуації:","options":["Допустима взаємодопомога","Порушення правил академічної доброчесності","Метод взаємонавчання незалежно від умов","Нейтральна дія"],"correct":1,"feedback":"Під час індивідуального контролю передавання готових відповідей порушує вимогу самостійності."}];
+const answers={}; let startedAt=0;
+function $(s){return document.querySelector(s)}
+function safe(t){return String(t).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+function render(){
+ const root=$("#questions"); root.innerHTML="";
+ QUESTIONS.forEach((q,i)=>{
+  const el=document.createElement("article"); el.className="qcard"; el.dataset.q=q.id;
+  let body='<div class="qhead"><div class="qnum">'+(i+1)+'</div><div><div class="qtitle">'+q.prompt+'</div>'+(q.hint?'<div class="hint">'+q.hint+'</div>':'')+'</div></div>';
+  if(q.visual) body+='<div class="visual">'+q.visual+'</div>';
+  if(q.type==="single"||q.type==="multi"){
+    body+='<div class="options">'+q.options.map((o,oi)=>'<button type="button" class="opt" data-value="'+oi+'"><span class="mark">'+String.fromCharCode(65+oi)+'</span><span>'+o+'</span></button>').join("")+'</div>';
+  }else if(q.type==="sequence"){
+    body+='<div class="sequence">'+q.items.map((o,oi)=>'<button type="button" class="seq" data-value="'+oi+'"><span class="seqno">•</span><span>'+o+'</span></button>').join("")+'</div><button type="button" class="btn btn-soft resetseq" style="margin-top:10px">Скинути порядок</button>';
+  }else if(q.type==="hotspot"){
+    body+='<div class="hotspots">'+q.hotspots.map(h=>'<button type="button" class="hot" data-value="'+safe(h.value)+'">'+h.label+'</button>').join("")+'</div>';
+  }
+  el.innerHTML=body; root.appendChild(el);
+ });
+ bind();
+}
+function bind(){
+ document.querySelectorAll(".qcard").forEach(card=>{
+  const q=QUESTIONS.find(x=>x.id===card.dataset.q);
+  if(q.type==="single"){
+    card.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{card.querySelectorAll(".opt").forEach(x=>x.classList.remove("selected"));b.classList.add("selected");answers[q.id]=Number(b.dataset.value); updateProgress();});
+  }else if(q.type==="multi"){
+    card.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{b.classList.toggle("selected");answers[q.id]=[...card.querySelectorAll(".opt.selected")].map(x=>Number(x.dataset.value)).sort((a,b)=>a-b);updateProgress();});
+  }else if(q.type==="sequence"){
+    answers[q.id]=[];
+    card.querySelectorAll(".seq").forEach(b=>b.onclick=()=>{if(b.classList.contains("chosen"))return;b.classList.add("chosen");answers[q.id].push(Number(b.dataset.value));b.querySelector(".seqno").textContent=answers[q.id].length;updateProgress();});
+    card.querySelector(".resetseq").onclick=()=>{answers[q.id]=[];card.querySelectorAll(".seq").forEach(b=>{b.classList.remove("chosen");b.querySelector(".seqno").textContent="•"});updateProgress();};
+  }else if(q.type==="hotspot"){
+    card.querySelectorAll(".hot").forEach(b=>b.onclick=()=>{card.querySelectorAll(".hot").forEach(x=>x.classList.remove("selected"));b.classList.add("selected");answers[q.id]=b.dataset.value;updateProgress();});
+  }
+ });
+}
+function isAnswered(q){const a=answers[q.id]; if(q.type==="multi"||q.type==="sequence")return Array.isArray(a)&&a.length>0; return a!==undefined&&a!==null&&a!==""}
+function updateProgress(){const n=QUESTIONS.filter(isAnswered).length;$("#bar").style.width=(n/QUESTIONS.length*100)+"%";$("#counter").textContent=n+" / "+QUESTIONS.length;}
+function equal(a,b){if(Array.isArray(b)){return Array.isArray(a)&&a.length===b.length&&a.every((v,i)=>v===b[i])}return a===b}
+function ects(p){if(p>=90)return"A";if(p>=82)return"B";if(p>=75)return"C";if(p>=69)return"D";if(p>=60)return"E";if(p>=35)return"FX";return"F"}
+function level(p){if(p>=90)return"Відмінний результат";if(p>=75)return"Достатній рівень";if(p>=60)return"Результат зараховано";return"Потрібно повторити матеріал"}
+function fmt(ms){const s=Math.round(ms/1000);return Math.floor(s/60)+":"+String(s%60).padStart(2,"0")}
+$("#startBtn").onclick=()=>{
+ const surname=$("#surname").value.trim(), firstName=$("#firstName").value.trim(), group=$("#group").value.trim();
+ if(!surname||!firstName||!group){$("#introError").style.display="block";$("#introError").textContent="Заповни прізвище, ім’я та групу.";return}
+ localStorage.setItem("quizStudent",JSON.stringify({surname,firstName,group}));
+ $("#intro").style.display="none";$("#quiz").style.display="block";$("#studentLine").textContent=surname+" "+firstName+" • "+group;startedAt=Date.now();render();scrollTo({top:0,behavior:"smooth"});
+}
+$("#finishBtn").onclick=async()=>{
+ const missing=QUESTIONS.filter(q=>!isAnswered(q)); if(missing.length){$("#quizError").style.display="block";$("#quizError").textContent="Ще не виконано завдань: "+missing.map(q=>QUESTIONS.indexOf(q)+1).join(", ")+". ";document.querySelector('[data-q="'+missing[0].id+'"]').scrollIntoView({behavior:"smooth",block:"center"});return}
+ let raw=0; const review=[];
+ QUESTIONS.forEach((q,i)=>{const ok=equal(answers[q.id],q.correct);if(ok)raw++;review.push({n:i+1,ok,feedback:q.feedback||""})});
+ const p=Math.round(raw/12*100), e=ects(p), elapsed=Date.now()-startedAt; const grade12=raw;
+ const st=JSON.parse(localStorage.getItem("quizStudent")||"{}");
+ const payload={timestamp:new Date().toISOString(),surname:st.surname,firstName:st.firstName,group:st.group,gameId:GAME_ID,gameTitle:GAME_TITLE,raw12:grade12,percent:p,ects:e,timeSeconds:Math.round(elapsed/1000),answers:answers,mistakes:review.filter(x=>!x.ok).map(x=>x.n)};
+ localStorage.setItem("lastQuizResult",JSON.stringify(payload));
+ if(RESULTS_ENDPOINT){try{await fetch(RESULTS_ENDPOINT,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)});$("#saveStatus").textContent="Результат надіслано до журналу викладача."}catch(e){$("#saveStatus").textContent="Результат збережено на пристрої; надсилання буде повторено після відновлення зв’язку."}}
+ $("#quiz").style.display="none";$("#result").style.display="block";$("#ring").style.setProperty("--p",p);$("#percent").textContent=p+"%";$("#raw12").textContent=grade12+"/12";$("#raw100").textContent=p;$("#ects").textContent=e;$("#timeSpent").textContent=fmt(elapsed);$("#resultMsg").textContent=level(p);
+ $("#review").innerHTML="<h3>Розбір виконання</h3>"+review.map(x=>'<div class="review-item '+(x.ok?'ok':'bad')+'"><strong>Завдання '+x.n+': '+(x.ok?'✓ правильно':'✕ помилка')+'</strong>'+(x.feedback?'<div class="note" style="margin-top:5px">'+x.feedback+'</div>':'')+'</div>').join("");
+ scrollTo({top:0,behavior:"smooth"});
+}
+</script>
+</body></html>
