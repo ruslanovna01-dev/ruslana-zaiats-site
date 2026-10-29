@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Практико-орієнтовані заходи зі студентами | ЦМК ФПО</title>
-  <meta name="description" content="Практико-орієнтовані заходи зі студентами в межах роботи ЦМК фахової передвищої освіти ДНЗ «ОВПУ МТС»: тематичні професійні дні, дискусійні панелі, інтерактивні заняття та презентації.">
+  <meta name="description" content="Практико-орієнтовані заходи ЦМК ФПО: тематичні заняття, лекції фахівців, професійні онлайн-зустрічі та презентації для студентів.">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://ruslanovna01-dev.github.io/ruslana-zaiats-site/student-activities.html">
   <link rel="stylesheet" href="styles.css">
@@ -37,6 +37,35 @@
     .masterclass-link{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:22px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(135deg,#fff,#f4f9fb);text-decoration:none}
     .masterclass-link strong{display:block;color:var(--deep);font-size:20px}.masterclass-link span{color:var(--muted);font-size:14px}.masterclass-link b{color:var(--blue);font-size:26px}
     @media(max-width:760px){.activity-intro,.activity-points{grid-template-columns:1fr}.activity-body{padding:22px}.activity-card h3{font-size:23px}.masterclass-link{align-items:flex-start}}
+  
+    .stake-drive{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;align-items:stretch;margin-top:28px}
+    .stake-panel{padding:30px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(135deg,#fff,#f4f9fb);box-shadow:var(--shadow)}
+    .stake-panel h3{margin:8px 0 10px;color:var(--deep);font-size:28px;line-height:1.25}.stake-panel p{margin:0;color:var(--muted)}
+    .stake-actions,.event-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+    .stake-side{display:grid;place-items:center;text-align:center;padding:30px;border-radius:22px;background:linear-gradient(135deg,#102f49,#1e638c);color:#fff;box-shadow:var(--shadow)}
+    .stake-side strong{display:block;font-size:40px;line-height:1.05}.stake-side span{display:block;margin-top:10px;color:#dce8ef;font-size:14px}
+    .event-list{display:grid;gap:22px;margin-top:28px}.event-card{display:grid;grid-template-columns:minmax(260px,320px) 1fr;gap:26px;padding:26px;border:1px solid var(--line);border-radius:22px;background:#fff;box-shadow:var(--shadow);align-items:start;scroll-margin-top:100px}
+    .event-media{width:100%;max-width:320px;margin:0 auto;border-radius:18px;overflow:hidden;background:#0f2334;box-shadow:0 10px 28px rgba(16,47,73,.16)}
+    .event-media iframe{display:block;width:100%;aspect-ratio:9/16;border:0;background:#0f2334}.event-body .meta{font-size:12px;font-weight:800;color:var(--gold);text-transform:uppercase;letter-spacing:.08em}
+    .event-body h3{margin:8px 0 12px;color:var(--deep);font-size:26px;line-height:1.25}.event-body p{margin:0 0 12px;color:var(--muted)}
+    .event-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.event-tag{display:inline-flex;align-items:center;padding:8px 11px;border-radius:999px;background:#f4f7f9;border:1px solid var(--line);font-size:12px;font-weight:700;color:var(--deep)}
+    .program-box{margin-top:24px;padding:22px;border:1px solid #cbdbe4;border-radius:18px;background:linear-gradient(135deg,#f7fbfd,#fff)}
+    .program-box h4{margin:0 0 4px;color:var(--deep);font-size:21px}.program-box .program-subtitle{margin:0 0 16px;color:var(--muted);font-size:14px}
+    .program-meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0 0 18px}.program-meta div{padding:11px 13px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--deep);font-size:14px}
+    .program-meta strong{display:block;margin-bottom:3px;color:var(--gold);font-size:11px;text-transform:uppercase;letter-spacing:.06em}.program-topic{margin:14px 0 8px!important;color:var(--deep)!important;font-weight:800}
+    .program-list{margin:8px 0 0;padding-left:22px;color:var(--muted)}.program-list li{margin:7px 0;line-height:1.45}
+    .students-details{margin-top:18px;border-top:1px solid var(--line);padding-top:16px}.students-details summary{cursor:pointer;color:var(--deep);font-weight:800;list-style:none}.students-details summary::-webkit-details-marker{display:none}
+    .students-wrap{overflow-x:auto;margin-top:14px}.students-table{width:100%;border-collapse:collapse;min-width:520px;background:#fff}.students-table th,.students-table td{border:1px solid var(--line);padding:9px 10px;text-align:left;font-size:13px}.students-table th{background:#eef5f8;color:var(--deep);font-weight:800}.students-table td:first-child{width:54px;text-align:center}.students-table td:nth-child(2){width:110px;font-weight:700;color:var(--deep)}
+    .result-box{margin-top:22px;padding:18px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(135deg,#f7fafb,#fff)}.result-box h4{margin:0 0 8px;color:var(--deep);font-size:18px}.result-box p{margin:0 0 14px}
+    .result-media{max-width:420px;border-radius:14px;overflow:hidden;background:#0f2334}.result-media iframe{display:block;width:100%;aspect-ratio:16/9;border:0}.certificate-photo{margin-top:14px;max-width:760px}.certificate-photo img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line);box-shadow:0 8px 24px rgba(16,47,73,.10)}.slogan{margin-top:18px!important;font-weight:800;color:var(--deep)!important}.subsection-heading{margin-top:42px}.event-card.video-gallery-card{grid-template-columns:1fr}.video-section-title{display:flex;justify-content:space-between;gap:14px;align-items:end;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--line)}.video-section-title strong{font-size:20px;color:var(--deep)}.video-section-title span{font-size:13px;color:var(--muted)}.video-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-bottom:28px}.video-item{padding:14px;border:1px solid var(--line);border-radius:18px;background:#fff}.video-item h4{margin:0 0 10px;color:var(--deep);font-size:16px}.video-player{overflow:hidden;border-radius:14px;background:#0f2334}.video-player iframe{display:block;width:100%;aspect-ratio:9/16;border:0;background:#0f2334}.video-open{display:inline-block;margin-top:10px}.certificate-proof{margin-top:14px;max-width:760px;overflow:hidden;border-radius:14px;background:#eef3f6;border:1px solid var(--line)}.certificate-proof iframe{display:block;width:100%;height:540px;border:0}
+    .screenshot-block{margin-top:24px;padding:22px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(135deg,#f7fbfd,#fff)}
+    .screenshot-block h4{margin:0 0 6px;color:var(--deep);font-size:21px}.screenshot-block>p{margin:0 0 16px;color:var(--muted)}
+    .screenshot-gallery{display:grid;grid-template-columns:1fr;gap:18px}
+    .screenshot-item{margin:0;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#0f1720;box-shadow:0 8px 24px rgba(16,47,73,.10)}
+    .screenshot-item a{display:block}.screenshot-item img{display:block;width:100%;height:auto;max-height:none;object-fit:contain;background:#0f1720}
+    .screenshot-item figcaption{padding:10px 13px;background:#fff;color:var(--muted);font-size:13px;line-height:1.4}
+    @media(max-width:760px){.stake-drive,.event-card,.program-meta,.video-gallery,.screenshot-gallery{grid-template-columns:1fr}.event-media{max-width:290px}.program-box{padding:18px}.video-section-title{display:block}.video-section-title span{display:block;margin-top:5px}.certificate-proof iframe{height:360px}}
+  
   </style>
 </head>
 <body>
@@ -47,12 +76,12 @@
     <a class="back-link" href="cmk-fpo.html">← До розділу ЦМК ФПО</a>
     <span class="eyebrow">Практична складова освітнього процесу</span>
     <h1>Практико-орієнтовані заходи зі студентами</h1>
-    <p>Тематичні професійні дні, дискусійні панелі, інтерактивні заняття, дослідницькі завдання та презентації, що допомагають здобувачам освіти застосовувати навчальний матеріал до актуальних проблем харчової галузі й ресторанного господарства.</p>
+    <p>Тематичні професійні дні, інтерактивні заняття, гостьові зустрічі та онлайн-майстер-класи фахівців-практиків, що допомагають студентам пов’язувати навчання з професійним досвідом.</p>
   </div></section>
 
   <section id="student-practice" class="section section-gradient"><div class="container">
     <div class="section-heading"><div><span class="eyebrow">Практико-орієнтовані заходи</span><h2>Тематична робота зі студентами</h2></div><div class="section-symbol">🎯</div></div>
-    <p class="lead">Матеріали заходів, що розширюють професійний кругозір здобувачів освіти, формують аналітичне мислення та допомагають застосовувати знання до сучасних проблем харчової галузі й ресторанного господарства.</p>
+    <p class="lead">Тематичні заняття, професійні лекції, зустрічі з фахівцями й онлайн-заходи, що розширюють професійний кругозір та допомагають застосовувати знання на практиці.</p>
 
     <aside class="integrity-helper" aria-labelledby="integrity-helper-title">
       <div>
@@ -104,6 +133,105 @@
         </div>
       </article>
     </div>
+
+    <div class="section-heading subsection-heading"><div><span class="eyebrow">Зустрічі з фахівцями-практиками</span><h2>Професійний досвід та онлайн-заходи</h2></div><div class="section-symbol">🎓</div></div>
+    <p class="lead">Гостьові майстер-класи, фахові зустрічі та міжнародний досвід, що доповнюють навчання студентів.</p>
+    <div class="section-heading subsection-heading"><div><span class="eyebrow">Онлайн-формат</span><h2>Онлайн-майстер-клас від суднового кухаря Слабенка Віктора Володимировича</h2></div><div class="section-symbol">⚓</div></div>
+    <div class="event-list">
+      <article class="event-card" id="masterclass-2">
+        <div class="event-media"><iframe src="https://drive.google.com/file/d/1KzpgDDf-wG8rODkW8Y3HEC-5w6FKajgH/preview" title="Онлайн-майстер-клас №2 від суднового кухаря Слабенка Віктора Володимировича" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
+        <div class="event-body"><span class="meta">Майстер-клас №2 • 07.10.2026 ⚓👨‍🍳</span><h3>«Професійна діяльність суднового кухаря: організація роботи та харчування екіпажу в умовах морського судна»</h3>
+          <p>Віктор Слабенко розпочав професійний шлях ще під час навчання в ОВПУ МТС у 2004–2006 роках: уже на другому курсі працював кухарем у ресторані «Українська ласунка».</p>
+          <p>У подальшому працював кухарем-універсалом у грецькому ресторані «Папа Коста», су-шефом і шеф-кухарем ресторану «Контрабас», брав участь у відкритті кафе Stories, працював шеф-кухарем у ресторані «Чорне море» та на Золотому Бугазі.</p>
+          <p>З 2020 року працює в морі. Під час онлайн-майстер-класу висвітлюються специфіка роботи суднового кухаря, відповідальність за харчування команди, організація роботи в умовах судна та професійний розвиток.</p>
+          <p>Сьогодні Віктор Слабенко продовжує навчання як студент фахової передвищої освіти ОВПУ МТС, поєднуючи онлайн-освіту з роботою в морі.</p>
+          <div class="event-tags"><span class="event-tag">Судновий кухар</span><span class="event-tag">Онлайн-майстер-клас</span><span class="event-tag">Майстер-клас №2</span><span class="event-tag">Фахова передвища освіта</span></div>
+          <div class="event-actions"><a class="card-link" href="https://drive.google.com/file/d/1EzpM6h9bYqVyZwkwM-qwts8ilWt1HAIf/view" target="_blank" rel="noopener noreferrer">Переглянути PDF програми ↗</a><a class="card-link" href="https://drive.google.com/file/d/1TP9z0-Oi4wuTDOLOlB-MkCle5hxelysk/view" target="_blank" rel="noopener noreferrer">Звіт і журнал реєстрації ↗</a><a class="card-link" href="https://drive.google.com/file/d/13-zO2NIYnpuKHAPSAagG0tbYXDUL-s3g/view" target="_blank" rel="noopener noreferrer">Сертифікати №25–38 ↗</a><a class="card-link" href="https://drive.google.com/drive/folders/1H00EPPBolzbF8FZMpG1uAER1Ui9PYvqn" target="_blank" rel="noopener noreferrer">Матеріали заходу ↗</a></div>
+          <div class="program-box"><h4>Програма проведення онлайн-майстер-класу</h4><p class="program-subtitle">для студентів ДНЗ «ОВПУ МТС»</p><div class="program-meta"><div><strong>Дата проведення</strong>7 жовтня 2026 року</div><div><strong>Час проведення</strong>10:00</div><div><strong>Місце / форма</strong>онлайн-формат; Kopervik Ship Management Poland</div><div><strong>Проводить</strong>Слабенко Віктор, ФМБ-51</div><div><strong>Учасники</strong>ФМБ-42К — 14 студентів</div></div><p class="program-topic">Тема: «Робота суднового кухаря: організація харчування екіпажу в умовах морського рейсу»</p><ul class="program-list"><li>особливості професійної діяльності суднового кухаря та його функції у складі екіпажу;</li><li>організація роботи камбуза та робочого місця в умовах морського рейсу;</li><li>планування харчування екіпажу та організація технологічного процесу;</li><li>зберігання сировини і продуктів в умовах обмеженого простору та тривалого рейсу;</li><li>дотримання санітарно-гігієнічних вимог і безпеки під час роботи на судні;</li><li>професійні вимоги до суднового кухаря, практичний досвід та відповіді на запитання студентів.</li></ul>
+            <details class="students-details"><summary>Список студентів — 14 учасників</summary><div class="students-wrap"><table class="students-table"><thead><tr><th>№</th><th>Навчальна група</th><th>Прізвище та ініціали</th></tr></thead><tbody><tr><td>1</td><td>ФМБ-42К</td><td>Алєнін В.О.</td></tr><tr><td>2</td><td>ФМБ-42К</td><td>Білогрищенко Г.О.</td></tr><tr><td>3</td><td>ФМБ-42К</td><td>Владов А.О.</td></tr><tr><td>4</td><td>ФМБ-42К</td><td>Гречаний О.Ю.</td></tr><tr><td>5</td><td>ФМБ-42К</td><td>Іванов О.С.</td></tr><tr><td>6</td><td>ФМБ-42К</td><td>Казимир М.А.</td></tr><tr><td>7</td><td>ФМБ-42К</td><td>Карабан Є.О.</td></tr><tr><td>8</td><td>ФМБ-42К</td><td>Карлє Д.М.</td></tr><tr><td>9</td><td>ФМБ-42К</td><td>Лавренюк Д.О.</td></tr><tr><td>10</td><td>ФМБ-42К</td><td>Лисюк К.О.</td></tr><tr><td>11</td><td>ФМБ-42К</td><td>Середа О.В.</td></tr><tr><td>12</td><td>ФМБ-42К</td><td>Тарасенко О.М.</td></tr><tr><td>13</td><td>ФМБ-42К</td><td>Хлебніков Д.Д.</td></tr><tr><td>14</td><td>ФМБ-42К</td><td>Чураков Д.К.</td></tr></tbody></table></div></details>
+          </div>
+          <div class="screenshot-block"><h4>Скріншоти онлайн-майстер-класу</h4><p>Скріншоти демонструють проведення онлайн-зустрічі та матеріали, представлені Віктором Слабенком під час спілкування зі студентами.</p><div class="screenshot-gallery"><figure class="screenshot-item"><a href="https://drive.google.com/file/d/11MNE-lEXxFnP3YpmB5c1F4I1hOFXfrye/view" target="_blank" rel="noopener noreferrer" aria-label="Відкрити скріншот 1 у повному розмірі"><img src="https://drive.google.com/thumbnail?id=11MNE-lEXxFnP3YpmB5c1F4I1hOFXfrye&sz=w2000" alt="Організація харчування екіпажу" loading="lazy"></a><figcaption>Організація харчування екіпажу.</figcaption></figure><figure class="screenshot-item"><a href="https://drive.google.com/file/d/1PAlteu9K5ycNV32QsM6GYmXq1AnUWKdA/view" target="_blank" rel="noopener noreferrer" aria-label="Відкрити скріншот 2 у повному розмірі"><img src="https://drive.google.com/thumbnail?id=1PAlteu9K5ycNV32QsM6GYmXq1AnUWKdA&sz=w2000" alt="Робота суднового кухаря на камбузі" loading="lazy"></a><figcaption>Робота суднового кухаря на камбузі.</figcaption></figure><figure class="screenshot-item"><a href="https://drive.google.com/file/d/16Nzg8JN_EX_tlyrgLjutunslT8upBRr1/view" target="_blank" rel="noopener noreferrer" aria-label="Відкрити скріншот 3 у повному розмірі"><img src="https://drive.google.com/thumbnail?id=16Nzg8JN_EX_tlyrgLjutunslT8upBRr1&sz=w2000" alt="Місце приймання їжі екіпажу" loading="lazy"></a><figcaption>Місце приймання їжі екіпажу.</figcaption></figure><figure class="screenshot-item"><a href="https://drive.google.com/file/d/1-N98iumCRdNwiAj1Cy2x-uU7GsSPMQD5/view" target="_blank" rel="noopener noreferrer" aria-label="Відкрити скріншот 4 у повному розмірі"><img src="https://drive.google.com/thumbnail?id=1-N98iumCRdNwiAj1Cy2x-uU7GsSPMQD5&sz=w2000" alt="Приготування страви на камбузі" loading="lazy"></a><figcaption>Приготування страви на камбузі.</figcaption></figure><figure class="screenshot-item"><a href="https://drive.google.com/file/d/1NbinBnp2qvMtFRjH2MNRq1dR2RPhKm3X/view" target="_blank" rel="noopener noreferrer" aria-label="Відкрити скріншот 5 у повному розмірі"><img src="https://drive.google.com/thumbnail?id=1NbinBnp2qvMtFRjH2MNRq1dR2RPhKm3X&sz=w2000" alt="Робоча документація суднового кухаря" loading="lazy"></a><figcaption>Робоча документація суднового кухаря.</figcaption></figure><figure class="screenshot-item"><a href="https://drive.google.com/file/d/1_qZoGpnADh6hs4ADXpDaifXGz9xkv4XO/view" target="_blank" rel="noopener noreferrer" aria-label="Відкрити скріншот 6 у повному розмірі"><img src="https://drive.google.com/thumbnail?id=1_qZoGpnADh6hs4ADXpDaifXGz9xkv4XO&sz=w2000" alt="Робота з документацією під час рейсу" loading="lazy"></a><figcaption>Робота з документацією під час рейсу.</figcaption></figure><figure class="screenshot-item"><a href="https://drive.google.com/file/d/1BAbAfnzjB1DxDnXIBqqqGjmGr7PTgL6J/view" target="_blank" rel="noopener noreferrer" aria-label="Відкрити скріншот 7 у повному розмірі"><img src="https://drive.google.com/thumbnail?id=1BAbAfnzjB1DxDnXIBqqqGjmGr7PTgL6J&sz=w2000" alt="Навчання з техніки безпеки на судні" loading="lazy"></a><figcaption>Навчання з техніки безпеки на судні.</figcaption></figure></div></div>
+          <p class="slogan">🎓 Фахова передвища освіта — від професії до управління.</p>
+        </div>
+      </article>
+    </div>
+
+
+    <div class="section-heading subsection-heading"><div><span class="eyebrow">Проведений майстер-клас • ресторанний сервіс</span><h2>Andriy Dromov • Doloni • 20 жовтня 2026 року</h2></div><div class="section-symbol">🍽️</div></div>
+    <div class="event-list">
+      <article class="event-card" id="masterclass-5">
+        <div class="event-media"><iframe src="https://drive.google.com/file/d/1fNgYac6L52oSgE5aHDRxsmEStcXN6hKb/preview" title="Майстер-клас №5 — Андрій Дромов — Doloni — 20.10.2026" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
+        <div class="event-body">
+          <span class="meta">Майстер-клас №5 • 20.10.2026 • Doloni 🍽️</span>
+          <h3>«Особливості організації ресторанного сервісу та технологія приготування страв одеської кухні»</h3>
+          <p>20 жовтня 2026 року у Doloni bistro by Andriy Dromov відбувся професійно-практичний майстер-клас за участю <strong>Андрія Дромова</strong> для студентів ДНЗ «Одеське вище професійне училище морського туристичного сервісу».</p>
+          <p>Під час заходу увагу було зосереджено на концепції сучасного ресторанного сервісу, організації робочих процесів закладу, характерних особливостях одеської кухні, роботі з локальними продуктами, підготовці сировини та робочого місця, технологічних прийомах приготування страв і сучасній ресторанній подачі.</p>
+          <div class="event-tags"><span class="event-tag">Doloni</span><span class="event-tag">Андрій Дромов</span><span class="event-tag">Одеська кухня</span><span class="event-tag">Ресторанний сервіс</span></div>
+          <div class="program-box">
+            <h4>Програма та підтвердні матеріали майстер-класу</h4>
+            <p class="program-subtitle">Документи проведеного заходу</p>
+            <div class="program-meta">
+              <div><strong>Дата та час</strong>20 жовтня 2026 року, 10:00</div>
+              <div><strong>Місце</strong>Doloni bistro by Andriy Dromov, вул. Краснова, 5, м. Одеса</div>
+              <div><strong>Проводить</strong>Андрій Дромов</div>
+              <div><strong>Учасники</strong>15 осіб за списком заходу</div>
+            </div>
+            <details class="students-details"><summary>Список учасників — 15 осіб</summary><div class="students-wrap"><table class="students-table"><thead><tr><th>№</th><th>Група / статус</th><th>Прізвище та ім’я</th></tr></thead><tbody>
+              <tr><td>1</td><td>майстер виробничого навчання</td><td>Цвірінькалова Наталія</td></tr>
+              <tr><td>2</td><td>18-К</td><td>Макутенко Аліна</td></tr>
+              <tr><td>3</td><td>—</td><td>Раскольников Костянтин</td></tr>
+              <tr><td>4</td><td>—</td><td>Єван Юрій</td></tr>
+              <tr><td>5</td><td>18-К</td><td>Плешка Валерія</td></tr>
+              <tr><td>6</td><td>—</td><td>Осадча Карина</td></tr>
+              <tr><td>7</td><td>—</td><td>Чернявська Дар'я</td></tr>
+              <tr><td>8</td><td>18-К</td><td>Обжелянський Павло</td></tr>
+              <tr><td>9</td><td>18-К</td><td>Музикант Ілля</td></tr>
+              <tr><td>10</td><td>18-К</td><td>Затворницька Євгенія</td></tr>
+              <tr><td>11</td><td>18-К</td><td>Фіцер Вікторія</td></tr>
+              <tr><td>12</td><td>ФМБ-42К</td><td>Середа Олег</td></tr>
+              <tr><td>13</td><td>ФМБ-42К</td><td>Тарасенко Олександр</td></tr>
+              <tr><td>14</td><td>ФМБ-42К</td><td>Карлє Дмитро</td></tr>
+              <tr><td>15</td><td>ФМБ-42К</td><td>Владов Артур</td></tr>
+            </tbody></table></div></details>
+            <div class="event-actions">
+              <a class="card-link" href="https://drive.google.com/file/d/1tq2QbmeO2X15dm3kp9FXGuMiIty3sIck/view" target="_blank" rel="noopener noreferrer">Програма PDF ↗</a>
+              <a class="card-link" href="https://drive.google.com/file/d/1jgOh7MewQggW0lwuFp3PtAOtLBXXW2XL/view" target="_blank" rel="noopener noreferrer">Звіт і журнал реєстрації ↗</a>
+              <a class="card-link" href="https://drive.google.com/file/d/13zcUp79C7zOt9ObMPWvy_WPS1RrVbzj5/view" target="_blank" rel="noopener noreferrer">Сертифікати №57–71 ↗</a>
+              <a class="card-link" href="https://drive.google.com/drive/folders/1OjD9cweo_hhdA9AN2Sv9bgyRL_kr2l5f" target="_blank" rel="noopener noreferrer">Матеріали заходу ↗</a>
+            </div>
+          </div>
+          <p class="slogan">🎓 Фахова передвища освіта — від професії до управління.</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="section-heading subsection-heading"><div><span class="eyebrow">Міжнародний досвід • Канада</span><h2>Онлайн-майстер-клас від Манюк Лілії • 2 листопада 2026 року</h2></div><div class="section-symbol">🇺🇦🇨🇦</div></div>
+    <div class="event-list">
+      <article class="event-card video-gallery-card" id="masterclass-3">
+        <div class="video-gallery" aria-label="Відеоматеріали онлайн-майстер-класу Манюк Лілії">
+          <div class="video-item"><div class="video-player"><iframe src="https://drive.google.com/file/d/1QexOdTWXRYv0msH-IUw0FAC1gdSajBxD/preview" title="Манюк Лілія — Канада, відео 1" allow="autoplay; fullscreen" allowfullscreen></iframe></div></div>
+          <div class="video-item"><div class="video-player"><iframe src="https://drive.google.com/file/d/19Cx0QX11w-x4Og8b6SZUq3sYJOpNuDQz/preview" title="Манюк Лілія — Канада, відео 2" allow="autoplay; fullscreen" allowfullscreen></iframe></div></div>
+          <div class="video-item"><div class="video-player"><iframe src="https://drive.google.com/file/d/1v--q-y2q7i4cwOEcxR2uJXyie5xmlpIb/preview" title="Манюк Лілія — Канада, відео 3" allow="autoplay; fullscreen" allowfullscreen></iframe></div></div>
+          <div class="video-item"><div class="video-player"><iframe src="https://drive.google.com/file/d/1jf8G1V8r06LBEBW2oGkKHIjouLRUUYVe/preview" title="Манюк Лілія — Канада, відео 4" allow="autoplay; fullscreen" allowfullscreen></iframe></div></div>
+          <div class="video-item"><div class="video-player"><iframe src="https://drive.google.com/file/d/17NR74RykZXpycyHoYsqgLD04-nTQGuVA/preview" title="Манюк Лілія — Канада, відео 5" allow="autoplay; fullscreen" allowfullscreen></iframe></div></div>
+          <div class="video-item"><div class="video-player"><iframe src="https://drive.google.com/file/d/1zmMNTfhSevXhkW88XOjaUcxAFYOrVOUb/preview" title="Манюк Лілія — Канада, відео 6" allow="autoplay; fullscreen" allowfullscreen></iframe></div></div>
+          <div class="video-item"><div class="video-player"><iframe src="https://drive.google.com/file/d/1WpnoafyNNKs7f3H5O1e1HlCCJHc6kTKi/preview" title="Манюк Лілія — Канада, відео 7" allow="autoplay; fullscreen" allowfullscreen></iframe></div></div>
+          <div class="video-item"><div class="video-player"><iframe src="https://drive.google.com/file/d/10fNeHrBNr_JgmVKKRjzxTsUuU6r1AlUq/preview" title="Манюк Лілія — Канада, відео 8" allow="autoplay; fullscreen" allowfullscreen></iframe></div></div>
+        </div>
+        <div class="event-body"><span class="meta">Майстер-клас №7 • 02.11.2026 🇺🇦🇨🇦👩‍🍳</span><h3>«Волонтерська кухня в Канаді: організація харчування, робота кухаря в українській громаді та професійний досвід за кордоном»</h3>
+          <p>На 2 листопада 2026 року для студентів фахової передвищої освіти ДНЗ «Одеське вище професійне училище морського туристичного сервісу» заплановано онлайн-майстер-клас за участю нашої студентки Манюк Лілії Дмитрівни, яка перебуває у м. Реджайна, провінція Саскачеван, Канада. До програми додано тематичні відеоматеріали про діяльність української громади в Канаді.</p>
+          <p>У відеоматеріалі представлено досвід роботи української громади та волонтерської кухні в Канаді: організацію спільної роботи, підготовку та приготування їжі, участь у громадських заходах і збереження українських традицій далеко від дому.</p>
+          <p>Цей досвід показує практичну цінність фахової передвищої освіти: професійні знання допомагають не лише виконувати технологічні операції, а й планувати роботу, взаємодіяти в команді, організовувати процеси та відповідально працювати в новому середовищі. Навички, сформовані під час навчання, можна застосовувати незалежно від країни перебування.</p>
+          <div class="event-tags"><span class="event-tag">Манюк Лілія</span><span class="event-tag">Канада • Regina, Saskatchewan</span><span class="event-tag">Онлайн-майстер-клас</span><span class="event-tag">Фахова передвища освіта</span></div>
+          <div class="event-actions"><a class="card-link" href="https://drive.google.com/file/d/1kIitkJ9qjMkitjMsyyv08yBrUZbNxJ7I/view" target="_blank" rel="noopener noreferrer">Переглянути PDF програми ↗</a><a class="card-link" href="https://drive.google.com/file/d/1St_nJ2pIurbOyhRRvk7LxsjYr9CYQXg_/view" target="_blank" rel="noopener noreferrer">Звіт і журнал реєстрації ↗</a><a class="card-link" href="https://drive.google.com/file/d/14-4mS9kFFbsV3mgi9zTuBtzv8X61XOp_/view" target="_blank" rel="noopener noreferrer">Сертифікати ↗</a><a class="card-link" href="https://drive.google.com/drive/folders/18KErT5UbtjB7GiIdQN-yC5sW4fgaSwqe" target="_blank" rel="noopener noreferrer">Матеріали заходу ↗</a></div>
+          <div class="program-box"><h4>Програма проведення онлайн-майстер-класу</h4><p class="program-subtitle">для студентів ДНЗ «ОВПУ МТС»</p><div class="program-meta"><div><strong>Дата проведення</strong>2 листопада 2026 року</div><div><strong>Час проведення</strong>10:00</div><div><strong>Місце / форма</strong>онлайн-формат; Українська національна організація в Канаді, м. Реджайна, провінція Саскачеван</div><div><strong>Проводить</strong>Манюк Лілія, ФМБ-41К</div><div><strong>Учасники</strong>15 студентів навчальної групи ФМБ-41</div></div><p class="program-topic">Тема: «Волонтерська кухня в Канаді: організація харчування, робота кухаря в українській громаді та професійний досвід за кордоном»</p><ul class="program-list"><li>особливості організації волонтерської кухні в українській громаді Канади;</li><li>планування харчування та розподіл обов’язків під час колективної роботи;</li><li>організація підготовки сировини, приготування і видачі готових страв;</li><li>санітарно-гігієнічні вимоги та організація безпечної роботи на кухні;</li><li>професійна адаптація кухаря до роботи в іншій країні та командному середовищі;</li><li>практичний досвід, професійні висновки та відповіді на запитання студентів.</li></ul>
+            <details class="students-details"><summary>Список студентів — 15 учасників</summary><div class="students-wrap"><table class="students-table"><thead><tr><th>№</th><th>Навчальна група</th><th>Прізвище та ініціали</th></tr></thead><tbody><tr><td>1</td><td>ФМБ-41</td><td>Бондаренко О.П.</td></tr><tr><td>2</td><td>ФМБ-41</td><td>Бородіна К.С.</td></tr><tr><td>3</td><td>ФМБ-41</td><td>Вигіна А.Д.</td></tr><tr><td>4</td><td>ФМБ-41</td><td>Гончаренко Н.М.</td></tr><tr><td>5</td><td>ФМБ-41</td><td>Гулюк О.Я.</td></tr><tr><td>6</td><td>ФМБ-41</td><td>Дворкін О.Г.</td></tr><tr><td>7</td><td>ФМБ-41</td><td>Дежурнова А.А.</td></tr><tr><td>8</td><td>ФМБ-41</td><td>Долганін Д.М.</td></tr><tr><td>9</td><td>ФМБ-41</td><td>Ємільянов І.О.</td></tr><tr><td>10</td><td>ФМБ-41</td><td>Іванов С.В.</td></tr><tr><td>11</td><td>ФМБ-41</td><td>Кужелюк М.О.</td></tr><tr><td>12</td><td>ФМБ-41</td><td>Кузьмінський І.О.</td></tr><tr><td>13</td><td>ФМБ-41</td><td>Кулакли Т.П.</td></tr><tr><td>14</td><td>ФМБ-41</td><td>Купченко І.А.</td></tr><tr><td>15</td><td>ФМБ-41</td><td>Левченко А.О.</td></tr></tbody></table></div></details>
+          </div>
+          <div class="screenshot-block"><h4>Фотоматеріали: українська громада та волонтерська кухня в Канаді</h4><p>Світлини ілюструють діяльність української громади, спільне приготування страв та роботу волонтерської кухні в Канаді.</p><div class="screenshot-gallery"><figure class="screenshot-item"><a href="https://drive.google.com/file/d/124VOWx90UeWk_ACBjv-oGjw6Nig8ok8S/view" target="_blank" rel="noopener noreferrer" aria-label="Відкрити скріншот 1 у повному розмірі"><img src="https://drive.google.com/thumbnail?id=124VOWx90UeWk_ACBjv-oGjw6Nig8ok8S&sz=w2000" alt="Українська громада" loading="lazy"></a><figcaption>Українська громада.</figcaption></figure><figure class="screenshot-item"><a href="https://drive.google.com/file/d/13Lzzb-fiyIcrwWmHj7u39bA5QqCessQk/view" target="_blank" rel="noopener noreferrer" aria-label="Відкрити скріншот 2 у повному розмірі"><img src="https://drive.google.com/thumbnail?id=13Lzzb-fiyIcrwWmHj7u39bA5QqCessQk&sz=w2000" alt="Приклад готової страви" loading="lazy"></a><figcaption>Приклад готової страви.</figcaption></figure><figure class="screenshot-item"><a href="https://drive.google.com/file/d/1K9NZ1Opdd1Iy4s6nr_PzXzuM2h0sxN6U/view" target="_blank" rel="noopener noreferrer" aria-label="Відкрити скріншот 3 у повному розмірі"><img src="https://drive.google.com/thumbnail?id=1K9NZ1Opdd1Iy4s6nr_PzXzuM2h0sxN6U&sz=w2000" alt="Команда волонтерської кухні" loading="lazy"></a><figcaption>Команда волонтерської кухні.</figcaption></figure><figure class="screenshot-item"><a href="https://drive.google.com/file/d/1QWtwJS75_U1KmZyh30mnAc3lKRgy4HZO/view" target="_blank" rel="noopener noreferrer" aria-label="Відкрити скріншот 4 у повному розмірі"><img src="https://drive.google.com/thumbnail?id=1QWtwJS75_U1KmZyh30mnAc3lKRgy4HZO&sz=w2000" alt="Приготування страв на відкритому повітрі" loading="lazy"></a><figcaption>Приготування страв на відкритому повітрі.</figcaption></figure><figure class="screenshot-item"><a href="https://drive.google.com/file/d/1_Oj7Y1Mm9usZmA4ybtAEgFvcMz7iK1PG/view" target="_blank" rel="noopener noreferrer" aria-label="Відкрити скріншот 5 у повному розмірі"><img src="https://drive.google.com/thumbnail?id=1_Oj7Y1Mm9usZmA4ybtAEgFvcMz7iK1PG&sz=w2000" alt="Спільне приготування українських страв" loading="lazy"></a><figcaption>Спільне приготування українських страв.</figcaption></figure><figure class="screenshot-item"><a href="https://drive.google.com/file/d/1xdk2iamphVDs6nR6kgE_OUj7SP-bJIJq/view" target="_blank" rel="noopener noreferrer" aria-label="Відкрити скріншот 6 у повному розмірі"><img src="https://drive.google.com/thumbnail?id=1xdk2iamphVDs6nR6kgE_OUj7SP-bJIJq&sz=w2000" alt="Діяльність української громади" loading="lazy"></a><figcaption>Діяльність української громади.</figcaption></figure><figure class="screenshot-item"><a href="https://drive.google.com/file/d/1AAJ2Bl2h84Gr5X1MpZrHU7psR-z5b6EB/view" target="_blank" rel="noopener noreferrer" aria-label="Відкрити скріншот 7 у повному розмірі"><img src="https://drive.google.com/thumbnail?id=1AAJ2Bl2h84Gr5X1MpZrHU7psR-z5b6EB&sz=w2000" alt="Навчання та підготовка матеріалів" loading="lazy"></a><figcaption>Навчання та підготовка матеріалів.</figcaption></figure></div></div>
+          <p class="slogan">🎓 Фахова передвища освіта — від професії до управління.</p>
+        </div>
+      </article>
+
   </div></section>
 </main>
 
