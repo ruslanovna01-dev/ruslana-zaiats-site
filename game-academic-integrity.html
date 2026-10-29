@@ -19,6 +19,9 @@ button,input{font:inherit}.app{max-width:980px;margin:auto;padding:18px 14px 60p
 .hotspots{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin-top:12px}.hot{border:1px solid #cddde5;background:#fff;border-radius:12px;padding:10px;cursor:pointer;font-weight:750}.hot.selected{background:var(--blue);border-color:var(--blue);color:#fff}
 .navrow{display:flex;justify-content:flex-end;margin-top:18px}.finish{width:100%;padding:15px;font-size:16px}.error{display:none;margin-top:10px;padding:10px 12px;border-radius:12px;background:#fff1ef;color:var(--bad);border:1px solid #f2cbc7}
 #result{display:none;text-align:center}.ring{width:150px;height:150px;border-radius:50%;margin:8px auto 18px;display:grid;place-items:center;background:conic-gradient(var(--blue) calc(var(--p)*1%),#e6eef2 0);position:relative}.ring:after{content:"";position:absolute;width:116px;height:116px;border-radius:50%;background:#fff}.ring strong{position:relative;z-index:1;font-size:34px;color:var(--deep)}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}.metric{padding:14px;border-radius:15px;background:#f4f8fa}.metric strong{display:block;font-size:22px;color:var(--deep)}.metric span{font-size:12px;color:var(--muted)}.result-msg{font-size:18px;font-weight:800}.review{margin-top:18px;text-align:left}.review-item{border:1px solid var(--line);border-radius:14px;padding:12px;margin:8px 0}.review-item.ok{border-left:5px solid var(--ok)}.review-item.bad{border-left:5px solid var(--bad)}.preview-badge{display:inline-block;margin-top:14px;padding:7px 10px;border-radius:999px;background:#fff6d8;color:#74570b;font-size:12px;font-weight:850}
+.puzzleboard{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.puzzleboard .seq{position:relative;min-height:78px;padding:16px 18px;border-width:2px;background:linear-gradient(135deg,#fff,#f4f9fb)}.puzzleboard .seq:before{content:"🧩";font-size:20px}.puzzleboard .seq.chosen{transform:translateY(-1px);box-shadow:0 8px 18px rgba(23,107,143,.12)}
+.confetti-layer{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:9999}.confetti-piece{position:absolute;top:-20px;width:10px;height:16px;border-radius:2px;animation:fall 1.9s linear forwards}.celebrate-pop{animation:pop .55s ease}
+@keyframes fall{to{transform:translate3d(var(--x),105vh,0) rotate(760deg);opacity:.15}}@keyframes pop{0%{transform:scale(.88);opacity:.5}70%{transform:scale(1.04)}100%{transform:scale(1)}}
 @media(max-width:720px){.identity,.metrics{grid-template-columns:1fr}.start{align-items:stretch;flex-direction:column}.hero{padding:23px}.qcard{padding:17px}}
 </style>
 </head>
@@ -69,7 +72,7 @@ function render(){
   if(q.type==="single"||q.type==="multi"){
     body+='<div class="options">'+q.options.map((o,oi)=>'<button type="button" class="opt" data-value="'+oi+'"><span class="mark">'+String.fromCharCode(65+oi)+'</span><span>'+o+'</span></button>').join("")+'</div>';
   }else if(q.type==="sequence"){
-    body+='<div class="sequence">'+q.items.map((o,oi)=>'<button type="button" class="seq" data-value="'+oi+'"><span class="seqno">•</span><span>'+o+'</span></button>').join("")+'</div><button type="button" class="btn btn-soft resetseq" style="margin-top:10px">Скинути порядок</button>';
+    body+='<div class="sequence '+(q.puzzle?'puzzleboard':'')+'">'+q.items.map((o,oi)=>'<button type="button" class="seq" data-value="'+oi+'"><span class="seqno">•</span><span>'+o+'</span></button>').join("")+'</div><button type="button" class="btn btn-soft resetseq" style="margin-top:10px">Скинути порядок</button>';
   }else if(q.type==="hotspot"){
     body+='<div class="hotspots">'+q.hotspots.map(h=>'<button type="button" class="hot" data-value="'+safe(h.value)+'">'+h.label+'</button>').join("")+'</div>';
   }
@@ -99,6 +102,14 @@ function equal(a,b){if(Array.isArray(b)){return Array.isArray(a)&&a.length===b.l
 function ects(p){if(p>=90)return"A";if(p>=82)return"B";if(p>=75)return"C";if(p>=69)return"D";if(p>=60)return"E";if(p>=35)return"FX";return"F"}
 function level(p){if(p>=90)return"Відмінний результат";if(p>=75)return"Достатній рівень";if(p>=60)return"Результат зараховано";return"Потрібно повторити матеріал"}
 function fmt(ms){const s=Math.round(ms/1000);return Math.floor(s/60)+":"+String(s%60).padStart(2,"0")}
+function celebrate(){
+  const layer=document.createElement("div"); layer.className="confetti-layer"; document.body.appendChild(layer);
+  const colors=["#176b8f","#d8a62e","#6db68e","#b86aa5","#7ec8dd","#ef8f6b"];
+  for(let i=0;i<85;i++){const p=document.createElement("i");p.className="confetti-piece";p.style.left=Math.random()*100+"%";p.style.background=colors[i%colors.length];p.style.setProperty("--x",(Math.random()*220-110)+"px");p.style.animationDelay=(Math.random()*.55)+"s";p.style.transform="rotate("+(Math.random()*180)+"deg)";layer.appendChild(p)}
+  setTimeout(()=>layer.remove(),2600);
+  $("#result").classList.add("celebrate-pop");
+  try{const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;const ac=new AC();const notes=[523.25,659.25,783.99,1046.5];notes.forEach((freq,i)=>{const o=ac.createOscillator(),g=ac.createGain();o.type="triangle";o.frequency.value=freq;g.gain.setValueAtTime(.0001,ac.currentTime+i*.12);g.gain.exponentialRampToValueAtTime(.12,ac.currentTime+i*.12+.02);g.gain.exponentialRampToValueAtTime(.0001,ac.currentTime+i*.12+.22);o.connect(g);g.connect(ac.destination);o.start(ac.currentTime+i*.12);o.stop(ac.currentTime+i*.12+.24)});setTimeout(()=>ac.close(),1200)}catch(e){}
+}
 $("#startBtn").onclick=()=>{
  const surname=$("#surname").value.trim(), firstName=$("#firstName").value.trim(), group=$("#group").value.trim();
  if(!surname||!firstName||!group){$("#introError").style.display="block";$("#introError").textContent="Заповни прізвище, ім’я та групу.";return}
@@ -115,7 +126,7 @@ $("#finishBtn").onclick=async()=>{
  localStorage.setItem("lastQuizResult",JSON.stringify(payload));
  if(RESULTS_ENDPOINT){try{await fetch(RESULTS_ENDPOINT,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)});$("#saveStatus").textContent="Результат надіслано до журналу викладача."}catch(e){$("#saveStatus").textContent="Результат збережено на пристрої; надсилання буде повторено після відновлення зв’язку."}}
  $("#quiz").style.display="none";$("#result").style.display="block";$("#ring").style.setProperty("--p",p);$("#percent").textContent=p+"%";$("#raw12").textContent=grade12+"/12";$("#raw100").textContent=p;$("#ects").textContent=e;$("#timeSpent").textContent=fmt(elapsed);$("#resultMsg").textContent=level(p);
- $("#review").innerHTML="<h3>Розбір виконання</h3>"+review.map(x=>'<div class="review-item '+(x.ok?'ok':'bad')+'"><strong>Завдання '+x.n+': '+(x.ok?'✓ правильно':'✕ помилка')+'</strong>'+(x.feedback?'<div class="note" style="margin-top:5px">'+x.feedback+'</div>':'')+'</div>').join("");
+ celebrate();$("#review").innerHTML="<h3>Розбір виконання</h3>"+review.map(x=>'<div class="review-item '+(x.ok?'ok':'bad')+'"><strong>Завдання '+x.n+': '+(x.ok?'✓ правильно':'✕ помилка')+'</strong>'+(x.feedback?'<div class="note" style="margin-top:5px">'+x.feedback+'</div>':'')+'</div>').join("");
  scrollTo({top:0,behavior:"smooth"});
 }
 </script>
