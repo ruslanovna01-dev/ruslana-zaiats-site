@@ -92,7 +92,7 @@ function renderQuestionResults(){
  count.textContent=stats?stats.total+' відповідей':state.summaryLoading?'Оновлюємо…':'Поки що немає відповідей';
  header.append(title,count);
  card.appendChild(header);
- if(stats&&stats.total){appendBars(card,state.step,stats)}
+ if(stats){appendBars(card,state.step,stats)}
  else{
   const note=document.createElement('p');
   note.className='chart-empty';
