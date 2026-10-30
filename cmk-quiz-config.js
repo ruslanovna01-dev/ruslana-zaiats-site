@@ -1,2 +1,2 @@
-/* Після розгортання захищеного Google Apps Script підставити URL вебзастосунку. До цього часу діаграми локальні. */
-window.CMK_API_URL = '';
+/* Спільна статистика зберігає лише анонімні підрахунки відповідей. */
+window.CMK_API_URL = 'https://student-food-tech-space.politelake512.chatgpt.site';
