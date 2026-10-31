@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Інтерактивний тренажер з ресторанного документообігу для ОК18: меню, замовлення продуктів, списання та інвентаризація.">
+  <title>Ресторанний документообіг — Руслана ЗАЯЦЬ</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    :root{--df-ink:#183548;--df-teal:#177d79;--df-mint:#eaf5f1;--df-gold:#d4a45f;--df-line:#dce7e8;--df-paper:#fbfaf7;--df-red:#a84335}
+    body{background:#f7f8f7}
+    .subhero{background:radial-gradient(circle at 80% 20%,rgba(212,164,95,.16),transparent 27%),linear-gradient(135deg,#f8f2e8,#eef6f5)}
+    .docflow-section{padding-top:32px}
+    .docflow-intro{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:20px 22px;border:1px solid var(--df-line);border-radius:20px;background:#fff;box-shadow:var(--shadow);margin-bottom:18px}
+    .docflow-intro strong{display:block;color:var(--df-ink);font-size:1.05rem}
+    .docflow-intro p{margin:4px 0 0;color:var(--muted);font-size:.94rem}
+    .score-box{min-width:220px}
+    .score-line{display:flex;justify-content:space-between;gap:12px;font-weight:800;color:var(--df-ink);font-size:.9rem}
+    .score-track{height:9px;margin-top:9px;border-radius:99px;background:#e9eeee;overflow:hidden}
+    .score-fill{height:100%;width:0;background:linear-gradient(90deg,var(--df-teal),#65b7a0);border-radius:99px;transition:width .25s ease}
+    .docflow-layout{display:grid;grid-template-columns:260px minmax(0,1fr);gap:18px;align-items:start}
+    .step-menu{position:sticky;top:90px;padding:16px;border:1px solid var(--df-line);border-radius:20px;background:#fff;box-shadow:var(--shadow)}
+    .step-menu h2{margin:2px 4px 12px;font-size:1.05rem;color:var(--df-ink)}
+    .step-button{width:100%;display:grid;grid-template-columns:38px 1fr auto;gap:10px;align-items:center;padding:13px 11px;margin:4px 0;border:1px solid transparent;border-radius:14px;background:transparent;color:var(--text);text-align:left;cursor:pointer;font:inherit;transition:.18s ease}
+    .step-button:hover{background:#f6faf9}
+    .step-button.active{border-color:#b9d8d0;background:var(--df-mint);color:var(--df-ink)}
+    .step-number{width:34px;height:34px;display:grid;place-items:center;border-radius:11px;background:#f1f3f2;color:#65747a;font-weight:900;font-size:.82rem}
+    .step-button.active .step-number{background:var(--df-teal);color:#fff}
+    .step-copy{font-weight:800;font-size:.9rem;line-height:1.25}
+    .step-status{font-size:.73rem;color:#7a8589;white-space:nowrap}
+    .step-button.complete .step-status{color:#177d79;font-weight:900}
+    .step-note{margin:14px 4px 4px;padding:12px;border-radius:13px;background:#f8f6f0;color:#687276;font-size:.82rem;line-height:1.45}
+    .workspace{min-width:0}
+    .local-note{display:flex;gap:10px;align-items:flex-start;padding:13px 15px;margin-bottom:14px;border:1px solid #e7dfcf;border-radius:14px;background:#fffaf0;color:#6d614f;font-size:.87rem}
+    .local-note strong{color:#514433}
+    .module-view{display:none;padding:22px;border:1px solid var(--df-line);border-radius:22px;background:#fff;box-shadow:var(--shadow)}
+    .module-view.active{display:block}
+    .mission-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;padding-bottom:16px;border-bottom:1px solid #edf0ee}
+    .mission-kicker{display:block;margin-bottom:5px;color:var(--df-teal);font-size:.76rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+    .mission-head h2{margin:0;color:var(--df-ink);font-size:1.55rem;line-height:1.2}
+    .mission-head p{margin:8px 0 0;color:var(--muted);max-width:720px}
+    .mission-tag{flex:none;padding:8px 11px;border-radius:99px;background:#f6f0e4;color:#80613b;font-size:.78rem;font-weight:900}
+    .scenario{display:grid;grid-template-columns:42px 1fr;gap:12px;align-items:start;margin:16px 0;padding:15px 16px;border-radius:16px;background:#f4f8f7;border:1px solid #e0ece8}
+    .scenario-icon{width:38px;height:38px;display:grid;place-items:center;border-radius:12px;background:#fff;font-size:1.2rem}
+    .scenario strong{display:block;color:var(--df-ink);margin-bottom:4px}
+    .scenario p{margin:0;color:#5f6f70;font-size:.92rem;line-height:1.5}
+    .field-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin:16px 0}
+    .field{display:grid;gap:6px;min-width:0}
+    .field.full{grid-column:1/-1}
+    .field label,.field>span{font-size:.84rem;font-weight:800;color:#43545d}
+    .field input,.field select,.field textarea{width:100%;min-height:43px;padding:10px 12px;border:1px solid #d7e0e2;border-radius:11px;background:#fff;color:var(--text);font:inherit}
+    .field input:focus,.field select:focus,.field textarea:focus{outline:3px solid rgba(23,125,121,.16);border-color:var(--df-teal)}
+    .field input[readonly]{background:#f4f6f5;color:#526168}
+    .field-help{color:#77848a;font-size:.77rem;line-height:1.4}
+    .table-heading{display:flex;justify-content:space-between;gap:12px;align-items:end;margin:19px 0 9px}
+    .table-heading h3{margin:0;color:var(--df-ink);font-size:1.03rem}
+    .table-heading span{font-size:.8rem;color:#748188}
+    .table-scroll{overflow-x:auto;border:1px solid #e1e8e8;border-radius:14px}
+    .doc-table{width:100%;min-width:680px;border-collapse:collapse;background:#fff}
+    .doc-table th,.doc-table td{padding:9px 10px;border-bottom:1px solid #e8eeee;text-align:left;vertical-align:middle}
+    .doc-table th{background:#f5f8f7;color:#52646b;font-size:.78rem;white-space:nowrap}
+    .doc-table td{font-size:.88rem}
+    .doc-table tr:last-child td{border-bottom:0}
+    .doc-table input,.doc-table select{width:100%;min-width:90px;min-height:38px;padding:7px 8px;border:1px solid #dce4e4;border-radius:9px;background:#fff;color:var(--text);font:inherit}
+    .doc-table input[type=number]{min-width:78px}
+    .table-actions{display:flex;justify-content:space-between;gap:14px;align-items:center;margin-top:10px;flex-wrap:wrap}
+    .inline-stats{display:flex;gap:14px;flex-wrap:wrap;color:#66767c;font-size:.84rem}
+    .inline-stats strong{color:var(--df-ink)}
+    .button{display:inline-flex;justify-content:center;align-items:center;gap:8px;min-height:43px;padding:10px 15px;border:1px solid transparent;border-radius:12px;font:inherit;font-weight:900;text-decoration:none;cursor:pointer;transition:.18s ease}
+    .button.primary{background:var(--df-teal);color:#fff}
+    .button.primary:hover{background:#116b68;transform:translateY(-1px)}
+    .button.secondary{background:#f4f7f6;border-color:#dce7e5;color:var(--df-ink)}
+    .button.secondary:hover{background:#eaf3f1}
+    .button.small{min-height:36px;padding:7px 11px;font-size:.83rem}
+    .button:disabled{opacity:.45;cursor:not-allowed;transform:none}
+    .remove-line{min-width:35px;min-height:35px;border:1px solid #ead6d1;border-radius:9px;background:#fff8f6;color:var(--df-red);font-size:1.05rem;cursor:pointer}
+    .action-row{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 6px}
+    .feedback{display:none;margin:13px 0;padding:13px 15px;border-radius:13px;font-size:.9rem;line-height:1.5}
+    .feedback.show{display:block}
+    .feedback.success{border:1px solid #b9ddd1;background:#eff8f3;color:#295c4c}
+    .feedback.error{border:1px solid #ecd0c8;background:#fff5f2;color:#7a3e32}
+    .feedback ul{margin:7px 0 0;padding-left:20px}
+    .doc-preview{margin-top:17px}
+    .doc-sheet{padding:24px;border:1px solid #d9dfdc;border-radius:15px;background:var(--df-paper);color:#27353a}
+    .doc-sheet-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding-bottom:12px;border-bottom:2px solid #263d46}
+    .doc-stamp{color:var(--df-teal);font-size:.75rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+    .doc-sheet h3{margin:7px 0 0;font-size:1.2rem;color:#17384a}
+    .doc-meta{display:flex;gap:9px 18px;flex-wrap:wrap;margin:13px 0;font-size:.84rem;color:#59686d}
+    .doc-sheet table{width:100%;border-collapse:collapse;margin:12px 0}
+    .doc-sheet th,.doc-sheet td{padding:8px;border:1px solid #cfd8d8;text-align:left;font-size:.83rem}
+    .doc-sheet th{background:#eef3f1}
+    .doc-total{text-align:right;margin:10px 0;font-weight:900}
+    .doc-signatures{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:20px}
+    .doc-signature{padding-top:10px;border-top:1px solid #9faeb0;font-size:.8rem;color:#536267}
+    .doc-footnote{margin:15px 0 0;color:#6c777b;font-size:.75rem}
+    .complete-card{margin-top:16px;padding:18px;border-radius:18px;background:linear-gradient(135deg,#e9f5ef,#f8f2e6);border:1px solid #d6e5dc}
+    .complete-card h2{margin:0 0 4px;color:var(--df-ink)}
+    .complete-card p{margin:0;color:#5f6f70}
+    .legal-note{margin-top:18px;padding:18px;border:1px solid #dfe7e7;border-radius:18px;background:#fff;color:#65747a;font-size:.84rem;line-height:1.55}
+    .legal-note strong{color:var(--df-ink)}
+    .legal-links{display:flex;gap:10px 18px;flex-wrap:wrap;margin-top:9px}
+    .legal-links a{color:#176f75;font-weight:800}
+    .page-bottom-actions{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:18px}
+    @media(max-width:900px){.docflow-layout{grid-template-columns:1fr}.step-menu{position:static}.step-menu-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px}.step-note{margin-top:10px}}
+    @media(max-width:620px){.docflow-intro{align-items:flex-start;flex-direction:column}.score-box{width:100%}.module-view{padding:16px}.mission-head{flex-direction:column}.mission-head h2{font-size:1.32rem}.mission-tag{order:-1}.field-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.step-menu-list{grid-template-columns:1fr}.doc-sheet{padding:16px}.doc-sheet-head{flex-direction:column}.doc-signatures{grid-template-columns:1fr}.table-actions{align-items:flex-start;flex-direction:column}}
+    @media print{
+      body{background:#fff!important}
+      .site-header,.subhero,.docflow-intro,.step-menu,.local-note,.mission-head,.scenario,.field-grid,.table-heading,.table-scroll,.table-actions,.action-row,.feedback,.legal-note,.page-bottom-actions,.site-footer,.complete-card{display:none!important}
+      .docflow-layout{display:block!important}
+      .workspace{width:100%!important}
+      .module-view{display:none!important;box-shadow:none!important;border:0!important;padding:0!important}
+      .module-view.active{display:block!important}
+      .doc-preview[hidden]{display:none!important}
+      .doc-preview{display:block!important;margin:0!important}
+      .doc-sheet{border:0!important;border-radius:0!important;background:#fff!important;padding:0!important}
+      .doc-sheet table{min-width:0!important}
+      .doc-sheet th,.doc-sheet td{font-size:10pt!important}
+      @page{margin:15mm}
+    }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html"><span class="brand-mark">РЗ</span><span><strong>Руслана ЗАЯЦЬ</strong><small>навчально-методичний простір</small></span></a>
+    <nav class="nav" aria-label="Навігація"><a href="index.html">Головна</a><a href="ok18.html">ОК18</a><a href="cases.html#ok18">Кейс-банк</a></nav>
+  </div>
+</header>
+<main>
+  <section class="subhero">
+    <div class="container">
+      <span class="eyebrow">ФПО • ОК18 • ІНТЕРАКТИВНИЙ ТРЕНАЖЕР</span>
+      <h1>Ресторанний документообіг</h1>
+      <p>Від меню до інвентаризації: сплануй роботу кухні, замов потрібні продукти, оформи списання й звір фактичні залишки.</p>
+    </div>
+  </section>
+  <section class="section docflow-section">
+    <div class="container">
+      <div class="docflow-intro">
+        <div><strong>Пройди маршрут документів ресторану</strong><p>Чотири практичні етапи • до 100 балів • макети можна роздрукувати або зберегти в PDF.</p></div>
+        <div class="score-box">
+          <div class="score-line"><span id="progressText">0 із 4 етапів</span><span id="scoreText">0 / 100</span></div>
+          <div class="score-track" role="progressbar" aria-label="Виконання етапів" aria-valuemin="0" aria-valuemax="4" aria-valuenow="0"><div class="score-fill" id="scoreFill"></div></div>
+        </div>
+      </div>
+      <div class="docflow-layout">
+        <aside class="step-menu" aria-label="Етапи тренажера">
+          <h2>Маршрут навчання</h2>
+          <div class="step-menu-list">
+            <button type="button" class="step-button active" data-step="menu" aria-current="step"><span class="step-number">01</span><span class="step-copy">Меню та план-меню</span><span class="step-status">0/25</span></button>
+            <button type="button" class="step-button" data-step="order"><span class="step-number">02</span><span class="step-copy">Замовлення продуктів</span><span class="step-status">0/25</span></button>
+            <button type="button" class="step-button" data-step="writeoff"><span class="step-number">03</span><span class="step-copy">Списання запасів</span><span class="step-status">0/25</span></button>
+            <button type="button" class="step-button" data-step="inventory"><span class="step-number">04</span><span class="step-copy">Інвентаризація й облік</span><span class="step-status">0/25</span></button>
+          </div>
+          <div class="step-note">Підказки пояснюють, що саме виправити. Для повного бала заповни реквізити, перевір розрахунки та заверши документ.</div>
+        </aside>
+        <div class="workspace">
+          <div class="local-note"><span aria-hidden="true">🔒</span><div><strong>Навчальний режим.</strong> Результат формується у цьому браузері й автоматично нікуди не надсилається. Щоб показати роботу викладачу, збережи документ через «Друк / PDF».</div></div>
+
+          <section class="module-view active" id="view-menu" data-view="menu">
+            <div class="mission-head"><div><span class="mission-kicker">Етап 1 • планування</span><h2>Склади меню на обід</h2><p>Підготуй план для навчального ресторану. Меню має охопити основні позиції, а порцій у кожній обов’язковій категорії має вистачити на запланованих гостей.</p></div><span class="mission-tag">МЕНЮ</span></div>
+            <div class="scenario"><span class="scenario-icon" aria-hidden="true">🍽️</span><div><strong>Ситуація</strong><p>На обід очікують гостей. Сформуй меню з першою стравою, основною стравою, гарніром і напоєм. Укажи кількість порцій та ціну; підсумок порахується автоматично.</p></div></div>
+            <div class="field-grid">
+              <div class="field"><label for="restaurantName">Назва закладу</label><input id="restaurantName" value="Навчальний ресторан «Маяк»" maxlength="90"></div>
+              <div class="field"><label for="menuDate">Дата меню</label><input id="menuDate" class="js-today" type="date"></div>
+              <div class="field"><label for="menuType">Вид меню</label><select id="menuType"><option value="Обід">Обід</option><option value="Сніданок">Сніданок</option><option value="Вечеря">Вечеря</option><option value="Банкетне меню">Банкетне меню</option></select></div>
+              <div class="field"><label for="menuGuests">Планова кількість гостей</label><input id="menuGuests" type="number" min="1" step="1" value="30"></div>
+            </div>
+            <div class="table-heading"><h3>Позиції меню</h3><span>Додай страви, обери категорію та вкажи ціну</span></div>
+            <div class="table-scroll"><table class="doc-table"><thead><tr><th>Назва страви / напою</th><th>Категорія</th><th>Порцій</th><th>Ціна, грн</th><th>Сума, грн</th><th></th></tr></thead><tbody id="menuRows"></tbody></table></div>
+            <div class="table-actions"><button type="button" class="button secondary small" id="addMenuLine">＋ Додати позицію</button><div class="inline-stats"><span>Позицій: <strong id="menuLineCount">0</strong></span><span>План порцій: <strong id="menuPortionCount">0</strong></span><span>Загальна сума: <strong id="menuTotal">0,00 грн</strong></span></div></div>
+            <div class="action-row"><button type="button" class="button primary" id="checkMenu">Перевірити й зібрати меню</button><button type="button" class="button secondary" id="printMenu" disabled>Друк / PDF</button></div>
+            <div class="feedback" id="feedbackMenu" aria-live="polite"></div><div class="doc-preview" id="previewMenu" hidden></div>
+          </section>
+
+          <section class="module-view" id="view-order" data-view="order">
+            <div class="mission-head"><div><span class="mission-kicker">Етап 2 • забезпечення</span><h2>Склади замовлення продуктів</h2><p>Порівняй потребу для меню із залишком на складі та замов лише те, чого не вистачає.</p></div><span class="mission-tag">ЗАМОВЛЕННЯ</span></div>
+            <div class="scenario"><span class="scenario-icon" aria-hidden="true">📦</span><div><strong>Ситуація</strong><p>Підготуй замовлення постачальнику для навчального ресторану. Потреба розрахована для 30 гостей і масштабується відповідно до кількості з етапу меню. Норми продуктів у вправі умовні: у реальній роботі бери їх із затверджених рецептур і технологічних карт.</p></div></div>
+            <div class="field-grid">
+              <div class="field"><label for="orderNo">Номер замовлення</label><input id="orderNo" value="ЗП-01" maxlength="30"></div>
+              <div class="field"><label for="orderDate">Дата замовлення</label><input id="orderDate" class="js-today" type="date"></div>
+              <div class="field"><label for="orderSupplier">Постачальник</label><input id="orderSupplier" placeholder="Наприклад, навчальний постачальник" maxlength="100"></div>
+              <div class="field"><label for="deliveryDate">Бажана дата постачання</label><input id="deliveryDate" class="js-future-date" type="date"></div>
+              <div class="field full"><label for="orderDepartment">Замовник / підрозділ</label><input id="orderDepartment" value="Навчальний ресторан «Маяк»" maxlength="100"></div>
+            </div>
+            <div class="table-heading"><h3>Розрахунок потреби</h3><span id="orderGuestHint">Розрахунок для 30 гостей</span></div>
+            <div class="table-scroll"><table class="doc-table"><thead><tr><th>Продукт</th><th>Од. виміру</th><th>Потрібно</th><th>Залишок</th><th>Замовити</th></tr></thead><tbody id="orderRows"></tbody></table></div>
+            <p class="field-help">Формула: кількість до замовлення = планова потреба − фактичний залишок. Якщо запасу вистачає, вкажи 0.</p>
+            <div class="action-row"><button type="button" class="button primary" id="checkOrder">Перевірити й оформити замовлення</button><button type="button" class="button secondary" id="printOrder" disabled>Друк / PDF</button></div>
+            <div class="feedback" id="feedbackOrder" aria-live="polite"></div><div class="doc-preview" id="previewOrder" hidden></div>
+          </section>
+
+          <section class="module-view" id="view-writeoff" data-view="writeoff">
+            <div class="mission-head"><div><span class="mission-kicker">Етап 3 • контроль якості</span><h2>Оформи списання продукту</h2><p>Зафіксуй причину, документ-підставу та кількість. Списання має відповідати встановленій обставині, а не просто вирівнювати залишок.</p></div><span class="mission-tag">СПИСАННЯ</span></div>
+            <div class="scenario"><span class="scenario-icon" aria-hidden="true">🧾</span><div><strong>Ситуація</strong><p>Під час огляду виявили 0,40 кг курячого філе з ознаками псування. Обліковий залишок до оформлення — 3,20 кг, ціна — 220,00 грн за кілограм. Комісія підтвердила непридатність цієї частини продукту.</p></div></div>
+            <div class="field-grid">
+              <div class="field"><label for="writeoffNo">Номер акта</label><input id="writeoffNo" placeholder="Наприклад, АС-02" maxlength="30"></div>
+              <div class="field"><label for="writeoffDate">Дата</label><input id="writeoffDate" class="js-today" type="date"></div>
+              <div class="field"><label for="writeoffReason">Причина списання</label><select id="writeoffReason"><option value="">Обери причину</option><option value="spoilage">Псування / втрата споживних властивостей</option><option value="expiry">Закінчення строку придатності</option><option value="production">Використання у виробництві</option><option value="shortage">Виявлена нестача</option></select></div>
+              <div class="field"><label for="writeoffQty">Кількість до списання, кг</label><input id="writeoffQty" type="number" min="0" max="3.2" step="0.01" placeholder="0,00"></div>
+              <div class="field"><label>Облікова ціна</label><input value="220,00 грн / кг" readonly></div>
+              <div class="field"><label>Сума списання</label><input id="writeoffAmount" value="0,00 грн" readonly></div>
+              <div class="field full"><label for="writeoffBasis">Документ-підстава</label><input id="writeoffBasis" placeholder="Наприклад: акт огляду комісії № 2 від ... " maxlength="140"><span class="field-help">Зазнач, яким документом зафіксовано результат огляду.</span></div>
+              <div class="field full"><label><input id="writeoffCommission" type="checkbox" style="width:auto;min-height:auto;margin-right:7px">Результат огляду та рішення комісії зафіксовано документом-підставою</label></div>
+            </div>
+            <div class="action-row"><button type="button" class="button primary" id="checkWriteoff">Перевірити й оформити акт</button><button type="button" class="button secondary" id="printWriteoff" disabled>Друк / PDF</button></div>
+            <div class="feedback" id="feedbackWriteoff" aria-live="polite"></div><div class="doc-preview" id="previewWriteoff" hidden></div>
+          </section>
+
+          <section class="module-view" id="view-inventory" data-view="inventory">
+            <div class="mission-head"><div><span class="mission-kicker">Етап 4 • звірка залишків</span><h2>Проведи інвентаризацію</h2><p>Внеси фактичну кількість, порівняй її з обліковою та правильно назви результат розбіжності.</p></div><span class="mission-tag">ОБЛІК</span></div>
+            <div class="scenario"><span class="scenario-icon" aria-hidden="true">🔎</span><div><strong>Ситуація</strong><p>Комісія рахує продукти в коморі. Зістав фактичні дані з обліковими: різниця нижче нуля означає нестачу, вище нуля — надлишок, нуль — збіг.</p></div></div>
+            <div class="field-grid">
+              <div class="field"><label for="inventoryNo">Номер розпорядження / підстави</label><input id="inventoryNo" placeholder="Наприклад, Наказ № 18-І" maxlength="50"></div>
+              <div class="field"><label for="inventoryDate">Дата інвентаризації</label><input id="inventoryDate" class="js-today" type="date"></div>
+              <div class="field"><label for="inventoryPlace">Місце зберігання</label><select id="inventoryPlace"><option value="">Обери приміщення</option><option value="Комора">Комора</option><option value="Холодильна камера">Холодильна камера</option><option value="Сухий склад">Сухий склад</option></select></div>
+              <div class="field"><label for="inventoryKeeper">Матеріально відповідальна особа (посада)</label><select id="inventoryKeeper"><option value="">Обери посаду</option><option value="Комірник">Комірник</option><option value="Завідувач виробництва">Завідувач виробництва</option><option value="Працівник складу">Працівник складу</option></select></div>
+              <div class="field full"><label><input id="inventoryCommission" type="checkbox" style="width:auto;min-height:auto;margin-right:7px">Склад комісії визначено розпорядженням керівника</label></div>
+            </div>
+            <div class="table-heading"><h3>Облікові дані та фактичний підрахунок</h3><span>Уведи фактичну кількість і визнач вид різниці</span></div>
+            <div class="table-scroll"><table class="doc-table"><thead><tr><th>Найменування</th><th>Од. виміру</th><th>За обліком</th><th>Фактично</th><th>Різниця</th><th>Висновок</th></tr></thead><tbody id="inventoryRows"></tbody></table></div>
+            <div class="action-row"><button type="button" class="button primary" id="checkInventory">Перевірити звірку й оформити опис</button><button type="button" class="button secondary" id="printInventory" disabled>Друк / PDF</button></div>
+            <div class="feedback" id="feedbackInventory" aria-live="polite"></div><div class="doc-preview" id="previewInventory" hidden></div>
+          </section>
+
+          <div class="complete-card" id="completeCard" hidden><h2>Маршрут завершено — <span id="finalScore">100</span> / 100</h2><p>Ти послідовно спланував меню, підготував замовлення, обґрунтував списання та звірив залишки. Збережи готові документи кнопками «Друк / PDF».</p></div>
+          <div class="page-bottom-actions"><a class="button secondary" href="cases.html#ok18">Повернутися до кейс-банку ОК18</a><a class="button secondary" href="ok18.html">Усі матеріали ОК18</a><button type="button" class="button secondary" id="resetGame">Почати спочатку</button></div>
+        </div>
+      </div>
+      <aside class="legal-note">
+        <strong>Нормативна опора та межі тренажера.</strong> Це навчальні макети, не універсальні затверджені бланки підприємства. Для первинного документа заповнюй назву, дату, підприємство, зміст і обсяг операції, одиницю виміру, відповідальних осіб та дані для їх ідентифікації. Реальні форми й порядок роботи звіряй із документами свого закладу та чинними вимогами.
+        <div class="legal-links"><a href="https://zakon.rada.gov.ua/laws/show/996-14" target="_blank" rel="noopener">Закон № 996-XIV: бухгалтерський облік</a><a href="https://zakon.rada.gov.ua/laws/show/z0168-95" target="_blank" rel="noopener">Положення Мінфіну № 88: документування</a><a href="https://zakon.rada.gov.ua/laws/show/z1365-14" target="_blank" rel="noopener">Положення Мінфіну № 879: інвентаризація</a></div>
+      </aside>
+    </div>
+  </section>
+</main>
+<footer class="site-footer"><div class="container footer-inner"><span>© 2026 Руслана ЗАЯЦЬ</span><span>ФПО • ОК18 • Ресторанний документообіг</span></div></footer>
+<script>
+(function(){
+  "use strict";
+  var categoryOptions=[["starter","Закуска"],["first","Перша страва"],["main","Основна страва"],["side","Гарнір"],["dessert","Десерт"],["beverage","Напій"]];
+  var categoryLabels={starter:"Закуска",first:"Перша страва",main:"Основна страва",side:"Гарнір",dessert:"Десерт",beverage:"Напій"};
+  var stageScores={menu:0,order:0,writeoff:0,inventory:0};
+  var activeStep="menu";
+  var lastOrderGuests=null;
+  function localDate(){var d=new Date();var y=d.getFullYear();var m=String(d.getMonth()+1).padStart(2,"0");var day=String(d.getDate()).padStart(2,"0");return y+"-"+m+"-"+day;}
+  function plusDays(n){var d=new Date();d.setDate(d.getDate()+n);var y=d.getFullYear();var m=String(d.getMonth()+1).padStart(2,"0");var day=String(d.getDate()).padStart(2,"0");return y+"-"+m+"-"+day;}
+  function dateLabel(v){if(!v)return "—";var a=v.split("-");return a.length===3?a[2]+"."+a[1]+"."+a[0]:v;}
+  function round2(n){return Math.round((Number(n)+Number.EPSILON)*100)/100;}
+  function fmt(n){return Number(n||0).toLocaleString("uk-UA",{minimumFractionDigits:2,maximumFractionDigits:2});}
+  function esc(v){return String(v==null?"":v).replace(/[&<>"']/g,function(ch){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch];});}
+  function value(id){var el=document.getElementById(id);return el?el.value.trim():"";}
+  function numValue(el){if(!el||el.value==="")return NaN;return Number(el.value);}
+  function setTodayDates(){var t=localDate();document.querySelectorAll(".js-today").forEach(function(el){if(!el.value)el.value=t;});var f=document.querySelector(".js-future-date");if(f&&!f.value)f.value=plusDays(2);}
+  function docStart(title,meta){return '<article class="doc-sheet"><div class="doc-sheet-head"><div><span class="doc-stamp">ОК18 • навчальний документ</span><h3>'+esc(title)+'</h3></div><span>Ресторанний документообіг</span></div><div class="doc-meta">'+meta.map(function(x){return "<span>"+x+"</span>";}).join("")+'</div>';}
+  function docEnd(signatures,note){return '<div class="doc-signatures">'+signatures.map(function(x){return '<div class="doc-signature">'+esc(x)+'</div>';}).join("")+'</div><p class="doc-footnote">'+esc(note||"Навчальний макет. Перед використанням у реальній роботі звір форму з внутрішніми документами підприємства.")+'</p></article>';}
+  function makeTable(headers,rows){return "<table><thead><tr>"+headers.map(function(h){return "<th>"+esc(h)+"</th>";}).join("")+"</tr></thead><tbody>"+rows.map(function(row){return "<tr>"+row.map(function(cell){return "<td>"+esc(cell)+"</td>";}).join("")+"</tr>";}).join("")+"</tbody></table>";}
+  function setFeedback(key,errors,preview){
+    var label=key.charAt(0).toUpperCase()+key.slice(1);
+    var box=document.getElementById("feedback"+label);
+    var ok=errors.length===0;
+    stageScores[key]=ok?25:0;
+    box.className="feedback show "+(ok?"success":"error");
+    if(ok){box.innerHTML="<strong>Документ узгоджений. +25 балів.</strong><br>"+esc(preview);}
+    else{box.innerHTML="<strong>Потрібно виправити:</strong><ul>"+errors.map(function(e){return "<li>"+esc(e)+"</li>";}).join("")+"</ul>";}
+    document.getElementById("preview"+label).innerHTML=preview.html;
+    document.getElementById("preview"+label).hidden=false;
+    document.getElementById("print"+label).disabled=!ok;
+    updateProgress();
+  }
+  function updateProgress(){
+    var keys=["menu","order","writeoff","inventory"];
+    var done=keys.filter(function(k){return stageScores[k]===25;}).length;
+    var points=keys.reduce(function(s,k){return s+stageScores[k];},0);
+    document.getElementById("progressText").textContent=done+" із 4 етапів";
+    document.getElementById("scoreText").textContent=points+" / 100";
+    document.getElementById("scoreFill").style.width=(done*25)+"%";
+    document.querySelector(".score-track").setAttribute("aria-valuenow",String(done));
+    document.getElementById("finalScore").textContent=String(points);
+    document.getElementById("completeCard").hidden=done!==4;
+    keys.forEach(function(k){var b=document.querySelector('.step-button[data-step="'+k+'"]');var status=b.querySelector(".step-status");var passed=stageScores[k]===25;b.classList.toggle("complete",passed);status.textContent=passed?"✓ 25/25":"0/25";});
+  }
+  function showStep(key){
+    activeStep=key;
+    document.querySelectorAll(".module-view").forEach(function(v){v.classList.toggle("active",v.getAttribute("data-view")===key);});
+    document.querySelectorAll(".step-button").forEach(function(b){var active=b.getAttribute("data-step")===key;b.classList.toggle("active",active);if(active)b.setAttribute("aria-current","step");else b.removeAttribute("aria-current");});
+    if(key==="order")renderOrderRows();
+  }
+  document.querySelectorAll(".step-button").forEach(function(btn){btn.addEventListener("click",function(){showStep(btn.getAttribute("data-step"));});});
+
+  var menuBody=document.getElementById("menuRows");
+  function menuLine(){
+    var tr=document.createElement("tr");
+    var options='<option value="">Категорія</option>'+categoryOptions.map(function(c){return '<option value="'+c[0]+'">'+c[1]+'</option>';}).join("");
+    tr.innerHTML='<td><input class="menu-dish" maxlength="80" placeholder="Назва позиції" aria-label="Назва страви або напою"></td><td><select class="menu-category" aria-label="Категорія">'+options+'</select></td><td><input class="menu-qty" type="number" min="0" step="1" placeholder="0" aria-label="Кількість порцій"></td><td><input class="menu-price" type="number" min="0" step="0.01" placeholder="0,00" aria-label="Ціна за порцію"></td><td class="menu-sum">0,00</td><td><button type="button" class="remove-line remove-menu-line" aria-label="Видалити позицію">×</button></td>';
+    return tr;
+  }
+  function addMenuLine(){menuBody.appendChild(menuLine());updateMenuTotals();}
+  function updateMenuTotals(){
+    var rows=Array.from(menuBody.querySelectorAll("tr"));
+    var portions=0;var total=0;
+    rows.forEach(function(tr){var q=numValue(tr.querySelector(".menu-qty"));var p=numValue(tr.querySelector(".menu-price"));var sum=Number.isFinite(q)&&Number.isFinite(p)?round2(q*p):0;tr.querySelector(".menu-sum").textContent=fmt(sum);if(Number.isFinite(q))portions+=q;total+=sum;});
+    document.getElementById("menuLineCount").textContent=String(rows.length);
+    document.getElementById("menuPortionCount").textContent=String(portions);
+    document.getElementById("menuTotal").textContent=fmt(total)+" грн";
+  }
+  for(var mi=0;mi<4;mi++)addMenuLine();
+  document.getElementById("addMenuLine").addEventListener("click",addMenuLine);
+  menuBody.addEventListener("input",updateMenuTotals);
+  menuBody.addEventListener("change",updateMenuTotals);
+  menuBody.addEventListener("click",function(e){var btn=e.target.closest(".remove-menu-line");if(btn){if(menuBody.querySelectorAll("tr").length<=4){var box=document.getElementById("feedbackMenu");box.className="feedback show error";box.textContent="Залиш щонайменше чотири рядки для основних категорій меню.";return;}btn.closest("tr").remove();updateMenuTotals();}});
+  document.getElementById("menuGuests").addEventListener("input",function(){renderOrderRows();});
+  document.getElementById("checkMenu").addEventListener("click",function(){
+    var errors=[];var name=value("restaurantName");var date=value("menuDate");var guests=Number(value("menuGuests"));
+    if(!name)errors.push("Укажи назву закладу.");
+    if(!date)errors.push("Укажи дату меню.");
+    if(!Number.isInteger(guests)||guests<1)errors.push("Кількість гостей має бути цілим числом від 1.");
+    var rows=Array.from(menuBody.querySelectorAll("tr")).map(function(tr){return {dish:tr.querySelector(".menu-dish").value.trim(),category:tr.querySelector(".menu-category").value,qty:numValue(tr.querySelector(".menu-qty")),price:numValue(tr.querySelector(".menu-price"))};});
+    var any=rows.filter(function(r){return r.dish||r.category||Number.isFinite(r.qty)||Number.isFinite(r.price);});
+    var complete=rows.filter(function(r){return r.dish&&r.category&&Number.isFinite(r.qty)&&r.qty>0&&Number.isFinite(r.price)&&r.price>0;});
+    if(rows.length<4)errors.push("Додай щонайменше чотири позиції меню.");
+    if(any.length!==complete.length)errors.push("Заверши або видали незаповнені рядки.");
+    if(complete.length<4)errors.push("Заповни щонайменше чотири позиції меню.");
+    var needed=["first","main","side","beverage"];
+    needed.forEach(function(cat){var count=complete.filter(function(r){return r.category===cat;}).reduce(function(s,r){return s+r.qty;},0);if(count<guests)errors.push("У категорії «"+categoryLabels[cat]+"» порцій має бути не менше, ніж гостей ("+guests+").");});
+    var names=complete.map(function(r){return r.dish.toLowerCase();});
+    if(new Set(names).size!==names.length)errors.push("Прибери повтори назв страв.");
+    if(complete.some(function(r){return !Number.isInteger(r.qty);}))errors.push("Кількість порцій має бути цілим числом.");
+    var total=complete.reduce(function(s,r){return s+r.qty*r.price;},0);
+    var tableRows=complete.map(function(r){return [categoryLabels[r.category],r.dish,String(r.qty),fmt(r.price)+" грн",fmt(r.qty*r.price)+" грн"];});
+    var html=docStart("План-меню • "+value("menuType"),["Заклад: "+esc(name),"Дата: "+dateLabel(date),"Гостей: "+(guests||0)])+makeTable(["Категорія","Страва / напій","Порцій","Ціна","Сума"],tableRows)+'<p class="doc-total">Планова сума: '+fmt(total)+' грн</p>'+docEnd(["Відповідальна особа: __________________","Підпис / ідентифікаційні дані: __________________"],"Кількість порцій у план-меню звіряється з кількістю гостей і планом виробництва.");
+    setFeedback("menu",errors,{html:html});
+  });
+
+  var orderItems=[{name:"Філе куряче",unit:"кг",need:4.5,stock:1.2},{name:"Картопля",unit:"кг",need:6,stock:2},{name:"Вершки",unit:"л",need:1.5,stock:.5},{name:"Яблука",unit:"кг",need:2,stock:2.4}];
+  function guestsCount(){var g=Number(value("menuGuests"));return Number.isFinite(g)&&g>0?g:30;}
+  function renderOrderRows(){
+    var guests=guestsCount();if(lastOrderGuests===guests&&document.getElementById("orderRows").children.length)return;lastOrderGuests=guests;
+    document.getElementById("orderGuestHint").textContent="Розрахунок для "+guests+" гостей";
+    var tbody=document.getElementById("orderRows");tbody.innerHTML="";
+    orderItems.forEach(function(item,i){var need=round2(item.need*guests/30);var tr=document.createElement("tr");tr.setAttribute("data-order-index",String(i));tr.innerHTML="<td>"+esc(item.name)+"</td><td>"+esc(item.unit)+"</td><td>"+fmt(need)+"</td><td>"+fmt(item.stock)+"</td><td><input class=\"order-qty\" type=\"number\" min=\"0\" step=\"0.01\" placeholder=\"0,00\" aria-label=\"Кількість "+esc(item.name)+" до замовлення\"></td>";tbody.appendChild(tr);});
+  }
+  renderOrderRows();
+  document.getElementById("checkOrder").addEventListener("click",function(){
+    renderOrderRows();var errors=[];var orderDate=value("orderDate");var delivery=value("deliveryDate");
+    if(!value("orderNo"))errors.push("Укажи номер замовлення.");
+    if(!orderDate)errors.push("Укажи дату замовлення.");
+    if(!value("orderSupplier"))errors.push("Укажи постачальника.");
+    if(!delivery)errors.push("Укажи бажану дату постачання.");
+    if(orderDate&&delivery&&delivery<orderDate)errors.push("Дата постачання не може бути раніше дати замовлення.");
+    if(!value("orderDepartment"))errors.push("Укажи підрозділ-замовник.");
+    var rows=Array.from(document.querySelectorAll("#orderRows tr")).map(function(tr){var i=Number(tr.getAttribute("data-order-index"));var item=orderItems[i];var need=round2(item.need*guestsCount()/30);var expected=round2(Math.max(0,need-item.stock));var input=tr.querySelector(".order-qty");var actual=numValue(input);return {item:item,need:need,expected:expected,actual:actual};});
+    rows.forEach(function(r){if(!Number.isFinite(r.actual))errors.push("Заповни кількість до замовлення для «"+r.item.name+"» (якщо не потрібно — 0).");else if(Math.abs(r.actual-r.expected)>0.01)errors.push("Для «"+r.item.name+"» замов "+fmt(r.expected)+" "+r.item.unit+" з урахуванням залишку.");});
+    var tableRows=rows.map(function(r){return [r.item.name,r.item.unit,fmt(r.need),fmt(r.item.stock),Number.isFinite(r.actual)?fmt(r.actual):"—"];});
+    var html=docStart("Замовлення постачальнику • "+value("orderNo"),["Дата: "+dateLabel(orderDate),"Постачальник: "+esc(value("orderSupplier")),"Доставити до: "+dateLabel(delivery),"Замовник: "+esc(value("orderDepartment")),"План гостей: "+guestsCount()])+makeTable(["Продукт","Од. виміру","Потреба","Залишок","Замовити"],tableRows)+docEnd(["Замовник: __________________","Погодження / підпис: __________________"],"Потреба та залишки в цьому навчальному завданні умовні; для реального замовлення використовуй виробничий план, рецептури та дані обліку.");
+    setFeedback("order",errors,{html:html});
+  });
+
+  document.getElementById("writeoffQty").addEventListener("input",function(){var q=Number(value("writeoffQty"));document.getElementById("writeoffAmount").value=Number.isFinite(q)?fmt(q*220)+" грн":"0,00 грн";});
+  document.getElementById("checkWriteoff").addEventListener("click",function(){
+    var errors=[];var no=value("writeoffNo");var date=value("writeoffDate");var reason=value("writeoffReason");var qty=Number(value("writeoffQty"));var basis=value("writeoffBasis");
+    if(!no)errors.push("Укажи номер акта.");
+    if(!date)errors.push("Укажи дату акта.");
+    if(reason!=="spoilage")errors.push("Обери причину, що відповідає ситуації: псування / втрата споживних властивостей.");
+    if(!Number.isFinite(qty)||qty<=0)errors.push("Укажи додатну кількість продукту.");
+    else if(qty>3.2)errors.push("Кількість списання не може перевищувати обліковий залишок 3,20 кг.");
+    else if(Math.abs(qty-.4)>.001)errors.push("За умовою завдання списанню підлягає саме 0,40 кг.");
+    if(!/акт/i.test(basis))errors.push("У документі-підставі зазнач акт огляду комісії.");
+    if(!document.getElementById("writeoffCommission").checked)errors.push("Підтвердь, що результат огляду й рішення комісії документально зафіксовано.");
+    var amount=Number.isFinite(qty)?round2(qty*220):0;
+    var html=docStart("Акт на списання запасів • "+(no||"—"),["Дата: "+dateLabel(date),"Заклад: Навчальний ресторан «Маяк»","Документ-підстава: "+esc(basis||"—")])+makeTable(["Найменування","Од. виміру","Кількість","Ціна","Сума"],[["Філе куряче","кг",Number.isFinite(qty)?fmt(qty):"—","220,00 грн",fmt(amount)+" грн"]])+'<p><strong>Причина:</strong> '+esc(reason==="spoilage"?"Псування / втрата споживних властивостей":(document.getElementById("writeoffReason").selectedOptions[0]?.text||"—"))+'</p>'+docEnd(["Комісія: __________________","Матеріально відповідальна особа: __________________"],"Списання оформлюється на підставі встановленої обставини й документів, передбачених порядком закладу.");
+    setFeedback("writeoff",errors,{html:html});
+  });
+
+  var inventoryItems=[{name:"Борошно пшеничне",unit:"кг",book:7.5,actual:7.2,kind:"shortage"},{name:"Яблука",unit:"кг",book:5,actual:5.4,kind:"surplus"},{name:"Сир твердий",unit:"кг",book:3,actual:3,kind:"match"}];
+  var kindLabels={shortage:"Нестача",surplus:"Надлишок",match:"Збіг"};
+  function renderInventoryRows(){
+    var tbody=document.getElementById("inventoryRows");tbody.innerHTML="";
+    inventoryItems.forEach(function(item,i){var tr=document.createElement("tr");tr.setAttribute("data-inv-index",String(i));var opts='<option value="">Обери висновок</option>'+Object.keys(kindLabels).map(function(k){return '<option value="'+k+'">'+kindLabels[k]+'</option>';}).join("");tr.innerHTML="<td>"+esc(item.name)+"</td><td>"+esc(item.unit)+"</td><td>"+fmt(item.book)+"</td><td><input class=\"inv-actual\" type=\"number\" min=\"0\" step=\"0.01\" placeholder=\"0,00\" aria-label=\"Фактичний підрахунок: "+esc(item.name)+"\"></td><td class=\"inv-difference\">—</td><td><select class=\"inv-kind\" aria-label=\"Висновок щодо "+esc(item.name)+"\">"+opts+"</select></td>";tbody.appendChild(tr);});
+  }
+  function updateInventoryRow(tr){var i=Number(tr.getAttribute("data-inv-index"));var item=inventoryItems[i];var n=numValue(tr.querySelector(".inv-actual"));var cell=tr.querySelector(".inv-difference");if(!Number.isFinite(n)){cell.textContent="—";return;}var d=round2(n-item.book);cell.textContent=(d>0?"+":"")+fmt(d)+" "+item.unit;}
+  renderInventoryRows();
+  document.getElementById("inventoryRows").addEventListener("input",function(e){var tr=e.target.closest("tr");if(tr)updateInventoryRow(tr);});
+  document.getElementById("inventoryRows").addEventListener("change",function(e){var tr=e.target.closest("tr");if(tr)updateInventoryRow(tr);});
+  document.getElementById("checkInventory").addEventListener("click",function(){
+    var errors=[];var no=value("inventoryNo");var date=value("inventoryDate");var place=value("inventoryPlace");var keeper=value("inventoryKeeper");
+    if(!no)errors.push("Укажи розпорядчий документ або номер підстави для інвентаризації.");
+    if(!date)errors.push("Укажи дату фактичного підрахунку.");
+    if(!place)errors.push("Обери місце зберігання запасів.");
+    if(!keeper)errors.push("Укажи посаду матеріально відповідальної особи.");
+    if(!document.getElementById("inventoryCommission").checked)errors.push("Підтвердь, що склад комісії визначений розпорядженням.");
+    var rows=Array.from(document.querySelectorAll("#inventoryRows tr")).map(function(tr){var i=Number(tr.getAttribute("data-inv-index"));var item=inventoryItems[i];var actual=numValue(tr.querySelector(".inv-actual"));var kind=tr.querySelector(".inv-kind").value;var diff=Number.isFinite(actual)?round2(actual-item.book):NaN;var computed=!Number.isFinite(diff)?"":(diff<0?"shortage":diff>0?"surplus":"match");return {item:item,actual:actual,diff:diff,kind:kind,computed:computed};});
+    rows.forEach(function(r){if(!Number.isFinite(r.actual))errors.push("Укажи фактичну кількість: "+r.item.name+".");else if(Math.abs(r.actual-r.item.actual)>.001)errors.push("Перевір фактичний підрахунок для «"+r.item.name+"» за умовою завдання.");if(!r.kind)errors.push("Обери висновок для «"+r.item.name+"».");else if(r.kind!==r.computed)errors.push("Для «"+r.item.name+"» обери правильний висновок: "+kindLabels[r.computed]+".");});
+    var tableRows=rows.map(function(r){return [r.item.name,r.item.unit,fmt(r.item.book),Number.isFinite(r.actual)?fmt(r.actual):"—",Number.isFinite(r.diff)?(r.diff>0?"+":"")+fmt(r.diff):"—",kindLabels[r.computed]||"—"];});
+    var html=docStart("Інвентаризаційний опис • звірка запасів",["Дата: "+dateLabel(date),"Місце: "+esc(place||"—"),"Підстава: "+esc(no||"—"),"Матеріально відповідальна особа: "+esc(keeper||"—")])+makeTable(["Найменування","Од. виміру","За обліком","Фактично","Різниця","Висновок"],tableRows)+docEnd(["Комісія: __________________","Матеріально відповідальна особа: __________________"],"Розбіжності зафіксовано для розгляду; результат інвентаризації сам по собі не змінює облікові залишки.");
+    setFeedback("inventory",errors,{html:html});
+  });
+
+  [["Menu","menu"],["Order","order"],["Writeoff","writeoff"],["Inventory","inventory"]].forEach(function(pair){document.getElementById("print"+pair[0]).addEventListener("click",function(){if(stageScores[pair[1]]===25){showStep(pair[1]);window.print();}});});
+  document.getElementById("resetGame").addEventListener("click",function(){window.location.reload();});
+  setTodayDates();updateProgress();
+})();
+</script>
+</body>
+</html>
