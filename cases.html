@@ -19,6 +19,14 @@
     .discipline-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:8px}
     .discipline-head .count{white-space:nowrap;border-radius:999px;background:#edf4f6;padding:7px 11px;font-weight:800;font-size:.84rem}
     .resource-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:18px 0}
+    .interactive-games{margin:24px 0 28px;padding:22px;border:1px solid #cfe0d8;border-radius:20px;background:linear-gradient(135deg,#f1f7f2,#fff)}
+    .interactive-games h3{margin:0 0 8px;font-size:1.2rem}
+    .interactive-games p{margin:0;color:#5f6f70}
+    .interactive-game-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:12px;margin-top:16px}
+    .interactive-game-card{display:block;padding:16px 18px;border-radius:15px;background:#fff;border:1px solid #dce8e0;color:inherit;text-decoration:none;transition:.18s ease}
+    .interactive-game-card:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(24,55,70,.08)}
+    .interactive-game-label{display:block;font-size:.78rem;color:#55717d;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+    .interactive-game-card strong{display:block;margin:8px 0}
     .resource-strip a{display:block;padding:14px 16px;border-radius:14px;background:#f6fafc;border:1px solid #e0eaee;text-decoration:none;color:inherit}
     .resource-strip strong{display:block;margin-bottom:4px}
   </style>
@@ -41,6 +49,7 @@
         <a href="#ok17">🍲 ОК17 — 17 кейсів</a>
         <a href="#ok18">🏪 ОК18 — 13 кейсів</a>
         <a href="#tu">👨‍🍳 ТУ — 13 кейсів</a>
+        <a href="#interactive-games">🎮 Інтерактивні ігри ОК18</a>
       </div>
     </div>
   </section>
@@ -78,6 +87,22 @@
     <div class="container">
       <div class="discipline-head"><div><span class="eyebrow">ФПО • ОК18</span><h2>Організація виробництва в закладах ресторанного господарства</h2></div><span class="count">13 кейсів</span></div>
       <p class="lead">Кейси з організації постачання, складського господарства, планування, виробничих потоків, цехів, контролю якості, праці та проектування.</p>
+      <div class="interactive-games" id="interactive-games">
+        <h3>🎮 Інтерактивні навчальні ігри</h3>
+        <p>Сплануй виробничий цех або весь заклад у симуляторі, а потім перевір своє рішення.</p>
+        <div class="interactive-game-grid">
+          <a class="interactive-game-card" href="ok18-game.html">
+            <span class="interactive-game-label">Інтерактивна гра • ОК18</span>
+            <strong>Планування виробничого цеху</strong>
+            <span class="card-link">Відкрити гру →</span>
+          </a>
+          <a class="interactive-game-card" href="ok18-establishment-game.html">
+            <span class="interactive-game-label">Інтерактивна гра • ОК18</span>
+            <strong>Організація всього закладу ресторанного господарства</strong>
+            <span class="card-link">Відкрити гру →</span>
+          </a>
+        </div>
+      </div>
       <div class="resource-strip">
         <a href="https://drive.google.com/drive/folders/1L6ewyZDikpwd5gN9jizqH8IGodLj-xJR" target="_blank" rel="noopener"><strong>📂 Загальна папка кейсів ОК18</strong><span>Структура на Google Drive</span></a>
         <a href="https://drive.google.com/file/d/1sdqCB2A05d8e-9AzIdw3nJgNmmhv5hrz/view" target="_blank" rel="noopener"><strong>📋 Перелік кейсів</strong><span>Зведений реєстр</span></a>
