@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Окрема інтерактивна гра з планування всього закладу ресторанного господарства: зонування, обладнання, потоки та навчальна перевірка НАССР.">
+  <title>Організація закладу ресторанного господарства — ОК18</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .game-intro{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px;margin-bottom:20px;border:1px solid #dce5ea;border-radius:20px;background:#fff}
+    .game-intro h2{margin:0 0 7px;font-size:1.25rem}.game-intro p{margin:0;color:#687982}
+    .game-actions{display:flex;flex-wrap:wrap;gap:10px}
+    .game-action{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 16px;border-radius:12px;background:#2f675c;color:#fff;text-decoration:none;font-weight:750;white-space:nowrap}
+    .game-action:hover{background:#204c45}.game-action.secondary{background:#edf4ef;color:#204c45}
+    .game-frame-wrap{overflow:hidden;border:1px solid #dce5ea;border-radius:20px;background:#fff;box-shadow:0 16px 42px rgba(20,46,54,.08)}
+    .game-frame{display:block;width:100%;height:min(1080px,calc(100vh - 135px));min-height:760px;border:0;background:#f6f5ef}
+    .game-note{margin:14px 2px;color:#687982;font-size:.9rem}
+    @media(max-width:760px){.game-intro{align-items:flex-start;flex-direction:column}.game-frame{height:900px;min-height:700px}}
+  </style>
+</head>
+<body>
+<header class="site-header"><div class="container header-inner"><a class="brand" href="index.html"><span class="brand-mark">РЗ</span><span><strong>Руслана ЗАЯЦЬ</strong><small>навчально-методичний простір</small></span></a><nav class="nav" aria-label="Навігація"><a href="index.html">Головна</a><a href="ok18.html">ОК18</a><a href="ok17.html">ОК17</a><a href="tu.html">ТУ</a></nav></div></header>
+<main>
+  <section class="subhero"><div class="container"><span class="eyebrow">ФПО • ОК18 • ОКРЕМА ІНТЕРАКТИВНА ГРА</span><h1>Спроєктуй увесь заклад ресторанного господарства</h1><p>Розмісти зони й обладнання, узгодь рух продуктів, чистого та брудного посуду, персоналу й відходів, а потім перевір план.</p></div></section>
+  <section class="section"><div class="container">
+    <div class="game-intro">
+      <div><h2>Симулятор закладу</h2><p>Це окрема гра для планування цілого ресторанного закладу. Симулятор одного виробничого цеху залишається окремою вправою.</p></div>
+      <div class="game-actions"><a class="game-action" href="https://student-food-tech-space.dmff1k.chatgpt.site/establishment" target="_blank" rel="noopener">Відкрити гру окремо ↗</a><a class="game-action secondary" href="ok18.html">До матеріалів ОК18</a></div>
+    </div>
+    <div class="game-frame-wrap"><iframe class="game-frame" src="https://student-food-tech-space.dmff1k.chatgpt.site/establishment" title="Окрема інтерактивна гра: планування всього ресторанного закладу" loading="eager" allow="fullscreen"></iframe></div>
+    <p class="game-note">Після перевірки плану студент може надіслати ПІБ, групу й оцінку. Результат з’явиться в спільній панелі викладача ОК18 як попередній.</p>
+  </div></section>
+</main>
+<footer class="site-footer"><div class="container footer-inner"><span>© 2026 Руслана ЗАЯЦЬ</span><span>ОК18 • Організація закладу</span></div></footer>
+</body>
+</html>
