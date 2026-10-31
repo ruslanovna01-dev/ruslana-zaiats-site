@@ -261,7 +261,7 @@
     var ok=errors.length===0;
     stageScores[key]=ok?25:0;
     box.className="feedback show "+(ok?"success":"error");
-    if(ok){box.innerHTML="<strong>Документ узгоджений. +25 балів.</strong><br>"+esc(preview);}
+    if(ok){box.innerHTML="<strong>Документ узгоджений. +25 балів.</strong><br>Переглянь макет нижче; можеш надрукувати або зберегти PDF.";}
     else{box.innerHTML="<strong>Потрібно виправити:</strong><ul>"+errors.map(function(e){return "<li>"+esc(e)+"</li>";}).join("")+"</ul>";}
     document.getElementById("preview"+label).innerHTML=preview.html;
     document.getElementById("preview"+label).hidden=false;
