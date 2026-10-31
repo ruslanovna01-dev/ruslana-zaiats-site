@@ -13,6 +13,14 @@ $('lead').textContent=CONFIG.lead;
 $('heroTitle').textContent=CONFIG.title;
 $('start').textContent=CONFIG.button;
 $('hero').style.setProperty('--hero',CONFIG.color);
+$('resultsTitle').textContent=MODE==='route'?'Твій маршрут готовий!':MODE==='live'?'Дякуємо за голосування!':'Дякуємо за участь!';
+if(MODE==='final'){
+ $('conferenceThankYou').classList.remove('hidden');
+ const photo=$('conferencePhoto'),placeholder=$('conferencePhotoPlaceholder');
+ photo.addEventListener('load',()=>{photo.hidden=false;placeholder.hidden=true});
+ photo.addEventListener('error',()=>{photo.hidden=true});
+ photo.src=photo.dataset.src;
+}
 $('start').onclick=()=>{$('intro').classList.add('hidden');$('quiz').classList.remove('hidden');renderQ();loadGlobal(true);window.scrollTo({top:0,behavior:'smooth'})};
 $('previous').onclick=()=>{if(state.saving)return;if(state.step>0){state.step--;renderQ();loadGlobal(true)}else{$('quiz').classList.add('hidden');$('intro').classList.remove('hidden')}};
 $('next').onclick=()=>{if(state.saving)return;if(state.answers[state.step]==null){$('warn').textContent='Оберіть відповідь, щоб продовжити.';return}if(state.step<Q.length-1){state.step++;renderQ();loadGlobal(true)}else finish()};
@@ -21,7 +29,18 @@ function renderQ(){
  $('number').textContent='Запитання '+(state.step+1)+' з '+Q.length;
  $('progress').style.width=((state.step+1)/Q.length*100)+'%';
  $('qtext').textContent=q[0];
- $('qemoji').textContent=q[2];
+ const art=$('qemoji');
+ art.replaceChildren();
+ art.classList.toggle('q-art-image',Boolean(q[3]));
+ if(q[3]){
+  const image=document.createElement('img');
+  image.src=q[3];
+  image.alt='';
+  image.decoding='async';
+  art.appendChild(image);
+ }else{
+  art.textContent=q[2]||'';
+ }
  $('warn').textContent=state.summaryError?state.summaryError:'';
  answersEl.innerHTML='';
  q[1].forEach((v,i)=>{
@@ -47,7 +66,7 @@ function getToken(){
 }
 function ownReport(){
  if(MODE==='route'){const x=state.answers[8];return x===1?CONFIG.outcomes[0]:CONFIG.outcomes[1]}
- return 'Дякуємо, що долучилися! Ваші відповіді допомагають визначати спільні пріоритети.';
+ return 'Ваша думка допоможе зробити наступну конференцію ще кориснішою.';
 }
 function appendBars(container,index,stats){
  const q=Q[index],counts=Array.isArray(stats&&stats.options)?stats.options:q[1].map(()=>0);
