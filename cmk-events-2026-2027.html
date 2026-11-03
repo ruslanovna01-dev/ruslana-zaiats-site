@@ -30,6 +30,10 @@
   .completion{min-width:180px}.completion .status{display:block;font-weight:800;color:#16734a}.completion .planned{display:block;font-weight:800;color:#a66a00}.completion a,.completion .media-note{display:block;margin-top:6px;font-size:12px;line-height:1.4}.completion a{color:var(--blue);font-weight:750}.completion a:hover{text-decoration:underline;text-underline-offset:3px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
   .source-note{font-size:13px;color:var(--muted);margin-top:16px}
   @media(max-width:720px){.schedule-info{grid-template-columns:1fr}.schedule-table{font-size:13px}}
+  body.embed-mode .site-header,body.embed-mode .subhero,body.embed-mode .section-heading,body.embed-mode .schedule-intro,body.embed-mode .schedule-info,body.embed-mode .actions,body.embed-mode .source-note,body.embed-mode .site-footer{display:none!important}
+  body.embed-mode .section{padding:0}
+  body.embed-mode .container{width:auto;max-width:none;margin:0}
+  body.embed-mode .schedule-wrap{margin:0;border:0;border-radius:0;box-shadow:none}
 </style>
 </head>
 <body>
@@ -81,4 +85,5 @@
 </div></section>
 </main>
 <footer class="site-footer"><div class="container footer-inner"><span>© 2026 Руслана ЗАЯЦЬ</span><span>ЦМК фахової передвищої освіти • Графік професійно-практичних заходів</span></div></footer>
+<script>if(new URLSearchParams(location.search).get('embed')==='1')document.body.classList.add('embed-mode');</script>
 </body></html>
