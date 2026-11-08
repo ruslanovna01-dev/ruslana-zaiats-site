@@ -1,0 +1,118 @@
+
+/* Education Route 2026 — dedicated premium visual layer. Other CMK questionnaires are unaffected. */
+:root{color-scheme:dark}
+body[data-quiz="route"]{--navy:#081426;--ink:#f3f9ff;--muted:#bed2e9;--aqua:#49e2df;--gold:#ffd27d;--line:rgba(152,201,245,.20);--glass:rgba(11,35,68,.79);background:#07152a;color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,"Segoe UI",Arial,sans-serif;overflow-x:hidden;position:relative}
+body[data-quiz="route"]:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse 42% 32% at 5% 2%,#1677b34a,transparent),radial-gradient(ellipse 48% 42% at 93% 25%,#055fba42,transparent),radial-gradient(ellipse 48% 28% at 48% 100%,#195d6940,transparent),linear-gradient(145deg,#071428,#0b213d 58%,#071a31)}
+body[data-quiz="route"] .app{max-width:1220px;padding:27px clamp(15px,3vw,42px) 65px}
+body[data-quiz="route"] .top{border:1px solid var(--line);background:rgba(10,32,60,.6);backdrop-filter:blur(16px);border-radius:18px;padding:12px 18px;gap:18px}
+body[data-quiz="route"] .top .brand{color:#e5f3ff;font-size:12px;letter-spacing:.01em;line-height:1.5;text-align:right;max-width:500px}
+body[data-quiz="route"] .back{color:#c5f6ff;text-decoration:none;border:1px solid #3ccedf44;background:#164a6555;border-radius:12px;padding:10px 15px;white-space:nowrap;transition:.2s}
+body[data-quiz="route"] .back:hover{background:#20839b66;transform:translateY(-2px)}
+body[data-quiz="route"] .hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.97fr);gap:15px;min-height:505px;padding:clamp(25px,4vw,57px);background:radial-gradient(circle at 70% 50%,#0c87904f,transparent 44%),linear-gradient(115deg,#081b38,#0b3560 65%,#124c6a);border:1px solid #71d5ff62;border-radius:32px;box-shadow:0 24px 70px #0009,0 0 54px #3fc3ed16;isolation:isolate;overflow:hidden;margin:24px 0 20px}
+body[data-quiz="route"] .hero:after{content:"";pointer-events:none;position:absolute;inset:0;border-radius:inherit;background:linear-gradient(130deg,#ffffff1a 0%,transparent 25% 75%,#23e0d319);z-index:-1}
+body[data-quiz="route"] .hero>div:first-child{position:relative;z-index:2}
+body[data-quiz="route"] .hero .eyebrow{display:inline-flex;align-items:center;max-width:100%;font-size:11px;font-weight:850;letter-spacing:.13em;color:#8cf3e8;background:#0a5d724f;border:1px solid #61dce34f;padding:9px 12px;border-radius:999px}
+body[data-quiz="route"] .hero h1{font-family:Inter,ui-sans-serif,system-ui,"Segoe UI",Arial,sans-serif;font-size:clamp(36px,5.3vw,67px);font-weight:900;letter-spacing:-.052em;line-height:1.07;margin:25px 0 15px;text-wrap:balance;max-width:650px;color:#fff;text-shadow:0 7px 24px #04172a}
+body[data-quiz="route"] .hero p{color:#d1e6f9;font-size:clamp(15px,1.6vw,18px);line-height:1.75;max-width:540px;margin:0 0 9px}
+body[data-quiz="route"] .hero .cta{margin-top:28px}
+body[data-quiz="route"] button.cta,body[data-quiz="route"] .cta{background:linear-gradient(120deg,#ffe4a3,#ffc15c 56%,#ffa45b);color:#172743;border:1px solid #fff3bf8c;box-shadow:0 12px 32px #0007,0 0 25px #ffc56735;min-height:52px;padding:15px 28px;border-radius:15px;font-size:15px;font-weight:900;transition:transform .2s,filter .2s}
+body[data-quiz="route"] button.cta:hover{transform:translateY(-3px);filter:brightness(1.08)}
+body[data-quiz="route"] button:focus-visible,body[data-quiz="route"] a:focus-visible{outline:3px solid #8eecff;outline-offset:4px}
+body[data-quiz="route"] .hero-visual{height:100%;min-height:350px;position:relative;display:flex;align-items:center;justify-content:center;overflow:visible;filter:drop-shadow(0 12px 30px #020d2255)}
+body[data-quiz="route"] .hero-visual:before{content:"";position:absolute;inset:3% 0;border-radius:50%;background:radial-gradient(circle,#4aeadb33,transparent 64%);filter:blur(16px)}
+body[data-quiz="route"] .hero-visual>img{width:100%;height:min(400px,92%);object-fit:cover;object-position:center;border-radius:24px;box-shadow:0 24px 70px #0009,0 0 0 1px #f0feff48;transform:rotate(2deg);animation:routeFloat 6s ease-in-out infinite}
+body[data-quiz="route"] .hero-orbit{position:absolute;z-index:2;background:#0e2c51e8;color:#fff;border:1px solid #92eafa85;box-shadow:0 9px 35px #0008;backdrop-filter:blur(12px);border-radius:17px;padding:12px 16px;line-height:1.4;font-size:13px;font-weight:800;display:flex;align-items:center;gap:9px}
+body[data-quiz="route"] .hero-orbit b{color:#ffe4a3;font-size:24px}
+body[data-quiz="route"] .orbit-one{top:10%;left:-7%;transform:rotate(-5deg)}
+body[data-quiz="route"] .orbit-two{bottom:10%;right:-5%;transform:rotate(5deg)}
+body[data-quiz="route"] .hero-tags{display:flex;flex-wrap:wrap;gap:9px;margin:18px 0 0}
+body[data-quiz="route"] .hero-tags span{border:1px solid #a6d7ef59;color:#ccecff;background:#0a254d79;border-radius:99px;padding:8px 11px;font-weight:700;font-size:12px}
+body[data-quiz="route"] .panel{background:var(--glass);border:1px solid var(--line);color:var(--ink);border-radius:26px;box-shadow:0 15px 40px #0004;backdrop-filter:blur(15px);padding:clamp(20px,3vw,36px);margin-top:18px}
+body[data-quiz="route"] .section-title{font-size:clamp(23px,2.6vw,30px);font-weight:850;color:#fff}
+body[data-quiz="route"] .muted{color:var(--muted);font-size:14px;line-height:1.7}
+body[data-quiz="route"] #intro .panel{position:relative;overflow:hidden}
+body[data-quiz="route"] #intro .panel:after{content:"✦";position:absolute;right:36px;top:15px;font-size:70px;color:#5fe8e51c;pointer-events:none}
+body[data-quiz="route"] .steps{display:grid;gap:14px;margin-top:24px}
+body[data-quiz="route"] .steps div{padding:20px 18px;border:1px solid #7bbbe248;color:#d9edff;background:linear-gradient(155deg,#164068aa,#1233559c);border-radius:17px;line-height:1.5;font-size:14px;font-weight:650;min-height:100px}
+body[data-quiz="route"] .steps b{display:inline-block;color:#ffdc97;font-size:25px;font-weight:900;margin:0 10px 3px 0}
+body[data-quiz="route"] #quiz{animation:routeFade .42s ease both}
+body[data-quiz="route"] #quiz>.pill,body[data-quiz="route"] .pill{font-weight:850;background:#163c65;color:#95f3f2;border:1px solid #318ead88}
+body[data-quiz="route"] .progress{height:12px;margin:20px 0 30px;background:#091e39;box-shadow:inset 0 1px 7px #030d1baa;overflow:hidden;border-radius:50px}
+body[data-quiz="route"] .progress i{background:linear-gradient(90deg,#36bde4,#57efda,#ffd47c);box-shadow:0 0 18px #47dded85;transition:width .42s cubic-bezier(.2,.8,.2,1)}
+body[data-quiz="route"] .q-top{display:grid;grid-template-columns:minmax(210px,340px) 1fr;gap:clamp(17px,2.8vw,36px);align-items:center}
+body[data-quiz="route"] .q-art.q-art-image{height:auto;aspect-ratio:16/10;width:100%;min-width:0;padding:5px;background:linear-gradient(125deg,#5ff3db,#3488e4,#ffd47a);border:0;border-radius:23px;box-shadow:0 13px 31px #0007}
+body[data-quiz="route"] .q-art.q-art-image img{width:100%;height:100%;border-radius:19px;object-fit:cover;filter:saturate(1.08)}
+body[data-quiz="route"] .question{font-weight:850;font-size:clamp(23px,3.2vw,38px);line-height:1.24;letter-spacing:-.025em;color:#f5faff;text-wrap:balance}
+body[data-quiz="route"] .answers{counter-reset:routeChoice;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:28px 0 20px}
+body[data-quiz="route"] .option{counter-increment:routeChoice;display:flex;align-items:center;gap:13px;text-align:left;min-height:89px;padding:18px 17px;border:1px solid #65b3dc4d;background:linear-gradient(135deg,#14375a,#103050);color:#e9f6ff;font-size:15px;line-height:1.42;border-radius:18px;box-shadow:inset 0 1px #ffffff0b;transition:transform .2s,border .2s,background .2s,box-shadow .2s;font-weight:720}
+body[data-quiz="route"] .option:before{content:counter(routeChoice,decimal-leading-zero);display:grid;place-items:center;flex:none;width:36px;height:36px;border-radius:11px;border:1px solid #57b1d66e;color:#7ae7f0;background:#0a2748;font-size:13px;font-weight:900}
+body[data-quiz="route"] .option:hover{transform:translateY(-3px);border-color:#60e3e0;box-shadow:0 11px 24px #0003}
+body[data-quiz="route"] .option.selected{border:2px solid #65e8e0;background:linear-gradient(125deg,#176174,#164979);color:#fff;padding:17px 16px;box-shadow:0 0 0 3px #40dfda1d,0 13px 28px #0005}
+body[data-quiz="route"] .option.selected:before{content:"✓";color:#0b2841;background:#a5fae8;border-color:#a5fae8;font-size:22px}
+body[data-quiz="route"] .secondary{color:#d8efff;background:#16375c;border:1px solid #6ba9d14c;border-radius:14px;padding:14px 20px;transition:.2s}
+body[data-quiz="route"] .secondary:hover{background:#1c4e7a;transform:translateY(-2px)}
+body[data-quiz="route"] .actions{margin-top:15px}
+body[data-quiz="route"] .chart-card{background:#0d2b4bc9;border:1px solid #457da64a;color:#e7f4ff;border-radius:17px}
+body[data-quiz="route"] .chart-title{color:#f4faff;font-weight:850;font-size:15px}
+body[data-quiz="route"] .chart-count,body[data-quiz="route"] .chart-empty{color:#bdd4e9}
+body[data-quiz="route"] .barline{color:#d8e9fa}
+body[data-quiz="route"] .barline em{background:#183b5c}
+body[data-quiz="route"] .barline em i{background:linear-gradient(90deg,#1ebfe9,#62e7d5,#ffe1a3)}
+body[data-quiz="route"] .answer-arrow{color:#5fe1e8}
+body[data-quiz="route"] .barline.leader .answer-arrow{color:#ffd07a}
+body[data-quiz="route"] #results{animation:routeFade .6s ease both;position:relative}
+body[data-quiz="route"] .results-hero{padding:30px 15px 32px;border-radius:23px;position:relative;overflow:hidden;background:linear-gradient(115deg,#0d3f6b,#15556b 75%,#1d596c);border:1px solid #68eddf65;box-shadow:inset 0 0 45px #43e8c91c}
+body[data-quiz="route"] .results-hero:after{content:"";position:absolute;right:-35px;top:-65px;width:230px;height:230px;background:radial-gradient(circle,#ffe39a3a,transparent 67%);pointer-events:none}
+body[data-quiz="route"] .results-hero h2{font-family:Inter,system-ui,sans-serif;font-size:clamp(29px,4vw,45px);font-weight:900;line-height:1.12;letter-spacing:-.03em;margin:12px 0 14px;color:#fff}
+body[data-quiz="route"] .results-hero .celebration{font-size:55px;filter:drop-shadow(0 4px 15px #ffe08555)}
+body[data-quiz="route"] #own{max-width:740px;margin:0 auto 22px;color:#d8efff;font-size:16px;line-height:1.75}
+body[data-quiz="route"] .result-links{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:17px}
+body[data-quiz="route"] .result-links a{color:#11263c;background:#ffe2a3;font-weight:850;border-radius:14px;text-decoration:none;padding:13px 18px;line-height:1.3;border:1px solid #fff4c7;transition:.2s}
+body[data-quiz="route"] .result-links a:hover{transform:translateY(-2px);filter:brightness(1.06)}
+body[data-quiz="route"] .result-links a:last-child{color:#d8f6ff;background:#153c57;border-color:#65bdbb88}
+body[data-quiz="route"] #results>h2{font-size:clamp(20px,2.5vw,29px);font-weight:850;color:#fff}
+body[data-quiz="route"] .notice{background:#193a55;border:1px solid #59b5d36b;color:#d7ecfa;border-radius:13px;line-height:1.6}
+body[data-quiz="route"] .notice.note-ok{background:#134e4e;border:1px solid #55d4aa77;color:#b7ffe1}
+body[data-quiz="route"] footer{color:#9aabc2;padding:20px 6px 0;border-top:1px solid var(--line);font-size:12px;line-height:1.7}
+body[data-quiz="route"] #routeFireworks{position:fixed;inset:0;z-index:100;pointer-events:none;width:100%;height:100%;opacity:0;transition:opacity .25s}
+body[data-quiz="route"] #routeFireworks.active{opacity:1}
+body[data-quiz="route"] #replayFireworks{display:inline-flex;align-items:center;gap:8px}
+body[data-quiz="route"] #quiz .question-results{margin-top:27px}
+@keyframes routeFloat{0%,100%{transform:translateY(0) rotate(2deg)}50%{transform:translateY(-9px) rotate(.3deg)}}
+@keyframes routeFade{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:860px){
+ body[data-quiz="route"] .hero{grid-template-columns:1fr;min-height:0}
+ body[data-quiz="route"] .hero-visual{height:320px;min-height:0;margin:20px auto 3px;width:min(570px,95%)}
+ body[data-quiz="route"] .hero-visual>img{height:300px}
+ body[data-quiz="route"] .orbit-one{left:0}.orbit-two{right:0}
+ body[data-quiz="route"] .q-top{grid-template-columns:minmax(180px,.72fr) 1fr}
+}
+@media(max-width:650px){
+ body[data-quiz="route"] .app{padding:12px 12px 42px}
+ body[data-quiz="route"] .top{align-items:flex-start;padding:12px;gap:9px;border-radius:13px}
+ body[data-quiz="route"] .top .brand{font-size:10px}
+ body[data-quiz="route"] .back{padding:9px 10px;font-size:11px}
+ body[data-quiz="route"] .hero{margin:13px 0;padding:24px 19px 18px;border-radius:23px}
+ body[data-quiz="route"] .hero h1{font-size:clamp(35px,10vw,53px);margin:20px 0 12px}
+ body[data-quiz="route"] .hero .eyebrow{font-size:10px;letter-spacing:.04em}
+ body[data-quiz="route"] .hero-visual{height:205px;margin:19px auto 5px;width:88%}
+ body[data-quiz="route"] .hero-visual>img{height:196px;border-radius:18px}
+ body[data-quiz="route"] .hero-orbit{font-size:10px;padding:6px 9px;border-radius:10px}
+ body[data-quiz="route"] .hero-orbit b{font-size:16px}
+ body[data-quiz="route"] .orbit-one{left:-9%;top:8%}.orbit-two{right:-8%;bottom:6%}
+ body[data-quiz="route"] .hero-tags span{font-size:11px}
+ body[data-quiz="route"] .panel{border-radius:19px;padding:18px 15px}
+ body[data-quiz="route"] .q-top{display:flex;flex-direction:column;align-items:stretch;gap:17px}
+ body[data-quiz="route"] .q-art.q-art-image{width:100%;aspect-ratio:16/9}
+ body[data-quiz="route"] .question{font-size:clamp(23px,6vw,30px)}
+ body[data-quiz="route"] .answers{grid-template-columns:1fr;gap:10px;margin-top:22px}
+ body[data-quiz="route"] .option{min-height:67px;font-size:14px;padding:13px 12px}
+ body[data-quiz="route"] .option.selected{padding:12px 11px}
+ body[data-quiz="route"] .steps div{min-height:0;padding:15px}
+ body[data-quiz="route"] .actions{gap:8px}
+ body[data-quiz="route"] .secondary,body[data-quiz="route"] .cta{font-size:13px;padding:12px 12px}
+ body[data-quiz="route"] .results-hero{padding:24px 12px}
+ body[data-quiz="route"] #own{font-size:14px}
+ body[data-quiz="route"] .barline{grid-template-columns:minmax(80px,1.35fr) minmax(45px,1fr) 65px;gap:6px;font-size:11px}
+}
+@media(prefers-reduced-motion:reduce){body[data-quiz="route"] .hero-visual>img{animation:none}body[data-quiz="route"] #quiz,body[data-quiz="route"] #results{animation:none}body[data-quiz="route"] *,body[data-quiz="route"] *:before,body[data-quiz="route"] *:after{scroll-behavior:auto!important;transition-duration:.01ms!important}}
