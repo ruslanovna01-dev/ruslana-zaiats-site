@@ -1,0 +1,194 @@
+/* Підсумки конференції • фінальна художня обробка, 2026-11-08.
+   Сфера дії обмежена data-quiz="final"; логіка опитування не змінюється. */
+body[data-quiz="final"]{--ceremony-mint:#99f0d0;--ceremony-gold:#ffe3a7;--ceremony-cream:#fff9ee}
+body[data-quiz="final"] .app{max-width:1190px}
+body[data-quiz="final"] .hero{
+  min-height:530px;gap:35px;isolation:isolate;
+  background:
+   radial-gradient(ellipse 65% 78% at 85% 45%,rgba(250,207,119,.17),transparent 63%),
+   radial-gradient(ellipse 58% 62% at 12% 95%,rgba(70,215,169,.20),transparent 68%),
+   linear-gradient(128deg,#0c2d32 0%,#164f47 61%,#255949 100%);
+  border:1px solid rgba(252,219,158,.46);
+  box-shadow:0 24px 80px rgba(1,12,18,.53),0 0 0 5px rgba(177,230,190,.027);
+}
+body[data-quiz="final"] .hero::before{
+  content:"";position:absolute;pointer-events:none;inset:0;z-index:-1;
+  background-image:radial-gradient(circle,rgba(255,237,195,.32) 1px,transparent 1.3px);
+  background-size:32px 32px;mask-image:linear-gradient(90deg,transparent 24%,black);
+  opacity:.4;
+}
+body[data-quiz="final"] .hero h1{max-width:600px;line-height:1.065;letter-spacing:-.052em;text-wrap:balance}
+body[data-quiz="final"] .hero p{max-width:490px;font-size:17px;line-height:1.75}
+body[data-quiz="final"] .hero .eyebrow{line-height:1.45;letter-spacing:.11em;text-transform:uppercase;max-width:460px}
+body[data-quiz="final"] .hero .cta{position:relative;isolation:isolate;overflow:hidden;font-size:16px;padding:16px 30px}
+body[data-quiz="final"] .hero .cta::after{
+  content:"";position:absolute;z-index:-1;top:-110%;left:-60%;height:330%;width:23%;
+  transform:rotate(24deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);
+  animation:feedbackShimmer 6.5s ease-in-out infinite;
+}
+@keyframes feedbackShimmer{0%,62%,100%{left:-75%}82%{left:150%}}
+body[data-quiz="final"] .hero-visual{min-height:380px;filter:drop-shadow(0 25px 40px rgba(0,6,15,.5))}
+body[data-quiz="final"] .hero-visual>img{
+  object-position:center;filter:saturate(1.11) contrast(1.06);
+  border:3px solid rgba(255,230,170,.71);
+  outline:1px solid rgba(255,255,255,.12);outline-offset:7px;
+  box-shadow:0 28px 67px #00191caa,0 0 50px #ffe19d29;
+}
+body[data-quiz="final"] .hero-orbit{
+  border:1px solid #f8dba8bf;background:linear-gradient(125deg,#204e43ee,#10392fee);
+  box-shadow:0 15px 34px #001c22bb,0 0 0 2px #e6c99124;
+  font-weight:830;letter-spacing:.01em;
+}
+body[data-quiz="final"] .orbit-one{left:-4%;top:6%}
+body[data-quiz="final"] .orbit-two{bottom:7%;right:-5%}
+body[data-quiz="final"] .hero-tags{margin-top:26px}
+body[data-quiz="final"] .hero-tags span{background:rgba(7,38,38,.64);border:1px solid #a4d6ba5c;padding:9px 13px}
+body[data-quiz="final"] #intro .panel{
+  border:1px solid #b5daba5b;box-shadow:0 15px 45px #0003;
+  background:linear-gradient(140deg,rgba(20,63,58,.95),rgba(17,44,50,.89));
+}
+body[data-quiz="final"] .feedback-kicker{
+  font-size:12px;color:#ffe1a6;letter-spacing:.12em;text-transform:uppercase;
+}
+body[data-quiz="final"] #intro .section-title{
+  font-size:clamp(25px,3.2vw,37px);letter-spacing:-.025em;margin:5px 0 8px;
+}
+body[data-quiz="final"] #intro .steps{gap:14px;margin:27px 0 5px}
+body[data-quiz="final"] #intro .steps div{
+  display:flex;flex-direction:column;align-items:flex-start;justify-content:center;
+  border:1px solid #9aceb563;border-radius:18px;
+  background:linear-gradient(145deg,#23655380,#103c3bce);
+  padding:20px;min-height:132px;font-size:15px;font-weight:730;
+  color:#f4fff9;box-shadow:inset 0 1px 0 #ffffff13;
+}
+body[data-quiz="final"] #intro .steps b{
+  display:inline-grid;place-items:center;height:41px;min-width:41px;margin:0 0 13px;
+  border:1px solid #e5c68ca3;background:#dfb97721;color:#ffe1a8;
+  border-radius:12px;font-size:19px;
+}
+body[data-quiz="final"] #quiz{
+  border:1px solid #e2d9a74d;
+  background:linear-gradient(140deg,rgba(21,62,54,.96),rgba(13,41,48,.94));
+  padding:clamp(20px,3.2vw,40px);
+}
+body[data-quiz="final"] #quiz .pill{font-size:13px;padding:9px 15px;border:1px solid #b5e9cb79}
+body[data-quiz="final"] .progress{height:12px;margin:22px 0 15px;border:1px solid #b4d4b62c}
+body[data-quiz="final"] .progress i{box-shadow:0 0 14px #94e9bf77}
+body[data-quiz="final"] .feedback-step-dots{
+ display:flex;justify-content:space-between;align-items:center;gap:8px;margin:0 0 28px;
+ padding:0 8px;
+}
+body[data-quiz="final"] .feedback-step-dot{
+ display:flex;align-items:center;justify-content:center;width:33px;height:33px;flex:0 0 33px;
+ border-radius:50%;background:#163d3b;border:1px solid #6cbba077;
+ color:#a9d5c5;font-size:12px;font-weight:850;
+ box-shadow:inset 0 1px 0 #ffffff10;transition:background .25s,color .25s,transform .25s;
+}
+body[data-quiz="final"] .feedback-step-dot[data-stage="done"]{
+ background:#397961;color:#e6ffee;border-color:#82cba4;
+}
+body[data-quiz="final"] .feedback-step-dot[data-stage="current"]{
+ background:linear-gradient(130deg,#ffe9ba,#e8b87d);color:#3c382c;border-color:#fff4d4;
+ box-shadow:0 0 0 4px #f7dca524,0 5px 16px #0004;transform:scale(1.09);
+}
+body[data-quiz="final"] .q-top{gap:clamp(23px,3vw,38px)}
+body[data-quiz="final"] .q-art.q-art-image{
+ aspect-ratio:16/10;padding:5px;border-radius:22px;background:linear-gradient(122deg,#6ccdb5,#dbeebc,#ffdda6);
+ box-shadow:0 17px 38px #0006;
+}
+body[data-quiz="final"] .q-art.q-art-image img{border-radius:17px;filter:saturate(1.09)}
+body[data-quiz="final"] .question{font-size:clamp(25px,3.1vw,38px);letter-spacing:-.025em}
+body[data-quiz="final"] .answers{gap:15px;margin-top:31px}
+body[data-quiz="final"] .option{
+ background:linear-gradient(140deg,rgba(25,78,67,.99),rgba(14,55,55,.99));
+ border:1px solid #8ac2a27b;min-height:91px;border-radius:18px;line-height:1.4;
+ box-shadow:0 6px 20px rgba(0,15,18,.12);
+}
+body[data-quiz="final"] .option:hover{
+ background:linear-gradient(135deg,#236c57,#145b54);border-color:#f6daa4;
+ box-shadow:0 13px 26px #0005;
+}
+body[data-quiz="final"] .option.selected{
+ background:linear-gradient(120deg,#347962,#256a56);
+ border:2px solid #ffe2a0;box-shadow:0 0 0 3px #e8d59b21,0 12px 25px #0004;
+}
+body[data-quiz="final"] .option:before{flex-shrink:0}
+body[data-quiz="final"] .chart-card{
+ border:1px solid #a7d9be53;box-shadow:0 4px 13px #061d1b1c;
+ background:linear-gradient(155deg,#164941dc,#103d42e8);padding:21px;
+}
+body[data-quiz="final"] .question-results{margin-top:28px}
+body[data-quiz="final"] .chart-title{color:#fff9e9}
+body[data-quiz="final"] .barline{color:#e9fff4}
+body[data-quiz="final"] .barline em{height:17px;border:1px solid #85c6a41d}
+body[data-quiz="final"] .results-hero{
+ padding:36px clamp(15px,3vw,36px);
+ background:radial-gradient(circle at 50% 7%,#fae2a835,transparent 31%),
+ linear-gradient(136deg,#124c46,#246752 65%,#3c7252);
+ border:1px solid #eecf9788;box-shadow:inset 0 1px #fff2c429;
+}
+body[data-quiz="final"] .results-hero .celebration{
+ font-size:clamp(54px,8vw,88px);line-height:1.1;filter:drop-shadow(0 8px 18px #0006);
+ margin-bottom:12px;animation:feedbackFloat 4s ease-in-out infinite;
+}
+body[data-quiz="final"] .results-hero h2{
+ font-size:clamp(31px,4.5vw,53px);
+ background:linear-gradient(135deg,#fff,#ffedbc,#f9f6ef);
+ background-clip:text;-webkit-background-clip:text;color:transparent;
+ letter-spacing:-.035em;line-height:1.12;
+}
+body[data-quiz="final"] .conference-thankyou{
+ margin:31px auto 5px;max-width:850px;border-radius:24px;
+ padding:clamp(19px,3vw,34px);background:linear-gradient(145deg,#134d48,#205c4d);
+ border:1px solid #f6d998a6;box-shadow:0 14px 39px #0003;
+}
+body[data-quiz="final"] .conference-thankyou h3{
+ font-size:clamp(20px,2.5vw,29px);line-height:1.3;
+ max-width:730px;margin:0 auto 15px;color:#ffedbf;
+}
+body[data-quiz="final"] .conference-thankyou p{color:#e1f6ea;line-height:1.7}
+body[data-quiz="final"] .conference-photo-frame{
+ position:relative;margin-top:23px;min-height:195px;
+ border:1px dashed #fae5b8ab;border-radius:20px;
+ background:radial-gradient(circle at 50% 0,#ffdea51b,transparent 55%),
+ linear-gradient(130deg,#245b4d,#184943);padding:24px;
+}
+body[data-quiz="final"] #conferencePhotoPlaceholder:before{
+ content:"📸";display:block;font-size:40px;margin-bottom:12px;
+}
+body[data-quiz="final"] .conference-photo-frame img{max-height:500px;border-radius:13px;box-shadow:0 12px 26px #0005}
+body[data-quiz="final"] .result-links{margin:22px 0 12px}
+body[data-quiz="final"] .result-links a{padding:14px 19px;border-radius:14px}
+body[data-quiz="final"] .result-links a:first-child{box-shadow:0 8px 22px #0004}
+body[data-quiz="final"] #modeNotice{margin-top:22px}
+body[data-quiz="final"] .bottom{margin-top:22px}
+@keyframes feedbackFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@media(max-width:860px){
+ body[data-quiz="final"] .hero{min-height:0}
+ body[data-quiz="final"] .hero-visual{min-height:320px}
+}
+@media(max-width:650px){
+ body[data-quiz="final"] .hero{gap:10px}
+ body[data-quiz="final"] .hero p{font-size:15px}
+ body[data-quiz="final"] .hero .eyebrow{font-size:10px;line-height:1.5}
+ body[data-quiz="final"] .hero-visual{min-height:210px}
+ body[data-quiz="final"] .hero-visual>img{outline-offset:3px}
+ body[data-quiz="final"] #intro .steps div{min-height:86px;padding:16px}
+ body[data-quiz="final"] #intro .steps b{height:34px;min-width:34px;margin-bottom:8px}
+ body[data-quiz="final"] .feedback-step-dots{gap:5px;padding:0;margin-bottom:22px}
+ body[data-quiz="final"] .feedback-step-dot{width:28px;height:28px;flex-basis:28px;font-size:11px}
+ body[data-quiz="final"] .question{font-size:clamp(23px,6vw,30px)}
+ body[data-quiz="final"] .answers{gap:10px}
+ body[data-quiz="final"] .option{min-height:73px;padding:14px}
+ body[data-quiz="final"] .option.selected{padding:13px}
+ body[data-quiz="final"] .conference-thankyou{padding:20px 13px}
+ body[data-quiz="final"] .conference-photo-frame{padding:15px;min-height:165px}
+ body[data-quiz="final"] .results-hero .celebration{font-size:55px}
+ body[data-quiz="final"] .result-links{flex-direction:column}
+ body[data-quiz="final"] .result-links a{display:block;width:100%}
+}
+@media(prefers-reduced-motion:reduce){
+ body[data-quiz="final"] .hero .cta::after,
+ body[data-quiz="final"] .results-hero .celebration{animation:none}
+ body[data-quiz="final"] .feedback-step-dot{transition:none}
+}
