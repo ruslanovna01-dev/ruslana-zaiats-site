@@ -44,7 +44,7 @@ for(let i=dots.length-1;i>=0;i--){
  ctx.beginPath();ctx.arc(p.x,p.y,Math.max(.5,p.size*p.life),0,Math.PI*2);ctx.fill();
 }
 ctx.globalAlpha=1;ctx.globalCompositeOperation='source-over';
-if(time<end&&dots.length){frame=requestAnimationFrame(animate)}else{stop()}
+if(time<end&&(dots.length||started<7)){frame=requestAnimationFrame(animate)}else{stop()}
 }
 function stop(){active=false;canvas.classList.remove('active');cancelAnimationFrame(frame);ctx.clearRect(0,0,width,height);dots=[]}
 function play(){
