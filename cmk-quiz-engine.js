@@ -66,7 +66,7 @@ function getToken(){
 }
 function ownReport(){
  if(MODE==='route'){const x=state.answers[8];return x===1?CONFIG.outcomes[0]:CONFIG.outcomes[1]}
- return 'Ваша думка допоможе зробити наступну конференцію ще кориснішою.';
+ return MODE==='live'?'Дякуємо за участь у голосуванні до конференції! Ваші запитання й очікування важливі для змістовного обговорення.':'Дякуємо за відгук після конференції! Відповіді допоможуть визначити, що було корисним і які питання розглянути наступного разу.';
 }
 function appendBars(container,index,stats){
  const q=Q[index],counts=Array.isArray(stats&&stats.options)?stats.options:q[1].map(()=>0);
